@@ -10,8 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eDentalist.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class MaterialController : BaseCRUDController<Model.Material, MaterialSearchRequest, MaterialUpsertRequest, MaterialUpsertRequest>
     {
         //private readonly IMaterialService _materialService;

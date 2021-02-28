@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eDentalist.WebAPI.Controllers
 {
-    public class EquipmentController : BaseCRUDController<Model.Equipment, EquipmentSearchRequest, EquipmentUpsertRequest, EquipmentUpsertRequest>
+    public class RequisitionController : BaseCRUDController<Model.Requisition, RequisitionSearchRequest, RequisitionUpsertRequest, RequisitionUpsertRequest>
     {
-        public EquipmentController(ICRUDService<Equipment, EquipmentSearchRequest, EquipmentUpsertRequest, EquipmentUpsertRequest> service) : base(service)
+        public RequisitionController(ICRUDService<Requisition, RequisitionSearchRequest, RequisitionUpsertRequest, RequisitionUpsertRequest> service) : base(service)
         {
 
         }

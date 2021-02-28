@@ -11,6 +11,10 @@ namespace eDentalist.WebAPI.Mappers
     {
         public Mapper()
         {
+            CreateMap<Database.Country, Model.Country>();
+            CreateMap<Database.EquipmentType, Model.EquipmentType>();
+            CreateMap<Database.HygieneProcessType, Model.HygieneProcessType>();
+
             CreateMap<Database.Material, Model.Material>();
             CreateMap<Database.Material, MaterialUpsertRequest>().ReverseMap();
             CreateMap<Database.Equipment, Model.Equipment>();
@@ -19,6 +23,8 @@ namespace eDentalist.WebAPI.Mappers
             CreateMap<Database.Procedure, ProcedureUpsertRequest>().ReverseMap();
             CreateMap<Database.HygieneProcess, Model.HygieneProcess>();
             CreateMap<Database.HygieneProcess, HygieneProcessUpsertRequest>().ReverseMap();
+            CreateMap<Database.Requisition, Model.Requisition>();
+            CreateMap<Database.Requisition, RequisitionUpsertRequest>().ReverseMap();
         }
     }
 }

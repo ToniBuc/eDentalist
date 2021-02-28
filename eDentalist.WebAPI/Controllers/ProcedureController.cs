@@ -10,8 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eDentalist.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class ProcedureController : BaseCRUDController<Model.Procedure, ProcedureSearchRequest, ProcedureUpsertRequest, ProcedureUpsertRequest>
     {
         public ProcedureController(ICRUDService<Procedure, ProcedureSearchRequest, ProcedureUpsertRequest, ProcedureUpsertRequest> service) : base(service)
