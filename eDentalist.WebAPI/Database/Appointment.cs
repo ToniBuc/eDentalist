@@ -9,10 +9,14 @@ namespace eDentalist.WebAPI.Database
     {
         public int AppointmentID { get; set; }
         public DateTime Date { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        //public DateTime From { get; set; }
+        //public DateTime To { get; set; }
+        public TimeSpan From { get; set; }
+        public TimeSpan To { get; set; }
         public int DentistID { get; set; }
         public User Dentist { get; set; }
+        //public int UserWorkdayID { get; set; }
+        //public UserWorkday UserWorkday { get; set; }
         public int PatientID { get; set; }
         public User Patient { get; set; }
         public int ProcedureID { get; set; }

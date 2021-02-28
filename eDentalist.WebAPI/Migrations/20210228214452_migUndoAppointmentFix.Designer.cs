@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eDentalist.WebAPI.Database;
 
 namespace eDentalist.WebAPI.Migrations
 {
     [DbContext(typeof(eDentalistDbContext))]
-    partial class eDentalistDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210228214452_migUndoAppointmentFix")]
+    partial class migUndoAppointmentFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,8 +63,8 @@ namespace eDentalist.WebAPI.Migrations
                     b.Property<int>("DentistID")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("From")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("From")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("PatientID")
                         .HasColumnType("int");
@@ -70,8 +72,8 @@ namespace eDentalist.WebAPI.Migrations
                     b.Property<int>("ProcedureID")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("To")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("To")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("AppointmentID");
 
@@ -343,8 +345,8 @@ namespace eDentalist.WebAPI.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -394,14 +396,14 @@ namespace eDentalist.WebAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<TimeSpan>("From")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("From")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ShiftNumber")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("To")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("To")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("ShiftID");
 

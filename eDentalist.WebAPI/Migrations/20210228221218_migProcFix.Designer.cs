@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eDentalist.WebAPI.Database;
 
 namespace eDentalist.WebAPI.Migrations
 {
     [DbContext(typeof(eDentalistDbContext))]
-    partial class eDentalistDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210228221218_migProcFix")]
+    partial class migProcFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -342,9 +344,6 @@ namespace eDentalist.WebAPI.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");

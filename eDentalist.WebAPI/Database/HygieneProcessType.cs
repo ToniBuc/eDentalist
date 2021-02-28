@@ -9,6 +9,6 @@ namespace eDentalist.WebAPI.Database
     {
         public int HygieneProcessTypeID { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }

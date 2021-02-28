@@ -9,7 +9,7 @@ namespace eDentalist.WebAPI.Database
     {
         public int HygieneProcessID { get; set; }
         public DateTime DateOfPerformance { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public int UserID { get; set; }
         public User User { get; set; }
         public int HygieneProcessTypeID { get; set; }

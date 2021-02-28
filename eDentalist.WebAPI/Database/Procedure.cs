@@ -9,7 +9,7 @@ namespace eDentalist.WebAPI.Database
     {
         public int ProcedureID { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public int Duration { get; set; }
+        public string? Description { get; set; }
+        public TimeSpan Duration { get; set; }
     }
 }

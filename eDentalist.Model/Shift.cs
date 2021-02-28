@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace eDentalist.WebAPI.Database
+namespace eDentalist.Model
 {
     public class Shift
     {
         public int ShiftID { get; set; }
         public int ShiftNumber { get; set; }
-        public TimeSpan From { get; set; }
-        public TimeSpan To { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
     }
 }

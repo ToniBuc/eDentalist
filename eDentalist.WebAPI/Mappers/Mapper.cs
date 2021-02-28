@@ -15,6 +15,8 @@ namespace eDentalist.WebAPI.Mappers
             CreateMap<Database.EquipmentType, Model.EquipmentType>();
             CreateMap<Database.HygieneProcessType, Model.HygieneProcessType>();
             CreateMap<Database.UserRole, Model.UserRole>();
+            CreateMap<Database.Gender, Model.Gender>();
+            CreateMap<Database.Shift, Model.Shift>();
 
             CreateMap<Database.Material, Model.Material>();
             CreateMap<Database.Material, MaterialUpsertRequest>().ReverseMap();
