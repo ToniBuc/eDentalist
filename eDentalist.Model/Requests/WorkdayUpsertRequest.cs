@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eDentalist.Model
+namespace eDentalist.Model.Requests
 {
-    public class Workday
+    public class WorkdayUpsertRequest
     {
-        public int WorkdayID { get; set; }
         public DateTime Date { get; set; }
     }
 }

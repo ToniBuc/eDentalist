@@ -32,6 +32,10 @@ namespace eDentalist.WebAPI.Mappers
             CreateMap<Database.City, CityUpsertRequest>().ReverseMap();
             CreateMap<Database.Bill, Model.Bill>();
             CreateMap<Database.Bill, BillUpsertRequest>().ReverseMap();
+            CreateMap<Database.Workday, Model.Workday>();
+            CreateMap<Database.Workday, WorkdayUpsertRequest>().ReverseMap();
+            CreateMap<Database.UserWorkday, Model.UserWorkday>();
+            CreateMap<Database.UserWorkday, UserWorkdayUpsertRequest>().ReverseMap();
         }
     }
 }
