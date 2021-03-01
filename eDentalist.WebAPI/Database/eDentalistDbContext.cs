@@ -37,5 +37,6 @@ namespace eDentalist.WebAPI.Database
         public virtual DbSet<UserRole> UserRole{ get; set; }
         public virtual DbSet<UserWorkday> UserWorkday { get; set; }
         public virtual DbSet<Workday> Workday { get; set; }
+        public virtual DbSet<Rating> Rating { get; set; }
     }
 }

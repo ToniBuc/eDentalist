@@ -13,7 +13,7 @@ namespace eDentalist.WebAPI.Database
         //public DateTime To { get; set; }
         public TimeSpan From { get; set; }
         public TimeSpan To { get; set; }
-        public int DentistID { get; set; }
+        public int? DentistID { get; set; }
         public User Dentist { get; set; }
         //public int UserWorkdayID { get; set; }
         //public UserWorkday UserWorkday { get; set; }

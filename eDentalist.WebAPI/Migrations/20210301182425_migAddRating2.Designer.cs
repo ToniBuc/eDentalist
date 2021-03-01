@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eDentalist.WebAPI.Database;
 
 namespace eDentalist.WebAPI.Migrations
 {
     [DbContext(typeof(eDentalistDbContext))]
-    partial class eDentalistDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210301182425_migAddRating2")]
+    partial class migAddRating2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +60,7 @@ namespace eDentalist.WebAPI.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DentistID")
+                    b.Property<int>("DentistID")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan>("From")
@@ -577,7 +579,9 @@ namespace eDentalist.WebAPI.Migrations
 
                     b.HasOne("eDentalist.WebAPI.Database.User", "Dentist")
                         .WithMany()
-                        .HasForeignKey("DentistID");
+                        .HasForeignKey("DentistID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("eDentalist.WebAPI.Database.User", "Patient")
                         .WithMany()

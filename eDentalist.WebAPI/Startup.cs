@@ -59,6 +59,8 @@ namespace eDentalist.WebAPI
             services.AddScoped<ICRUDService<Model.Workday, WorkdaySearchRequest, WorkdayUpsertRequest, WorkdayUpsertRequest>, WorkdayService>();
             services.AddScoped<ICRUDService<Model.UserWorkday, UserWorkdaySearchRequest, UserWorkdayUpsertRequest, UserWorkdayUpsertRequest>, UserWorkdayService>();
             services.AddScoped<ICRUDService<Model.Bill, BillSearchRequest, BillUpsertRequest, BillUpsertRequest>, BillService>();
+            services.AddScoped<ICRUDService<Model.Rating, RatingSearchRequest, RatingUpsertRequest, RatingUpsertRequest>, RatingService>();
+            services.AddScoped<ICRUDService<Model.Appointment, AppointmentSearchRequest, AppointmentInsertRequest, AppointmentUpdateRequest>, AppointmentService>();
 
             //var connection = @"Server=DESKTOP-ECJHPDM\MSSQLSERVER_OLAP;Database=eDentalist;User ID=;password=;ConnectRetryCount=0";
             //services.AddDbContext<eDentalistDbContext>(options => options.UseSqlServer(connection));
