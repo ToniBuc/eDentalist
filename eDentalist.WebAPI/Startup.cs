@@ -43,6 +43,8 @@ namespace eDentalist.WebAPI
 
             //services.AddScoped<IMaterialService, MaterialService>();
 
+            services.AddScoped<IUserService, UserService>();
+
             services.AddScoped<IService<Model.Country, object>, BaseService<Model.Country, object, Country>>();
             services.AddScoped<IService<Model.EquipmentType, object>, BaseService<Model.EquipmentType, object, EquipmentType>>();
             services.AddScoped<IService<Model.HygieneProcessType, object>, BaseService<Model.HygieneProcessType, object, HygieneProcessType>>();

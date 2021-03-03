@@ -44,6 +44,8 @@ namespace eDentalist.WebAPI.Mappers
             CreateMap<Database.Appointment, AppointmentUpdateRequest>().ReverseMap();
             CreateMap<Database.Anamnesis, Model.Anamnesis>();
             CreateMap<Database.Anamnesis, AnamnesisUpsertRequest>().ReverseMap();
+            CreateMap<Database.User, Model.User>();
+            CreateMap<Database.User, UserUpsertRequest>().ReverseMap();
         }
     }
 }

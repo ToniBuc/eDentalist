@@ -20,7 +20,7 @@ namespace eDentalist.WebAPI.Filters
             }
             else
             {
-                context.ModelState.AddModelError("ERROR", "Greška na serveru");
+                context.ModelState.AddModelError("ERROR", "Server error");
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             }
 
