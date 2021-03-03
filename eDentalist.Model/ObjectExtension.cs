@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace eProdaja.Model
+namespace eDentalist.Model
 {
     public static class ObjectExtension
     {

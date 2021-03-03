@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eDentalist.WebAPI", "eDentalist.WebAPI\eDentalist.WebAPI.csproj", "{D15802EB-F51F-4719-A3CB-25781162E60B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDentalist.Model", "eDentalist.Model\eDentalist.Model.csproj", "{D0A8C4ED-18CC-4275-9B39-B7000C8916BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eDentalist.Model", "eDentalist.Model\eDentalist.Model.csproj", "{D0A8C4ED-18CC-4275-9B39-B7000C8916BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{6602EA3E-21FC-4B51-88C7-5413C262462A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDentalist.WinUI", "eDentalist.WinUI\eDentalist.WinUI.csproj", "{D40D43DD-100B-4BC9-8323-ECAF27B3F88E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{D0A8C4ED-18CC-4275-9B39-B7000C8916BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0A8C4ED-18CC-4275-9B39-B7000C8916BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0A8C4ED-18CC-4275-9B39-B7000C8916BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D40D43DD-100B-4BC9-8323-ECAF27B3F88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D40D43DD-100B-4BC9-8323-ECAF27B3F88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D40D43DD-100B-4BC9-8323-ECAF27B3F88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D40D43DD-100B-4BC9-8323-ECAF27B3F88E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D40D43DD-100B-4BC9-8323-ECAF27B3F88E} = {6602EA3E-21FC-4B51-88C7-5413C262462A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46D56FF5-60B0-4872-94BE-AE0C47E9550C}

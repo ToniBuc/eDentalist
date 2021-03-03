@@ -1,0 +1,134 @@
+﻿namespace eDentalist.WinUI.Staff
+{
+    partial class frmStaffMembers
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.StaffMembers = new System.Windows.Forms.GroupBox();
+            this.dgvStaffMembers = new System.Windows.Forms.DataGridView();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffMembers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // StaffMembers
+            // 
+            this.StaffMembers.Controls.Add(this.dgvStaffMembers);
+            this.StaffMembers.Location = new System.Drawing.Point(12, 73);
+            this.StaffMembers.Name = "StaffMembers";
+            this.StaffMembers.Size = new System.Drawing.Size(349, 355);
+            this.StaffMembers.TabIndex = 0;
+            this.StaffMembers.TabStop = false;
+            this.StaffMembers.Text = "StaffMembers";
+            // 
+            // dgvStaffMembers
+            // 
+            this.dgvStaffMembers.AllowUserToAddRows = false;
+            this.dgvStaffMembers.AllowUserToDeleteRows = false;
+            this.dgvStaffMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaffMembers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FirstName,
+            this.LastName,
+            this.StaffRole});
+            this.dgvStaffMembers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStaffMembers.Location = new System.Drawing.Point(3, 16);
+            this.dgvStaffMembers.Name = "dgvStaffMembers";
+            this.dgvStaffMembers.ReadOnly = true;
+            this.dgvStaffMembers.Size = new System.Drawing.Size(343, 336);
+            this.dgvStaffMembers.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(283, 42);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(15, 44);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(262, 20);
+            this.txtSearch.TabIndex = 2;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "First name";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "Last name";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // StaffRole
+            // 
+            this.StaffRole.DataPropertyName = "UserRoleName";
+            this.StaffRole.HeaderText = "Staff role";
+            this.StaffRole.Name = "StaffRole";
+            this.StaffRole.ReadOnly = true;
+            this.StaffRole.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // frmStaffMembers
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(375, 540);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.StaffMembers);
+            this.Name = "frmStaffMembers";
+            this.Text = "frmStaffMembers";
+            this.StaffMembers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox StaffMembers;
+        private System.Windows.Forms.DataGridView dgvStaffMembers;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StaffRole;
+    }
+}

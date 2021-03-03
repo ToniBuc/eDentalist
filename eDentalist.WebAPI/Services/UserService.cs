@@ -61,7 +61,7 @@ namespace eDentalist.WebAPI.Services
         }
         public List<Model.User> Get(UserSearchRequest request)
         {
-            var query = _context.User.AsQueryable();
+            var query = _context.User.Include(i => i.UserRole).AsQueryable(); //included userrole for role checks in user retrievals, for example retrieving only staff in the staffmembers form
 
             bool isRequestNull = !string.IsNullOrWhiteSpace(request.FirstName) || !string.IsNullOrWhiteSpace(request.LastName);
 
@@ -79,8 +79,18 @@ namespace eDentalist.WebAPI.Services
                 query = query.Where(i => (!string.IsNullOrWhiteSpace(request.FirstName) && i.FirstName.StartsWith(request.FirstName)) || (!string.IsNullOrWhiteSpace(request.LastName) && i.LastName.StartsWith(request.LastName)));
             }
 
+
+
             var list = query.ToList();
-            return _mapper.Map<List<Model.User>>(list);
+
+            var result = _mapper.Map<List<Model.User>>(list);
+
+            foreach(var x in result)
+            {
+                x.UserRoleName = x.UserRole.Name;
+            }
+
+            return result;
         }
 
         public Model.User GetById(int id)

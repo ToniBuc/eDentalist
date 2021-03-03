@@ -15,6 +15,8 @@ namespace eDentalist.Model
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public int UserRoleID { get; set; }
+        public UserRole UserRole { get; set; }
+        public string UserRoleName { get; set; }
         public int GenderID { get; set; }
         public string Username { get; set; }
         public int CityID { get; set; }
