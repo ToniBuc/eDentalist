@@ -31,13 +31,13 @@ namespace eDentalist.WebAPI.Controllers
 
 
         [HttpPost]
-        public Model.User Insert(UserUpsertRequest request)
+        public Model.User Insert(UserInsertRequest request)
         {
             return _service.Insert(request);
         }
 
         [HttpPut("{id}")]
-        public Model.User Update(int id, [FromBody]UserUpsertRequest request)
+        public Model.User Update(int id, [FromBody]UserUpdateRequest request)
         {
             return _service.Update(id, request);
         }

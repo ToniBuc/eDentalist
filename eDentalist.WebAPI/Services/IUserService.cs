@@ -10,8 +10,8 @@ namespace eDentalist.WebAPI.Services
     {
         List<Model.User> Get(UserSearchRequest request);
         Model.User GetById(int id);
-        Model.User Insert(UserUpsertRequest request);
-        Model.User Update(int id, UserUpsertRequest request);
+        Model.User Insert(UserInsertRequest request);
+        Model.User Update(int id, UserUpdateRequest request);
         Model.User Authenticate(string username, string pass);
         Model.User Login(UserLoginRequest userLoginRequest);
     }

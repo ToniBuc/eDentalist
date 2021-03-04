@@ -95,11 +95,18 @@ namespace eDentalist.WebAPI.Services
 
         public Model.User GetById(int id)
         {
-            var entity = _context.User.Find(id);
-            return _mapper.Map<Model.User>(entity);
+            //var entity = _context.User.Find(id);
+
+            var entity = _context.User.Where(i => i.UserID == id).Include(i => i.UserRole).Include(i => i.Gender).FirstOrDefault();
+
+            var result = _mapper.Map<Model.User>(entity);
+            result.UserRoleName = entity.UserRole.Name;
+            result.GenderName = entity.Gender.Name;
+
+            return _mapper.Map<Model.User>(result);
         }
 
-        public Model.User Insert(UserUpsertRequest request)
+        public Model.User Insert(UserInsertRequest request)
         {
             var entity = _mapper.Map<Database.User>(request);
 
@@ -129,7 +136,7 @@ namespace eDentalist.WebAPI.Services
             return _mapper.Map<Model.User>(entity);
         }
 
-        public Model.User Update(int id, UserUpsertRequest request)
+        public Model.User Update(int id, UserUpdateRequest request)
         {
             var entity = _context.User.Find(id);
             _context.User.Attach(entity);
@@ -143,6 +150,9 @@ namespace eDentalist.WebAPI.Services
                 {
                     throw new UserException("The passwords do not match!");
                 }
+
+                entity.PasswordSalt = GenerateSalt();
+                entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
             }
 
             _context.SaveChanges();

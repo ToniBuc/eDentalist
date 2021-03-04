@@ -42,5 +42,12 @@ namespace eDentalist.WinUI.Staff
             dgvStaffMembers.AutoGenerateColumns = false;
             dgvStaffMembers.DataSource = result;
         }
+
+        private void dgvStaffMembers_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvStaffMembers.SelectedRows[0].Cells[0].Value;
+            frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
+            frm.Show();
+        }
     }
 }

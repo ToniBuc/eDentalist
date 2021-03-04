@@ -32,6 +32,9 @@
             this.dgvStaffMembers = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnAddStaff = new System.Windows.Forms.Button();
+            this.btnReportStaff = new System.Windows.Forms.Button();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +58,7 @@
             this.dgvStaffMembers.AllowUserToDeleteRows = false;
             this.dgvStaffMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStaffMembers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UserID,
             this.FirstName,
             this.LastName,
             this.StaffRole});
@@ -62,8 +66,10 @@
             this.dgvStaffMembers.Location = new System.Drawing.Point(3, 16);
             this.dgvStaffMembers.Name = "dgvStaffMembers";
             this.dgvStaffMembers.ReadOnly = true;
+            this.dgvStaffMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStaffMembers.Size = new System.Drawing.Size(343, 336);
             this.dgvStaffMembers.TabIndex = 0;
+            this.dgvStaffMembers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvStaffMembers_MouseDoubleClick);
             // 
             // btnSearch
             // 
@@ -81,6 +87,32 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(262, 20);
             this.txtSearch.TabIndex = 2;
+            // 
+            // btnAddStaff
+            // 
+            this.btnAddStaff.Location = new System.Drawing.Point(15, 435);
+            this.btnAddStaff.Name = "btnAddStaff";
+            this.btnAddStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnAddStaff.TabIndex = 3;
+            this.btnAddStaff.Text = "Add new";
+            this.btnAddStaff.UseVisualStyleBackColor = true;
+            // 
+            // btnReportStaff
+            // 
+            this.btnReportStaff.Location = new System.Drawing.Point(283, 435);
+            this.btnReportStaff.Name = "btnReportStaff";
+            this.btnReportStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnReportStaff.TabIndex = 4;
+            this.btnReportStaff.Text = "Report";
+            this.btnReportStaff.UseVisualStyleBackColor = true;
+            // 
+            // UserID
+            // 
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "UserID";
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Visible = false;
             // 
             // FirstName
             // 
@@ -108,7 +140,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(375, 540);
+            this.Controls.Add(this.btnReportStaff);
+            this.Controls.Add(this.btnAddStaff);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.StaffMembers);
@@ -127,6 +162,9 @@
         private System.Windows.Forms.DataGridView dgvStaffMembers;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnAddStaff;
+        private System.Windows.Forms.Button btnReportStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffRole;

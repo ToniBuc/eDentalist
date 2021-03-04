@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eDentalist.Model.Requests
 {
-    public class UserUpsertRequest
+    public class UserInsertRequest
     {
         [Required]
         public string FirstName { get; set; }
