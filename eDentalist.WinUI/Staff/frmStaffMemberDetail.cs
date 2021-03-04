@@ -16,6 +16,7 @@ namespace eDentalist.WinUI.Staff
         private readonly APIService _service = new APIService("User");
         private readonly APIService _genderService = new APIService("Gender");
         private readonly APIService _userRoleService = new APIService("UserRole");
+        private readonly APIService _cityService = new APIService("City");
         private int? _id = null;
         public frmStaffMemberDetail(int? userId = null)
         {
@@ -25,46 +26,53 @@ namespace eDentalist.WinUI.Staff
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            var request = new UserUpdateRequest()
+            if (this.ValidateChildren())
             {
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                //UserRoleID = 1, //temporary
-                //UserRoleID = userTemp.Result.UserRoleID,
-                JMBG = txtJMBG.Text,
-                DateOfBirth = dtpDateOfBirth.Value,
-                Email = txtEmail.Text,
-                PhoneNumber = txtPhoneNumber.Text,
-                Address = txtAddress.Text,
-                Username = txtUsername.Text,
-                Password = txtPassword.Text,
-                PasswordConfirmation = txtPasswordConfirmation.Text,
-                CityID = 1 //temporary
-            };
+                var request = new UserUpdateRequest()
+                {
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    JMBG = txtJMBG.Text,
+                    DateOfBirth = dtpDateOfBirth.Value,
+                    Email = txtEmail.Text,
+                    PhoneNumber = txtPhoneNumber.Text,
+                    Address = txtAddress.Text,
+                    Username = txtUsername.Text,
+                    Password = txtPassword.Text,
+                    PasswordConfirmation = txtPasswordConfirmation.Text,
+                };
 
-            var gender = cmbGender.SelectedValue;
-            if (int.TryParse(gender.ToString(), out int genderId))
-            {
-                request.GenderID = genderId;
+                var gender = cmbGender.SelectedValue;
+                if (int.TryParse(gender.ToString(), out int genderId))
+                {
+                    request.GenderID = genderId;
+                }
+
+                var userRole = cmbUserRole.SelectedValue;
+                if (int.TryParse(userRole.ToString(), out int userId))
+                {
+                    request.UserRoleID = userId;
+                }
+
+                var city = cmbCity.SelectedValue;
+                if (int.TryParse(city.ToString(), out int cityId))
+                {
+                    request.CityID = cityId;
+                }
+
+                await _service.Update<Model.User>(_id, request);
+
+                MessageBox.Show("Operation successful!");
             }
-
-            var userRole = cmbUserRole.SelectedValue;
-            if (int.TryParse(userRole.ToString(), out int userId))
-            {
-                request.UserRoleID = userId;
-            }
-
-            await _service.Update<Model.User>(_id, request);
-
         }
 
         private async Task LoadGender()
         {
-            var genders = await _genderService.Get<List<Model.Gender>>(null);
-            genders.Insert(0, new Model.Gender());
+            var result = await _genderService.Get<List<Model.Gender>>(null);
+            result.Insert(0, new Model.Gender());
             cmbGender.DisplayMember = "Name";
             cmbGender.ValueMember = "GenderID";
-            cmbGender.DataSource = genders;
+            cmbGender.DataSource = result;
         }
         private async Task LoadUserRole()
         {
@@ -73,6 +81,14 @@ namespace eDentalist.WinUI.Staff
             cmbUserRole.DisplayMember = "Name";
             cmbUserRole.ValueMember = "UserRoleID";
             cmbUserRole.DataSource = result;
+        }
+        private async Task LoadCity()
+        {
+            var result = await _cityService.Get<List<Model.City>>(null);
+            result.Insert(0, new Model.City());
+            cmbCity.DisplayMember = "Name";
+            cmbCity.ValueMember = "CityID";
+            cmbCity.DataSource = result;
         }
 
         private async void frmStaffMemberDetail_Load(object sender, EventArgs e)
@@ -97,6 +113,75 @@ namespace eDentalist.WinUI.Staff
                 cmbGender.SelectedItem = user.GenderID;
                 cmbGender.SelectedText = user.GenderName;
                 cmbGender.SelectedValue = user.GenderID;
+                await LoadCity();
+                cmbCity.SelectedItem = user.CityID;
+                cmbCity.SelectedText = user.CityName;
+                cmbCity.SelectedValue = user.CityID;
+            }
+        }
+
+        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+            {
+                errorProvider.SetError(txtFirstName, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtFirstName, null);
+            }
+        }
+
+        private void txtLastName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtLastName.Text))
+            {
+                errorProvider.SetError(txtLastName, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtLastName, null);
+            }
+        }
+
+        private void txtJMBG_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtJMBG.Text))
+            {
+                errorProvider.SetError(txtJMBG, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtJMBG, null);
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                errorProvider.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtEmail, null);
+            }
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) && txtUsername.Text.Length < 4)
+            {
+                errorProvider.SetError(txtUsername, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtUsername, null);
             }
         }
     }

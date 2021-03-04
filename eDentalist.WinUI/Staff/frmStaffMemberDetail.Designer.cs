@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,8 +57,12 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.cmbUserRole = new System.Windows.Forms.ComboBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label14 = new System.Windows.Forms.Label();
+            this.cmbCity = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFirstName
@@ -66,6 +71,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(175, 20);
             this.txtFirstName.TabIndex = 0;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // pictureBox1
             // 
@@ -99,6 +105,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(175, 20);
             this.txtLastName.TabIndex = 3;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // label3
             // 
@@ -115,6 +122,7 @@
             this.txtJMBG.Name = "txtJMBG";
             this.txtJMBG.Size = new System.Drawing.Size(289, 20);
             this.txtJMBG.TabIndex = 7;
+            this.txtJMBG.Validating += new System.ComponentModel.CancelEventHandler(this.txtJMBG_Validating);
             // 
             // label4
             // 
@@ -156,6 +164,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(289, 20);
             this.txtEmail.TabIndex = 9;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label7
             // 
@@ -201,7 +210,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 410);
+            this.label9.Location = new System.Drawing.Point(13, 459);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 20;
@@ -209,7 +218,7 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(12, 426);
+            this.txtAddress.Location = new System.Drawing.Point(12, 475);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(289, 20);
             this.txtAddress.TabIndex = 19;
@@ -226,7 +235,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 499);
+            this.label11.Location = new System.Drawing.Point(13, 548);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 23;
@@ -234,7 +243,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 515);
+            this.txtPassword.Location = new System.Drawing.Point(12, 564);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(141, 20);
             this.txtPassword.TabIndex = 22;
@@ -242,7 +251,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(161, 499);
+            this.label12.Location = new System.Drawing.Point(161, 548);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 13);
             this.label12.TabIndex = 25;
@@ -250,7 +259,7 @@
             // 
             // txtPasswordConfirmation
             // 
-            this.txtPasswordConfirmation.Location = new System.Drawing.Point(160, 515);
+            this.txtPasswordConfirmation.Location = new System.Drawing.Point(160, 564);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
             this.txtPasswordConfirmation.Size = new System.Drawing.Size(141, 20);
             this.txtPasswordConfirmation.TabIndex = 24;
@@ -258,7 +267,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 455);
+            this.label13.Location = new System.Drawing.Point(13, 504);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(58, 13);
             this.label13.TabIndex = 27;
@@ -266,14 +275,15 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(12, 471);
+            this.txtUsername.Location = new System.Drawing.Point(12, 520);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(289, 20);
             this.txtUsername.TabIndex = 26;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(226, 541);
+            this.btnSave.Location = new System.Drawing.Point(226, 590);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 28;
@@ -289,11 +299,34 @@
             this.cmbUserRole.Size = new System.Drawing.Size(289, 21);
             this.cmbUserRole.TabIndex = 29;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 413);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 13);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "City of residence:";
+            // 
+            // cmbCity
+            // 
+            this.cmbCity.FormattingEnabled = true;
+            this.cmbCity.Location = new System.Drawing.Point(12, 429);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Size = new System.Drawing.Size(289, 21);
+            this.cmbCity.TabIndex = 30;
+            // 
             // frmStaffMemberDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 643);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.cmbCity);
             this.Controls.Add(this.cmbUserRole);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label13);
@@ -327,6 +360,7 @@
             this.Load += new System.EventHandler(this.frmStaffMemberDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +396,8 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbUserRole;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cmbCity;
     }
 }

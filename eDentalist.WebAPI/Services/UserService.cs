@@ -97,11 +97,12 @@ namespace eDentalist.WebAPI.Services
         {
             //var entity = _context.User.Find(id);
 
-            var entity = _context.User.Where(i => i.UserID == id).Include(i => i.UserRole).Include(i => i.Gender).FirstOrDefault();
+            var entity = _context.User.Where(i => i.UserID == id).Include(i => i.UserRole).Include(i => i.Gender).Include(i => i.City).FirstOrDefault();
 
             var result = _mapper.Map<Model.User>(entity);
             result.UserRoleName = entity.UserRole.Name;
             result.GenderName = entity.Gender.Name;
+            result.CityName = entity.City.Name;
 
             return _mapper.Map<Model.User>(result);
         }

@@ -22,5 +22,7 @@ namespace eDentalist.Model
         public string GenderName { get; set; }
         public string Username { get; set; }
         public int CityID { get; set; }
+        public City City { get; set; }
+        public string CityName { get; set; }
     }
 }
