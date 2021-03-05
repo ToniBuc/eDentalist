@@ -1,4 +1,5 @@
-﻿using eDentalist.WinUI.Staff;
+﻿using eDentalist.WinUI.HygieneProcess;
+using eDentalist.WinUI.Staff;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -108,6 +109,13 @@ namespace eDentalist.WinUI
         private void btnStaff_Click(object sender, EventArgs e)
         {
             frmStaffMembers frm = new frmStaffMembers();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnHygiene_Click(object sender, EventArgs e)
+        {
+            frmHygieneProcessOverview frm = new frmHygieneProcessOverview();
             frm.MdiParent = this;
             frm.Show();
         }

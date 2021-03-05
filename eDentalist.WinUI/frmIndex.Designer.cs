@@ -35,6 +35,7 @@
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnHygiene = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnHygiene);
             this.panel1.Controls.Add(this.btnStaff);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -82,6 +84,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(852, 148);
             this.panel2.TabIndex = 6;
+            // 
+            // btnHygiene
+            // 
+            this.btnHygiene.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHygiene.Location = new System.Drawing.Point(12, 165);
+            this.btnHygiene.Name = "btnHygiene";
+            this.btnHygiene.Size = new System.Drawing.Size(193, 38);
+            this.btnHygiene.TabIndex = 5;
+            this.btnHygiene.Text = "Hygiene";
+            this.btnHygiene.UseVisualStyleBackColor = true;
+            this.btnHygiene.Click += new System.EventHandler(this.btnHygiene_Click);
             // 
             // frmIndex
             // 
@@ -110,6 +123,7 @@
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnHygiene;
     }
 }
 
