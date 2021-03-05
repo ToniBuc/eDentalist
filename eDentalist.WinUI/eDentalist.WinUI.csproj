@@ -71,6 +71,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Staff\frmNewStaffMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\frmNewStaffMember.Designer.cs">
+      <DependentUpon>frmNewStaffMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff\frmStaffMemberDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Staff\frmNewStaffMember.resx">
+      <DependentUpon>frmNewStaffMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff\frmStaffMemberDetail.resx">
       <DependentUpon>frmStaffMemberDetail.cs</DependentUpon>
     </EmbeddedResource>

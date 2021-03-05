@@ -30,14 +30,14 @@
         {
             this.StaffMembers = new System.Windows.Forms.GroupBox();
             this.dgvStaffMembers = new System.Windows.Forms.DataGridView();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnAddStaff = new System.Windows.Forms.Button();
-            this.btnReportStaff = new System.Windows.Forms.Button();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnAddStaff = new System.Windows.Forms.Button();
+            this.btnReportStaff = new System.Windows.Forms.Button();
             this.StaffMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).BeginInit();
             this.SuspendLayout();
@@ -71,41 +71,6 @@
             this.dgvStaffMembers.TabIndex = 0;
             this.dgvStaffMembers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvStaffMembers_MouseDoubleClick);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(283, 42);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(15, 44);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(262, 20);
-            this.txtSearch.TabIndex = 2;
-            // 
-            // btnAddStaff
-            // 
-            this.btnAddStaff.Location = new System.Drawing.Point(15, 435);
-            this.btnAddStaff.Name = "btnAddStaff";
-            this.btnAddStaff.Size = new System.Drawing.Size(75, 23);
-            this.btnAddStaff.TabIndex = 3;
-            this.btnAddStaff.Text = "Add new";
-            this.btnAddStaff.UseVisualStyleBackColor = true;
-            // 
-            // btnReportStaff
-            // 
-            this.btnReportStaff.Location = new System.Drawing.Point(283, 435);
-            this.btnReportStaff.Name = "btnReportStaff";
-            this.btnReportStaff.Size = new System.Drawing.Size(75, 23);
-            this.btnReportStaff.TabIndex = 4;
-            this.btnReportStaff.Text = "Report";
-            this.btnReportStaff.UseVisualStyleBackColor = true;
-            // 
             // UserID
             // 
             this.UserID.DataPropertyName = "UserID";
@@ -135,6 +100,42 @@
             this.StaffRole.Name = "StaffRole";
             this.StaffRole.ReadOnly = true;
             this.StaffRole.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(283, 42);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(15, 44);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(262, 20);
+            this.txtSearch.TabIndex = 2;
+            // 
+            // btnAddStaff
+            // 
+            this.btnAddStaff.Location = new System.Drawing.Point(15, 435);
+            this.btnAddStaff.Name = "btnAddStaff";
+            this.btnAddStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnAddStaff.TabIndex = 3;
+            this.btnAddStaff.Text = "Add new";
+            this.btnAddStaff.UseVisualStyleBackColor = true;
+            this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
+            // 
+            // btnReportStaff
+            // 
+            this.btnReportStaff.Location = new System.Drawing.Point(283, 435);
+            this.btnReportStaff.Name = "btnReportStaff";
+            this.btnReportStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnReportStaff.TabIndex = 4;
+            this.btnReportStaff.Text = "Report";
+            this.btnReportStaff.UseVisualStyleBackColor = true;
             // 
             // frmStaffMembers
             // 

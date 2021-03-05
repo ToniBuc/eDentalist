@@ -24,5 +24,6 @@ namespace eDentalist.Model
         public int CityID { get; set; }
         public City City { get; set; }
         public string CityName { get; set; }
+        public byte[] Image { get; set; }
     }
 }

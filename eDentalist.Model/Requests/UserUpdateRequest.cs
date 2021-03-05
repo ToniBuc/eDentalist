@@ -28,5 +28,6 @@ namespace eDentalist.Model.Requests
         public string Password { get; set; }
         public string PasswordConfirmation { get; set; }
         public int CityID { get; set; }
+        public byte[] Image { get; set; }
     }
 }

@@ -24,5 +24,6 @@ namespace eDentalist.WebAPI.Database
         public string PasswordSalt { get; set; }
         public int? CityID { get; set; }
         public City City { get; set; }
+        public byte[] Image { get; set; }
     }
 }

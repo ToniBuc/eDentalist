@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,7 +70,7 @@ namespace eDentalist.WinUI.Staff
         private async Task LoadGender()
         {
             var result = await _genderService.Get<List<Model.Gender>>(null);
-            result.Insert(0, new Model.Gender());
+            //result.Insert(0, new Model.Gender());
             cmbGender.DisplayMember = "Name";
             cmbGender.ValueMember = "GenderID";
             cmbGender.DataSource = result;
@@ -77,7 +78,7 @@ namespace eDentalist.WinUI.Staff
         private async Task LoadUserRole()
         {
             var result = await _userRoleService.Get<List<Model.UserRole>>(null);
-            result.Insert(0, new Model.UserRole());
+            //result.Insert(0, new Model.UserRole());
             cmbUserRole.DisplayMember = "Name";
             cmbUserRole.ValueMember = "UserRoleID";
             cmbUserRole.DataSource = result;
@@ -85,7 +86,7 @@ namespace eDentalist.WinUI.Staff
         private async Task LoadCity()
         {
             var result = await _cityService.Get<List<Model.City>>(null);
-            result.Insert(0, new Model.City());
+            //result.Insert(0, new Model.City());
             cmbCity.DisplayMember = "Name";
             cmbCity.ValueMember = "CityID";
             cmbCity.DataSource = result;
@@ -97,6 +98,17 @@ namespace eDentalist.WinUI.Staff
             {
                 var user = await _service.GetById<Model.User>(_id);
 
+                //loading in image
+                if (user.Image.Length > 0)
+                {
+                    byte[] imgSource = user.Image;
+                    Bitmap image;
+                    using (MemoryStream stream = new MemoryStream(imgSource))
+                    {
+                        image = new Bitmap(stream);
+                    }
+                    pictureBox.Image = image;
+                }
                 txtFirstName.Text = user.FirstName;
                 txtLastName.Text = user.LastName;
                 txtJMBG.Text = user.JMBG;

@@ -30,5 +30,6 @@ namespace eDentalist.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string PasswordConfirmation { get; set; }
         public int CityID { get; set; }
+        public byte[] Image { get; set; }
     }
 }

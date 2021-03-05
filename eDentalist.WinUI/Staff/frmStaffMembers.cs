@@ -49,5 +49,11 @@ namespace eDentalist.WinUI.Staff
             frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
             frm.Show();
         }
+
+        private void btnAddStaff_Click(object sender, EventArgs e)
+        {
+            frmNewStaffMember frm = new frmNewStaffMember();
+            frm.Show();
+        }
     }
 }
