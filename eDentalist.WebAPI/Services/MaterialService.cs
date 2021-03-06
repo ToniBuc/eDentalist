@@ -35,9 +35,15 @@ namespace eDentalist.WebAPI.Services
         {
             var query = _context.Set<Database.Material>().AsQueryable();
 
+            bool isRequestNull = !string.IsNullOrWhiteSpace(search.Name);
+
             if (search?.MaterialID.HasValue == true)
             {
                 query = query.Where(x => x.MaterialID == search.MaterialID);
+            }
+            if (isRequestNull)
+            {
+                query = query.Where(x => x.Name.Contains(search.Name));
             }
             query = query.OrderBy(x => x.Name);
 

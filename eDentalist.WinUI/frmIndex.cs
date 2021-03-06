@@ -1,4 +1,5 @@
 ﻿using eDentalist.WinUI.HygieneProcess;
+using eDentalist.WinUI.Material;
 using eDentalist.WinUI.Staff;
 using System;
 using System.Collections.Generic;
@@ -119,6 +120,16 @@ namespace eDentalist.WinUI
         private void btnHygiene_Click(object sender, EventArgs e)
         {
             frmHygieneProcessOverview frm = new frmHygieneProcessOverview();
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+            frmMaterialOverview frm = new frmMaterialOverview();
             frm.MdiParent = this;
             frm.FormBorderStyle = FormBorderStyle.FixedSingle;
             frm.MaximizeBox = false;

@@ -7,5 +7,6 @@ namespace eDentalist.Model.Requests
     public class MaterialSearchRequest
     {
         public int? MaterialID { get; set; }
+        public string Name { get; set; }
     }
 }

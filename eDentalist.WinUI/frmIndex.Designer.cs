@@ -34,8 +34,9 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnHygiene = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMaterial = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnMaterial);
             this.panel1.Controls.Add(this.btnHygiene);
             this.panel1.Controls.Add(this.btnStaff);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -76,14 +78,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 605);
             this.panel1.TabIndex = 5;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(220, 457);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(852, 148);
-            this.panel2.TabIndex = 6;
             // 
             // btnHygiene
             // 
@@ -95,6 +89,25 @@
             this.btnHygiene.Text = "Hygiene";
             this.btnHygiene.UseVisualStyleBackColor = true;
             this.btnHygiene.Click += new System.EventHandler(this.btnHygiene_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(220, 457);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(852, 148);
+            this.panel2.TabIndex = 6;
+            // 
+            // btnMaterial
+            // 
+            this.btnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaterial.Location = new System.Drawing.Point(12, 209);
+            this.btnMaterial.Name = "btnMaterial";
+            this.btnMaterial.Size = new System.Drawing.Size(193, 38);
+            this.btnMaterial.TabIndex = 6;
+            this.btnMaterial.Text = "Material";
+            this.btnMaterial.UseVisualStyleBackColor = true;
+            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
             // frmIndex
             // 
@@ -124,6 +137,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnHygiene;
+        private System.Windows.Forms.Button btnMaterial;
     }
 }
 

@@ -48,7 +48,6 @@ namespace eDentalist.WinUI.HygieneProcess
             var search = new HygieneProcessSearchRequest()
             {
                 HygieneProcessTypeID = IDContainer
-
             };
 
             //c
