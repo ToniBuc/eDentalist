@@ -33,6 +33,22 @@ namespace eDentalist.WinUI
             return result;
         }
 
+        public async Task<T> GetStaff<T>(object search)
+        {
+
+            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/GetStaff";
+
+            if (search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+
+            var result = await url.GetJsonAsync<T>();
+
+            return result;
+        }
+
         public async Task<T> GetById<T>(object id)
         {
 

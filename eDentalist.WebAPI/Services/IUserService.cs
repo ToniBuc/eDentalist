@@ -9,6 +9,7 @@ namespace eDentalist.WebAPI.Services
     public interface IUserService
     {
         List<Model.User> Get(UserSearchRequest request);
+        List<Model.User> GetStaff(UserSearchRequest request);
         Model.User GetById(int id);
         Model.User Insert(UserInsertRequest request);
         Model.User Update(int id, UserUpdateRequest request);

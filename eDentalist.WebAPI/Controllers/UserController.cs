@@ -23,6 +23,11 @@ namespace eDentalist.WebAPI.Controllers
         {
             return _service.Get(request);
         }
+        [HttpGet("GetStaff")]
+        public List<Model.User> GetStaff([FromQuery]UserSearchRequest request)
+        {
+            return _service.GetStaff(request);
+        }
         [HttpGet("{id}")]
         public Model.User GetById(int id)
         {

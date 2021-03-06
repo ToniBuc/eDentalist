@@ -69,6 +69,23 @@ namespace eDentalist.WinUI.HygieneProcess
             dgvHygieneProcesses.DataSource = result;
         }
 
+        private void dgvHygieneProcesses_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvHygieneProcesses.SelectedRows[0].Cells[0].Value;
+            frmHygieneProcess frm = new frmHygieneProcess(int.Parse(id.ToString()));
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
 
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            frmHygieneProcess frm = new frmHygieneProcess();
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
     }
 }

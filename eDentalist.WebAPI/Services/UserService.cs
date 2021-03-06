@@ -103,6 +103,7 @@ namespace eDentalist.WebAPI.Services
             result.UserRoleName = entity.UserRole.Name;
             result.GenderName = entity.Gender.Name;
             result.CityName = entity.City.Name;
+            result.FullName = entity.FirstName + " " + entity.LastName;
 
             return _mapper.Map<Model.User>(result);
         }
@@ -178,6 +179,35 @@ namespace eDentalist.WebAPI.Services
             }
 
             return _mapper.Map<Model.User>(entity);
+        }
+
+        public List<Model.User> GetStaff(UserSearchRequest request)
+        {
+            var query = _context.User.Include(i => i.UserRole).AsQueryable(); //included userrole for role checks in user retrievals, for example retrieving only staff in the staffmembers form
+
+            bool isRequestNull = !string.IsNullOrWhiteSpace(request.FirstName) || !string.IsNullOrWhiteSpace(request.LastName);
+
+            if (isRequestNull)
+            {
+                query = query.Where(i => (!string.IsNullOrWhiteSpace(request.FirstName) && i.FirstName.StartsWith(request.FirstName)) || (!string.IsNullOrWhiteSpace(request.LastName) && i.LastName.StartsWith(request.LastName)));
+            }
+
+            var list = query.ToList();
+
+            var result = _mapper.Map<List<Model.User>>(list);
+            var staff = new List<Model.User>();
+            foreach (var x in result)
+            {
+                x.UserRoleName = x.UserRole.Name;
+                x.FullName = x.FirstName + " " + x.LastName;
+                if (x.UserRoleName != "Patient")
+                {
+                    staff.Add(x);
+                }
+                
+            }
+
+            return staff;
         }
     }
 }

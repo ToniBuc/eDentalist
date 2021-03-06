@@ -32,6 +32,7 @@
             this.cmbHygieneProcessType = new System.Windows.Forms.ComboBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.HygieneProcessID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,7 @@
             this.dgvHygieneProcesses.AllowUserToDeleteRows = false;
             this.dgvHygieneProcesses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHygieneProcesses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.HygieneProcessID,
             this.StaffMember,
             this.Type,
             this.Date,
@@ -54,8 +56,10 @@
             this.dgvHygieneProcesses.Location = new System.Drawing.Point(12, 60);
             this.dgvHygieneProcesses.Name = "dgvHygieneProcesses";
             this.dgvHygieneProcesses.ReadOnly = true;
+            this.dgvHygieneProcesses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHygieneProcesses.Size = new System.Drawing.Size(776, 378);
             this.dgvHygieneProcesses.TabIndex = 0;
+            this.dgvHygieneProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvHygieneProcesses_MouseDoubleClick);
             // 
             // cmbHygieneProcessType
             // 
@@ -73,16 +77,25 @@
             this.btnAddNew.TabIndex = 2;
             this.btnAddNew.Text = "Add new";
             this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(256, 31);
+            this.btnSearch.Location = new System.Drawing.Point(256, 32);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // HygieneProcessID
+            // 
+            this.HygieneProcessID.DataPropertyName = "HygieneProcessID";
+            this.HygieneProcessID.HeaderText = "HygieneProcessID";
+            this.HygieneProcessID.Name = "HygieneProcessID";
+            this.HygieneProcessID.ReadOnly = true;
+            this.HygieneProcessID.Visible = false;
             // 
             // StaffMember
             // 
@@ -145,6 +158,7 @@
         private System.Windows.Forms.ComboBox cmbHygieneProcessType;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HygieneProcessID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffMember;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;

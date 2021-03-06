@@ -47,12 +47,18 @@ namespace eDentalist.WinUI.Staff
         {
             var id = dgvStaffMembers.SelectedRows[0].Cells[0].Value;
             frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
             frm.Show();
         }
 
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
             frmNewStaffMember frm = new frmNewStaffMember();
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
             frm.Show();
         }
     }

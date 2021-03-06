@@ -69,6 +69,12 @@
     <Compile Include="frmIndex.Designer.cs">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="HygieneProcess\frmHygieneProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HygieneProcess\frmHygieneProcess.Designer.cs">
+      <DependentUpon>frmHygieneProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="HygieneProcess\frmHygieneProcessOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HygieneProcess\frmHygieneProcess.resx">
+      <DependentUpon>frmHygieneProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HygieneProcess\frmHygieneProcessOverview.resx">
       <DependentUpon>frmHygieneProcessOverview.cs</DependentUpon>

@@ -110,6 +110,9 @@ namespace eDentalist.WinUI
         {
             frmStaffMembers frm = new frmStaffMembers();
             frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
             frm.Show();
         }
 
@@ -117,6 +120,9 @@ namespace eDentalist.WinUI
         {
             frmHygieneProcessOverview frm = new frmHygieneProcessOverview();
             frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
             frm.Show();
         }
     }
