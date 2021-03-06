@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbHygieneProcessType = new System.Windows.Forms.ComboBox();
@@ -38,6 +39,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.cbStatus = new System.Windows.Forms.CheckBox();
             this.cmbStaffMember = new System.Windows.Forms.ComboBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,11 +63,13 @@
             // 
             // cmbHygieneProcessType
             // 
+            this.cmbHygieneProcessType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHygieneProcessType.FormattingEnabled = true;
             this.cmbHygieneProcessType.Location = new System.Drawing.Point(39, 94);
             this.cmbHygieneProcessType.Name = "cmbHygieneProcessType";
             this.cmbHygieneProcessType.Size = new System.Drawing.Size(241, 21);
-            this.cmbHygieneProcessType.TabIndex = 3;
+            this.cmbHygieneProcessType.TabIndex = 2;
+            this.cmbHygieneProcessType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbHygieneProcessType_Validating);
             // 
             // label3
             // 
@@ -80,7 +85,7 @@
             this.dtpDateOfPerformance.Location = new System.Drawing.Point(39, 138);
             this.dtpDateOfPerformance.Name = "dtpDateOfPerformance";
             this.dtpDateOfPerformance.Size = new System.Drawing.Size(241, 20);
-            this.dtpDateOfPerformance.TabIndex = 5;
+            this.dtpDateOfPerformance.TabIndex = 3;
             // 
             // label4
             // 
@@ -96,7 +101,7 @@
             this.rtxtDescription.Location = new System.Drawing.Point(39, 186);
             this.rtxtDescription.Name = "rtxtDescription";
             this.rtxtDescription.Size = new System.Drawing.Size(241, 134);
-            this.rtxtDescription.TabIndex = 7;
+            this.rtxtDescription.TabIndex = 4;
             this.rtxtDescription.Text = "";
             // 
             // btnSave
@@ -121,11 +126,17 @@
             // 
             // cmbStaffMember
             // 
+            this.cmbStaffMember.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStaffMember.FormattingEnabled = true;
             this.cmbStaffMember.Location = new System.Drawing.Point(39, 53);
             this.cmbStaffMember.Name = "cmbStaffMember";
             this.cmbStaffMember.Size = new System.Drawing.Size(241, 21);
-            this.cmbStaffMember.TabIndex = 10;
+            this.cmbStaffMember.TabIndex = 1;
+            this.cmbStaffMember.Validating += new System.ComponentModel.CancelEventHandler(this.cmbStaffMember_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmHygieneProcess
             // 
@@ -145,6 +156,7 @@
             this.Name = "frmHygieneProcess";
             this.Text = "frmHygieneProcess";
             this.Load += new System.EventHandler(this.frmHygieneProcess_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox cbStatus;
         private System.Windows.Forms.ComboBox cmbStaffMember;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

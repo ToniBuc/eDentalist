@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dgvHygieneProcesses = new System.Windows.Forms.DataGridView();
-            this.cmbHygieneProcessType = new System.Windows.Forms.ComboBox();
-            this.btnAddNew = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.HygieneProcessID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cmbHygieneProcessType = new System.Windows.Forms.ComboBox();
+            this.btnAddNew = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHygieneProcesses)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,34 +60,6 @@
             this.dgvHygieneProcesses.Size = new System.Drawing.Size(776, 378);
             this.dgvHygieneProcesses.TabIndex = 0;
             this.dgvHygieneProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvHygieneProcesses_MouseDoubleClick);
-            // 
-            // cmbHygieneProcessType
-            // 
-            this.cmbHygieneProcessType.FormattingEnabled = true;
-            this.cmbHygieneProcessType.Location = new System.Drawing.Point(12, 33);
-            this.cmbHygieneProcessType.Name = "cmbHygieneProcessType";
-            this.cmbHygieneProcessType.Size = new System.Drawing.Size(238, 21);
-            this.cmbHygieneProcessType.TabIndex = 1;
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Location = new System.Drawing.Point(13, 445);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNew.TabIndex = 2;
-            this.btnAddNew.Text = "Add new";
-            this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(256, 32);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // HygieneProcessID
             // 
@@ -134,6 +106,35 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             this.Status.TrueValue = "";
+            // 
+            // cmbHygieneProcessType
+            // 
+            this.cmbHygieneProcessType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHygieneProcessType.FormattingEnabled = true;
+            this.cmbHygieneProcessType.Location = new System.Drawing.Point(12, 33);
+            this.cmbHygieneProcessType.Name = "cmbHygieneProcessType";
+            this.cmbHygieneProcessType.Size = new System.Drawing.Size(238, 21);
+            this.cmbHygieneProcessType.TabIndex = 1;
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(13, 445);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNew.TabIndex = 2;
+            this.btnAddNew.Text = "Add new";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(256, 32);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmHygieneProcessOverview
             // 

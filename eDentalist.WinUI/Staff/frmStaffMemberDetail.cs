@@ -70,7 +70,7 @@ namespace eDentalist.WinUI.Staff
         private async Task LoadGender()
         {
             var result = await _genderService.Get<List<Model.Gender>>(null);
-            //result.Insert(0, new Model.Gender());
+            result.Insert(0, new Model.Gender());
             cmbGender.DisplayMember = "Name";
             cmbGender.ValueMember = "GenderID";
             cmbGender.DataSource = result;
@@ -78,7 +78,7 @@ namespace eDentalist.WinUI.Staff
         private async Task LoadUserRole()
         {
             var result = await _userRoleService.Get<List<Model.UserRole>>(null);
-            //result.Insert(0, new Model.UserRole());
+            result.Insert(0, new Model.UserRole());
             cmbUserRole.DisplayMember = "Name";
             cmbUserRole.ValueMember = "UserRoleID";
             cmbUserRole.DataSource = result;
@@ -86,7 +86,7 @@ namespace eDentalist.WinUI.Staff
         private async Task LoadCity()
         {
             var result = await _cityService.Get<List<Model.City>>(null);
-            //result.Insert(0, new Model.City());
+            result.Insert(0, new Model.City());
             cmbCity.DisplayMember = "Name";
             cmbCity.ValueMember = "CityID";
             cmbCity.DataSource = result;
@@ -186,14 +186,84 @@ namespace eDentalist.WinUI.Staff
 
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsername.Text) && txtUsername.Text.Length < 4)
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
                 errorProvider.SetError(txtUsername, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else if (txtUsername.Text.Length < 4)
+            {
+                errorProvider.SetError(txtUsername, "Username needs to be at least 4 characters long!");
                 e.Cancel = true;
             }
             else
             {
                 errorProvider.SetError(txtUsername, null);
+            }
+        }
+
+        private void cmbUserRole_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbUserRole.SelectedValue.Equals(0))
+            {
+                errorProvider.SetError(cmbUserRole, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbUserRole, null);
+            }
+        }
+
+        private void cmbGender_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbGender.SelectedValue.Equals(0))
+            {
+                errorProvider.SetError(cmbGender, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbGender, null);
+            }
+        }
+
+        private void txtPhoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+            {
+                errorProvider.SetError(txtPhoneNumber, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtPhoneNumber, null);
+            }
+        }
+
+        private void cmbCity_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbCity.SelectedValue.Equals(0))
+            {
+                errorProvider.SetError(cmbCity, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbCity, null);
+            }
+        }
+
+        private void txtAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                errorProvider.SetError(txtAddress, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtAddress, null);
             }
         }
     }

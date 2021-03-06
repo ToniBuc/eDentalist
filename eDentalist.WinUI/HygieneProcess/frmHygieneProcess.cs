@@ -45,34 +45,37 @@ namespace eDentalist.WinUI.HygieneProcess
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            var request = new HygieneProcessUpsertRequest()
+            if (this.ValidateChildren())
             {
-                DateOfPerformance = dtpDateOfPerformance.Value,
-                Description = rtxtDescription.Text,
-                Status = cbStatus.Checked
-            };
+                var request = new HygieneProcessUpsertRequest()
+                {
+                    DateOfPerformance = dtpDateOfPerformance.Value,
+                    Description = rtxtDescription.Text,
+                    Status = cbStatus.Checked
+                };
 
-            var user = cmbStaffMember.SelectedValue;
-            if (int.TryParse(user.ToString(), out int userId))
-            {
-                request.UserID = userId;
-            }
-            var prType = cmbHygieneProcessType.SelectedValue;
-            if (int.TryParse(prType.ToString(), out int prTypeId))
-            {
-                request.HygieneProcessTypeID = prTypeId;
-            }
+                var user = cmbStaffMember.SelectedValue;
+                if (int.TryParse(user.ToString(), out int userId))
+                {
+                    request.UserID = userId;
+                }
+                var prType = cmbHygieneProcessType.SelectedValue;
+                if (int.TryParse(prType.ToString(), out int prTypeId))
+                {
+                    request.HygieneProcessTypeID = prTypeId;
+                }
 
-            if (_id.HasValue)
-            {
-                await _apiService.Update<Model.HygieneProcess>(_id, request);
-            }
-            else
-            {
-                await _apiService.Insert<Model.HygieneProcess>(request);
-            }
+                if (_id.HasValue)
+                {
+                    await _apiService.Update<Model.HygieneProcess>(_id, request);
+                }
+                else
+                {
+                    await _apiService.Insert<Model.HygieneProcess>(request);
+                }
 
-            MessageBox.Show("Operation successful!");
+                MessageBox.Show("Operation successful!");
+            }
         }
 
         private async Task LoadUser()
@@ -90,6 +93,32 @@ namespace eDentalist.WinUI.HygieneProcess
             cmbHygieneProcessType.DisplayMember = "Name";
             cmbHygieneProcessType.ValueMember = "HygieneProcessTypeID";
             cmbHygieneProcessType.DataSource = result;
+        }
+
+        private void cmbStaffMember_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbStaffMember.SelectedValue.Equals(0))
+            {
+                errorProvider.SetError(cmbStaffMember, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbStaffMember, null);
+            }
+        }
+
+        private void cmbHygieneProcessType_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbHygieneProcessType.SelectedValue.Equals(0))
+            {
+                errorProvider.SetError(cmbHygieneProcessType, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbHygieneProcessType, null);
+            }
         }
     }
 }
