@@ -30,5 +30,24 @@ namespace eDentalist.WinUI.Equipment
             dgvEquipment.AutoGenerateColumns = false;
             dgvEquipment.DataSource = result;
         }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            frmEquipment frm = new frmEquipment();
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void dgvEquipment_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvEquipment.SelectedRows[0].Cells[0].Value;
+            frmEquipment frm = new frmEquipment(int.Parse(id.ToString()));
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
     }
 }

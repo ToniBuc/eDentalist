@@ -51,9 +51,9 @@ namespace eDentalist.WinUI.Material
         private async void frmMaterial_Load(object sender, EventArgs e)
         {
             dtpDateAdded.Format = DateTimePickerFormat.Custom;
-            dtpDateAdded.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            dtpDateAdded.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dtpDateLastUsed.Format = DateTimePickerFormat.Custom;
-            dtpDateLastUsed.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            dtpDateLastUsed.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             if (_id.HasValue)
             {
                 var material = await _apiService.GetById<Model.Material>(_id);
