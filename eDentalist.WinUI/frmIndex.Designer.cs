@@ -34,9 +34,10 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMaterial = new System.Windows.Forms.Button();
             this.btnHygiene = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMaterial = new System.Windows.Forms.Button();
+            this.btnEquipment = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnEquipment);
             this.panel1.Controls.Add(this.btnMaterial);
             this.panel1.Controls.Add(this.btnHygiene);
             this.panel1.Controls.Add(this.btnStaff);
@@ -78,6 +80,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 605);
             this.panel1.TabIndex = 5;
+            // 
+            // btnMaterial
+            // 
+            this.btnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaterial.Location = new System.Drawing.Point(12, 209);
+            this.btnMaterial.Name = "btnMaterial";
+            this.btnMaterial.Size = new System.Drawing.Size(193, 38);
+            this.btnMaterial.TabIndex = 6;
+            this.btnMaterial.Text = "Material";
+            this.btnMaterial.UseVisualStyleBackColor = true;
+            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
             // btnHygiene
             // 
@@ -98,16 +111,16 @@
             this.panel2.Size = new System.Drawing.Size(852, 148);
             this.panel2.TabIndex = 6;
             // 
-            // btnMaterial
+            // btnEquipment
             // 
-            this.btnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaterial.Location = new System.Drawing.Point(12, 209);
-            this.btnMaterial.Name = "btnMaterial";
-            this.btnMaterial.Size = new System.Drawing.Size(193, 38);
-            this.btnMaterial.TabIndex = 6;
-            this.btnMaterial.Text = "Material";
-            this.btnMaterial.UseVisualStyleBackColor = true;
-            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
+            this.btnEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEquipment.Location = new System.Drawing.Point(12, 253);
+            this.btnEquipment.Name = "btnEquipment";
+            this.btnEquipment.Size = new System.Drawing.Size(193, 38);
+            this.btnEquipment.TabIndex = 7;
+            this.btnEquipment.Text = "Equipment";
+            this.btnEquipment.UseVisualStyleBackColor = true;
+            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
             // 
             // frmIndex
             // 
@@ -138,6 +151,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnHygiene;
         private System.Windows.Forms.Button btnMaterial;
+        private System.Windows.Forms.Button btnEquipment;
     }
 }
 

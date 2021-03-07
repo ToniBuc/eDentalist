@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="Equipment\frmEquipmentOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment\frmEquipmentOverview.Designer.cs">
+      <DependentUpon>frmEquipmentOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,12 @@
     </Compile>
     <Compile Include="HygieneProcess\frmHygieneProcessOverview.Designer.cs">
       <DependentUpon>frmHygieneProcessOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Material\frmMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Material\frmMaterial.Designer.cs">
+      <DependentUpon>frmMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="Material\frmMaterialOverview.cs">
       <SubType>Form</SubType>
@@ -107,6 +119,9 @@
     <Compile Include="Staff\frmStaffMembers.Designer.cs">
       <DependentUpon>frmStaffMembers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Equipment\frmEquipmentOverview.resx">
+      <DependentUpon>frmEquipmentOverview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HygieneProcess\frmHygieneProcessOverview.resx">
       <DependentUpon>frmHygieneProcessOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Material\frmMaterial.resx">
+      <DependentUpon>frmMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Material\frmMaterialOverview.resx">
       <DependentUpon>frmMaterialOverview.cs</DependentUpon>

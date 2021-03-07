@@ -9,8 +9,11 @@ namespace eDentalist.Model.Requests
     {
         [Required(AllowEmptyStrings = false)]
         public string Name { get; set; }
+        [Required]
         public int Amount { get; set; }
+        [Required]
         public DateTime DateAdded { get; set; }
+        [Required]
         public DateTime LastUsed { get; set; }
         public string Description { get; set; }
     }

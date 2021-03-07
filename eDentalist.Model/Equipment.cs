@@ -14,5 +14,7 @@ namespace eDentalist.Model
         public bool Condition { get; set; }
         public int Amount { get; set; }
         public int EquipmentTypeID { get; set; }
+        public EquipmentType EquipmentType { get; set; }
+        public string EquipmentTypeName { get; set; }
     }
 }
