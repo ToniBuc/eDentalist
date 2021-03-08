@@ -10,5 +10,6 @@ namespace eDentalist.Model.Requests
         public DateTime DateRequisitioned { get; set; }
         public int UserID { get; set; }
         public string ItemName { get; set; }
+        public bool Status { get; set; }
     }
 }

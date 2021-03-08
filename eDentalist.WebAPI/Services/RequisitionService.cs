@@ -32,7 +32,8 @@ namespace eDentalist.WebAPI.Services
                 }
             }
 
-            query = query.OrderBy(x => x.DateRequisitioned);
+            //query = query.OrderBy(x => x.DateRequisitioned);
+            query = query.OrderBy(x => x.Status);
 
             var list = query.ToList();
 

@@ -39,6 +39,7 @@
             this.cmbRequisitionedBy = new System.Windows.Forms.ComboBox();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbStatus = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,11 +125,22 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // cbStatus
+            // 
+            this.cbStatus.AutoSize = true;
+            this.cbStatus.Location = new System.Drawing.Point(172, 254);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(76, 17);
+            this.cbStatus.TabIndex = 11;
+            this.cbStatus.Text = "Completed";
+            this.cbStatus.UseVisualStyleBackColor = true;
+            // 
             // frmRequisition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 450);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbRequisitionedBy);
@@ -159,5 +171,6 @@
         private System.Windows.Forms.ComboBox cmbRequisitionedBy;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.CheckBox cbStatus;
     }
 }

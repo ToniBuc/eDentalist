@@ -36,6 +36,7 @@
             this.RequisitionedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateRequisitioned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.Item,
             this.RequisitionedBy,
             this.Amount,
-            this.DateRequisitioned});
+            this.DateRequisitioned,
+            this.Status});
             this.dgvRequisitions.Location = new System.Drawing.Point(12, 63);
             this.dgvRequisitions.Name = "dgvRequisitions";
             this.dgvRequisitions.ReadOnly = true;
@@ -115,6 +117,17 @@
             this.DateRequisitioned.Name = "DateRequisitioned";
             this.DateRequisitioned.ReadOnly = true;
             // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Status.Width = 62;
+            // 
             // frmRequisitionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,5 +154,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RequisitionedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateRequisitioned;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
     }
 }

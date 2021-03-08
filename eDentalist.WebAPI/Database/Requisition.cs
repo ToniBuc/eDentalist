@@ -16,5 +16,6 @@ namespace eDentalist.WebAPI.Database
         public Material Material { get; set; }
         public int? EquipmentID { get; set; }
         public Equipment Equipment { get; set; }
+        public bool Status { get; set; }
     }
 }

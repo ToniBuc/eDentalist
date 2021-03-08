@@ -43,10 +43,12 @@ namespace eDentalist.WinUI.Requisition
             dtpDateRequisitioned.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             if (_id.HasValue)
             {
+                cbStatus.Visible = false;
                 txtItemName.Text = _name;
             }
             if (_reqId.HasValue)
             {
+                cbStatus.Visible = true;
                 var requsition = await _apiService.GetById<Model.Requisition>(_reqId);
                 txtItemName.Text = _name;
                 txtAmount.Text = requsition.Amount.ToString();
@@ -54,6 +56,7 @@ namespace eDentalist.WinUI.Requisition
                 cmbRequisitionedBy.SelectedItem = requsition.UserID;
                 cmbRequisitionedBy.SelectedText = requsition.RequisitionedBy;
                 cmbRequisitionedBy.SelectedValue = requsition.UserID;
+                cbStatus.Checked = requsition.Status;
             }
         }
 
@@ -69,7 +72,8 @@ namespace eDentalist.WinUI.Requisition
                     {
                         ItemName = txtItemName.Text,
                         Amount = int.Parse(txtAmount.Text),
-                        DateRequisitioned = dtpDateRequisitioned.Value
+                        DateRequisitioned = dtpDateRequisitioned.Value,
+                        Status = cbStatus.Checked
                     };
 
                     var user = cmbRequisitionedBy.SelectedValue;

@@ -17,5 +17,6 @@ namespace eDentalist.Model
         public int? EquipmentID { get; set; }
         public Equipment Equipment { get; set; }
         public string ItemName { get; set; }
+        public bool Status { get; set; }
     }
 }
