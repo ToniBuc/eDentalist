@@ -34,10 +34,11 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEquipment = new System.Windows.Forms.Button();
             this.btnMaterial = new System.Windows.Forms.Button();
             this.btnHygiene = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEquipment = new System.Windows.Forms.Button();
+            this.btnRequisition = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRequisition);
             this.panel1.Controls.Add(this.btnEquipment);
             this.panel1.Controls.Add(this.btnMaterial);
             this.panel1.Controls.Add(this.btnHygiene);
@@ -80,6 +82,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 605);
             this.panel1.TabIndex = 5;
+            // 
+            // btnEquipment
+            // 
+            this.btnEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEquipment.Location = new System.Drawing.Point(12, 253);
+            this.btnEquipment.Name = "btnEquipment";
+            this.btnEquipment.Size = new System.Drawing.Size(193, 38);
+            this.btnEquipment.TabIndex = 7;
+            this.btnEquipment.Text = "Equipment";
+            this.btnEquipment.UseVisualStyleBackColor = true;
+            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
             // 
             // btnMaterial
             // 
@@ -111,16 +124,16 @@
             this.panel2.Size = new System.Drawing.Size(852, 148);
             this.panel2.TabIndex = 6;
             // 
-            // btnEquipment
+            // btnRequisition
             // 
-            this.btnEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquipment.Location = new System.Drawing.Point(12, 253);
-            this.btnEquipment.Name = "btnEquipment";
-            this.btnEquipment.Size = new System.Drawing.Size(193, 38);
-            this.btnEquipment.TabIndex = 7;
-            this.btnEquipment.Text = "Equipment";
-            this.btnEquipment.UseVisualStyleBackColor = true;
-            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
+            this.btnRequisition.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRequisition.Location = new System.Drawing.Point(12, 297);
+            this.btnRequisition.Name = "btnRequisition";
+            this.btnRequisition.Size = new System.Drawing.Size(193, 38);
+            this.btnRequisition.TabIndex = 8;
+            this.btnRequisition.Text = "Requisition";
+            this.btnRequisition.UseVisualStyleBackColor = true;
+            this.btnRequisition.Click += new System.EventHandler(this.btnRequisition_Click);
             // 
             // frmIndex
             // 
@@ -152,6 +165,7 @@
         private System.Windows.Forms.Button btnHygiene;
         private System.Windows.Forms.Button btnMaterial;
         private System.Windows.Forms.Button btnEquipment;
+        private System.Windows.Forms.Button btnRequisition;
     }
 }
 

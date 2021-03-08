@@ -6,6 +6,7 @@ namespace eDentalist.Model.Requests
 {
     public class RequisitionSearchRequest
     {
-        public int? RequisitionID { get; set; }
+        //public int? RequisitionID { get; set; }
+        public string RequisitionType { get; set; }
     }
 }

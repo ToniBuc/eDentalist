@@ -1,6 +1,7 @@
 ﻿using eDentalist.WinUI.Equipment;
 using eDentalist.WinUI.HygieneProcess;
 using eDentalist.WinUI.Material;
+using eDentalist.WinUI.Requisition;
 using eDentalist.WinUI.Staff;
 using System;
 using System.Collections.Generic;
@@ -141,6 +142,16 @@ namespace eDentalist.WinUI
         private void btnEquipment_Click(object sender, EventArgs e)
         {
             frmEquipmentOverview frm = new frmEquipmentOverview();
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void btnRequisition_Click(object sender, EventArgs e)
+        {
+            frmRequisitionOverview frm = new frmRequisitionOverview();
             frm.MdiParent = this;
             frm.FormBorderStyle = FormBorderStyle.FixedSingle;
             frm.MaximizeBox = false;
