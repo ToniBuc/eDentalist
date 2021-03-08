@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnRequisition = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,11 +142,22 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // btnRequisition
+            // 
+            this.btnRequisition.Location = new System.Drawing.Point(44, 364);
+            this.btnRequisition.Name = "btnRequisition";
+            this.btnRequisition.Size = new System.Drawing.Size(75, 23);
+            this.btnRequisition.TabIndex = 27;
+            this.btnRequisition.Text = "Requisition";
+            this.btnRequisition.UseVisualStyleBackColor = true;
+            this.btnRequisition.Click += new System.EventHandler(this.btnRequisition_Click);
+            // 
             // frmMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 483);
+            this.Controls.Add(this.btnRequisition);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.rtxtDescription);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnRequisition;
     }
 }

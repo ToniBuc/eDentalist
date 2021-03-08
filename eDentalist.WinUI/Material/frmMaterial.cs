@@ -1,4 +1,5 @@
 ﻿using eDentalist.Model.Requests;
+using eDentalist.WinUI.Requisition;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,7 @@ namespace eDentalist.WinUI.Material
             dtpDateLastUsed.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             if (_id.HasValue)
             {
+                btnRequisition.Visible = true;
                 var material = await _apiService.GetById<Model.Material>(_id);
 
                 txtMaterialName.Text = material.Name;
@@ -63,6 +65,10 @@ namespace eDentalist.WinUI.Material
                 dtpDateAdded.Value = material.DateAdded;
                 dtpDateLastUsed.Value = material.LastUsed;
                 rtxtDescription.Text = material.Description;
+            }
+            else
+            {
+                btnRequisition.Visible = false;
             }
         }
 
@@ -105,6 +111,18 @@ namespace eDentalist.WinUI.Material
             else
             {
                 errorProvider.SetError(txtAmount, null);
+            }
+        }
+
+        private void btnRequisition_Click(object sender, EventArgs e)
+        {
+            if (_id.HasValue)
+            {
+                frmRequisition frm = new frmRequisition(int.Parse(_id.ToString()), txtMaterialName.Text);
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
             }
         }
     }

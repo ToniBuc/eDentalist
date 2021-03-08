@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eDentalist.WebAPI.Services
 {
-    public class RequisitionService : BaseCRUDService<Model.Requisition, RequisitionSearchRequest, Database.Requisition, RequisitionUpsertRequest, RequisitionUpsertRequest>
+    public class RequisitionService : BaseCRUDService<Model.Requisition, RequisitionSearchRequest, Database.Requisition, RequisitionInsertRequest, RequisitionUpdateRequest>
     {
         public RequisitionService(eDentalistDbContext context, IMapper mapper) : base(context, mapper)
         {
@@ -52,6 +52,36 @@ namespace eDentalist.WebAPI.Services
             }
 
             return result;
+        }
+
+        public override Model.Requisition Insert(RequisitionInsertRequest request)
+        {
+            var matTemp = _context.Set<Database.Material>().AsQueryable();
+            var equTemp = _context.Set<Database.Equipment>().AsQueryable();
+
+            var reqMat = matTemp.Where(i => i.MaterialID == request.MaterialID && i.Name == request.ItemName).FirstOrDefault();
+            var reqEqu = equTemp.Where(i => i.EquipmentID == request.EquipmentID && i.Name == request.ItemName).FirstOrDefault();
+
+            var entity = new Requisition()
+            {
+                Amount = request.Amount,
+                DateRequisitioned = request.DateRequisitioned,
+                UserID = request.UserID
+            };
+
+            if (reqMat != null)
+            {
+                entity.MaterialID = request.MaterialID;
+            }
+            else if (reqEqu != null)
+            {
+                entity.EquipmentID = request.EquipmentID;
+            }
+
+            _context.Requisition.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Requisition>(entity);
         }
     }
 }

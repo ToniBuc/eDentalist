@@ -1,4 +1,5 @@
 ﻿using eDentalist.Model.Requests;
+using eDentalist.WinUI.Requisition;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +75,7 @@ namespace eDentalist.WinUI.Equipment
             dtpDateLastUsed.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             if (_id.HasValue)
             {
+                btnRequisition.Visible = true;
                 var equipment = await _apiService.GetById<Model.Equipment>(_id);
                 txtEquipmentName.Text = equipment.Name;
                 txtAmount.Text = equipment.Amount.ToString();
@@ -84,6 +86,10 @@ namespace eDentalist.WinUI.Equipment
                 cmbEquipmentType.SelectedItem = equipment.EquipmentTypeID;
                 cmbEquipmentType.SelectedText = equipment.EquipmentTypeName;
                 cmbEquipmentType.SelectedValue = equipment.EquipmentTypeID;
+            }
+            else
+            {
+                btnRequisition.Visible = false;
             }
         }
 
@@ -139,6 +145,18 @@ namespace eDentalist.WinUI.Equipment
             else
             {
                 errorProvider.SetError(txtAmount, null);
+            }
+        }
+
+        private void btnRequisition_Click(object sender, EventArgs e)
+        {
+            if (_id.HasValue)
+            {
+                frmRequisition frm = new frmRequisition(int.Parse(_id.ToString()), txtEquipmentName.Text);
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
             }
         }
     }

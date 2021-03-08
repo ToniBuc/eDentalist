@@ -28,7 +28,8 @@ namespace eDentalist.WebAPI.Mappers
             CreateMap<Database.HygieneProcess, Model.HygieneProcess>();
             CreateMap<Database.HygieneProcess, HygieneProcessUpsertRequest>().ReverseMap();
             CreateMap<Database.Requisition, Model.Requisition>();
-            CreateMap<Database.Requisition, RequisitionUpsertRequest>().ReverseMap();
+            CreateMap<Database.Requisition, RequisitionInsertRequest>().ReverseMap();
+            CreateMap<Database.Requisition, RequisitionUpdateRequest>().ReverseMap();
             CreateMap<Database.City, Model.City>();
             CreateMap<Database.City, CityUpsertRequest>().ReverseMap();
             CreateMap<Database.Bill, Model.Bill>();
