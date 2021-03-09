@@ -6,6 +6,7 @@ namespace eDentalist.Model.Requests
 {
     public class AnamnesisSearchRequest
     {
-        public int? AnamnesisID { get; set; }
+        //public int? AnamnesisID { get; set; }
+        public int? PatientID { get; set; }
     }
 }

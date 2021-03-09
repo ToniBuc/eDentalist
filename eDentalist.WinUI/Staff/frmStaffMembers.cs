@@ -45,12 +45,15 @@ namespace eDentalist.WinUI.Staff
 
         private void dgvStaffMembers_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgvStaffMembers.SelectedRows[0].Cells[0].Value;
-            frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
-            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
+            if (!dgvStaffMembers.RowCount.Equals(0))
+            {
+                var id = dgvStaffMembers.SelectedRows[0].Cells[0].Value;
+                frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
         }
 
         private void btnAddStaff_Click(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eDentalist.Model.Requests;
 using eDentalist.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,42 @@ namespace eDentalist.WebAPI.Services
 
         public override List<Model.Anamnesis> Get(AnamnesisSearchRequest search)
         {
-            var query = _context.Set<Database.Anamnesis>().AsQueryable();
+            var query = _context.Set<Database.Anamnesis>().Include(i => i.Appointment).Include(i => i.Appointment.Procedure).AsQueryable();
 
-            if (search?.AnamnesisID.HasValue == true)
+            //if (search?.AnamnesisID.HasValue == true)
+            //{
+            //    query = query.Where(x => x.AnamnesisID == search.AnamnesisID);
+            //}
+            if (search?.PatientID.HasValue == true)
             {
-                query = query.Where(x => x.AnamnesisID == search.AnamnesisID);
+                query = query.Where(x => x.Appointment.PatientID == search.PatientID);
             }
             query = query.OrderBy(x => x.Appointment.Date);
 
             var list = query.ToList();
 
-            return _mapper.Map<List<Model.Anamnesis>>(list);
+            var result = _mapper.Map<List<Model.Anamnesis>>(list);
+
+            foreach(var x in result)
+            {
+                x.Procedure = x.Appointment.Procedure.Name;
+                x.Date = x.Appointment.Date;
+            }
+
+            return result;
+        }
+
+        public override Model.Anamnesis GetById(int id)
+        {
+            var entity = _context.Set<Database.Anamnesis>().Where(i => i.AnamnesisID == id).Include(i => i.Appointment).Include(i => i.Appointment.Procedure).Include(i => i.Appointment.Dentist).FirstOrDefault();
+
+            var result = _mapper.Map<Model.Anamnesis>(entity);
+
+            result.Procedure = result.Appointment.Procedure.Name;
+            result.Date = result.Appointment.Date;
+            result.DentistFullName = result.Appointment.Dentist.FirstName + " " + result.Appointment.Dentist.LastName;
+
+            return result;
         }
     }
 }

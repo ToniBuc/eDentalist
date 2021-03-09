@@ -11,8 +11,11 @@ namespace eDentalist.Model
         public string From { get; set; }
         public string To { get; set; }
         public int DentistID { get; set; }
+        public User Dentist { get; set; }
         public int PatientID { get; set; }
+        public User Patient { get; set; }
         public int ProcedureID { get; set; }
+        public Procedure Procedure { get; set; }
         public int AppointmentStatusID { get; set; }
     }
 }

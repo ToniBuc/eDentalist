@@ -105,6 +105,24 @@
     <Compile Include="Material\frmMaterialOverview.Designer.cs">
       <DependentUpon>frmMaterialOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patient\frmAnamnesis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient\frmAnamnesis.Designer.cs">
+      <DependentUpon>frmAnamnesis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\frmPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient\frmPatient.Designer.cs">
+      <DependentUpon>frmPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\frmPatientOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient\frmPatientOverview.Designer.cs">
+      <DependentUpon>frmPatientOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requisition\frmRequisition.cs">
@@ -157,6 +175,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Material\frmMaterialOverview.resx">
       <DependentUpon>frmMaterialOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient\frmAnamnesis.resx">
+      <DependentUpon>frmAnamnesis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient\frmPatient.resx">
+      <DependentUpon>frmPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient\frmPatientOverview.resx">
+      <DependentUpon>frmPatientOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -11,5 +11,9 @@ namespace eDentalist.Model
         public string Therapy { get; set; }
         public string AdditionalNotes { get; set; }
         public int AppointmentID { get; set; }
+        public Appointment Appointment { get; set; }
+        public string Procedure { get; set; }
+        public DateTime Date { get; set; }
+        public string DentistFullName { get; set; }
     }
 }
