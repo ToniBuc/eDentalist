@@ -42,12 +42,15 @@ namespace eDentalist.WinUI.Equipment
 
         private void dgvEquipment_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgvEquipment.SelectedRows[0].Cells[0].Value;
-            frmEquipment frm = new frmEquipment(int.Parse(id.ToString()));
-            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
+            if (!dgvEquipment.RowCount.Equals(0))
+            {
+                var id = dgvEquipment.SelectedRows[0].Cells[0].Value;
+                frmEquipment frm = new frmEquipment(int.Parse(id.ToString()));
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
         }
     }
 }

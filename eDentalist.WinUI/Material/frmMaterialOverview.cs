@@ -42,12 +42,15 @@ namespace eDentalist.WinUI.Material
 
         private void dgvMaterials_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgvMaterials.SelectedRows[0].Cells[0].Value;
-            frmMaterial frm = new frmMaterial(int.Parse(id.ToString()));
-            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
+            if (!dgvMaterials.RowCount.Equals(0))
+            {
+                var id = dgvMaterials.SelectedRows[0].Cells[0].Value;
+                frmMaterial frm = new frmMaterial(int.Parse(id.ToString()));
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
         }
     }
 }

@@ -55,13 +55,16 @@ namespace eDentalist.WinUI.Requisition
 
         private void dgvRequisitions_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgvRequisitions.SelectedRows[0].Cells[0].Value;
-            var name = dgvRequisitions.SelectedRows[0].Cells[1].Value;
-            frmRequisition frm = new frmRequisition(null, name.ToString(), int.Parse(id.ToString()));
-            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
+            if (!dgvRequisitions.RowCount.Equals(0))
+            {
+                var id = dgvRequisitions.SelectedRows[0].Cells[0].Value;
+                var name = dgvRequisitions.SelectedRows[0].Cells[1].Value;
+                frmRequisition frm = new frmRequisition(null, name.ToString(), int.Parse(id.ToString()));
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
         }
     }
 }
