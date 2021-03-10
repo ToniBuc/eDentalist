@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eDentalist.Model.Requests;
 using eDentalist.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,40 @@ namespace eDentalist.WebAPI.Services
 
         public override List<Model.Appointment> Get(AppointmentSearchRequest search)
         {
-            var query = _context.Set<Database.Appointment>().AsQueryable();
+            var query = _context.Set<Database.Appointment>().Include(i => i.Workday).Include(i => i.Dentist).Include(i => i.Patient)
+                .Include(i => i.AppointmentStatus).Include(i => i.Procedure).AsQueryable();
+            
+            bool isRequestNull = !string.IsNullOrWhiteSpace(search.Name);
 
-            if (search?.AppointmentID.HasValue == true)
+            if (isRequestNull)
             {
-                query = query.Where(x => x.AppointmentID == search.AppointmentID);
+                query = query.Where(x => x.Dentist.FirstName.Contains(search.Name) || x.Dentist.LastName.Contains(search.Name)
+                || x.Patient.FirstName.Contains(search.Name) || x.Patient.LastName.Contains(search.Name));
             }
-            query = query.OrderBy(x => x.Date);
+
+            query = query.OrderBy(x => x.Workday.Date);
 
             var list = query.ToList();
 
-            return _mapper.Map<List<Model.Appointment>>(list);
+            var result = _mapper.Map<List<Model.Appointment>>(list);
+
+            foreach(var x in result)
+            {
+                x.AppointmentStatusName = x.AppointmentStatus.Name;
+                x.ProcedureName = x.Procedure.Name;
+                if (x.DentistID != null)
+                {
+                    x.DentistName = x.Dentist.FirstName + " " + x.Dentist.LastName;
+                }
+                else
+                {
+                    x.DentistName = "(unassigned)";
+                }
+                x.PatientName = x.Patient.FirstName + " " + x.Patient.LastName;
+                x.Date = x.Workday.Date;
+            }
+
+            return result;
         }
 
         public override Model.Appointment Insert(AppointmentInsertRequest request)

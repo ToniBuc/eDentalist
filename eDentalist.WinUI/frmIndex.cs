@@ -1,4 +1,5 @@
-﻿using eDentalist.WinUI.Equipment;
+﻿using eDentalist.WinUI.Appointment;
+using eDentalist.WinUI.Equipment;
 using eDentalist.WinUI.HygieneProcess;
 using eDentalist.WinUI.Material;
 using eDentalist.WinUI.Patient;
@@ -163,6 +164,16 @@ namespace eDentalist.WinUI
         private void button1_Click(object sender, EventArgs e)
         {
             frmPatientOverview frm = new frmPatientOverview();
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmAppointmentOverview frm = new frmAppointmentOverview();
             frm.MdiParent = this;
             frm.FormBorderStyle = FormBorderStyle.FixedSingle;
             frm.MaximizeBox = false;

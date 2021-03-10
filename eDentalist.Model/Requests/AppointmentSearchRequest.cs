@@ -6,6 +6,6 @@ namespace eDentalist.Model.Requests
 {
     public class AppointmentSearchRequest
     {
-        public int? AppointmentID { get; set; }
+        public string Name { get; set; }
     }
 }

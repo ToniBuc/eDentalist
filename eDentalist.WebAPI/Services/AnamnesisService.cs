@@ -18,7 +18,7 @@ namespace eDentalist.WebAPI.Services
 
         public override List<Model.Anamnesis> Get(AnamnesisSearchRequest search)
         {
-            var query = _context.Set<Database.Anamnesis>().Include(i => i.Appointment).Include(i => i.Appointment.Procedure).AsQueryable();
+            var query = _context.Set<Database.Anamnesis>().Include(i => i.Appointment).Include(i => i.Appointment.Procedure).Include(i => i.Appointment.Workday).AsQueryable();
 
             //if (search?.AnamnesisID.HasValue == true)
             //{
@@ -28,7 +28,7 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.Appointment.PatientID == search.PatientID);
             }
-            query = query.OrderBy(x => x.Appointment.Date);
+            query = query.OrderBy(x => x.Appointment.Workday.Date);
 
             var list = query.ToList();
 
@@ -37,7 +37,7 @@ namespace eDentalist.WebAPI.Services
             foreach(var x in result)
             {
                 x.Procedure = x.Appointment.Procedure.Name;
-                x.Date = x.Appointment.Date;
+                x.Date = x.Appointment.Workday.Date;
             }
 
             return result;
@@ -45,12 +45,13 @@ namespace eDentalist.WebAPI.Services
 
         public override Model.Anamnesis GetById(int id)
         {
-            var entity = _context.Set<Database.Anamnesis>().Where(i => i.AnamnesisID == id).Include(i => i.Appointment).Include(i => i.Appointment.Procedure).Include(i => i.Appointment.Dentist).FirstOrDefault();
+            var entity = _context.Set<Database.Anamnesis>().Where(i => i.AnamnesisID == id).Include(i => i.Appointment).Include(i => i.Appointment.Procedure)
+                .Include(i => i.Appointment.Dentist).Include(i => i.Appointment.Workday).FirstOrDefault();
 
             var result = _mapper.Map<Model.Anamnesis>(entity);
 
             result.Procedure = result.Appointment.Procedure.Name;
-            result.Date = result.Appointment.Date;
+            result.Date = result.Appointment.Workday.Date;
             result.DentistFullName = result.Appointment.Dentist.FirstName + " " + result.Appointment.Dentist.LastName;
 
             return result;
