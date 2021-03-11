@@ -17,12 +17,13 @@ namespace eDentalist.WebAPI.Services
 
         public override List<Model.Workday> Get(WorkdaySearchRequest search)
         {
-            var query = _context.Set<Database.Workday>().AsQueryable();
+            var query = _context.Workday.AsQueryable();
 
-            if (search?.WorkdayID.HasValue == true)
+            if (search.Date != null)
             {
-                query = query.Where(x => x.WorkdayID == search.WorkdayID);
+                query = query.Where(i => i.Date.Date == search.Date.Date);
             }
+
             query = query.OrderBy(x => x.Date);
 
             var list = query.ToList();

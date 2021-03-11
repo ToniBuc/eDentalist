@@ -161,6 +161,18 @@
     <Compile Include="Staff\frmStaffMembers.Designer.cs">
       <DependentUpon>frmStaffMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkSchedule\frmNewWorkday.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSchedule\frmNewWorkday.Designer.cs">
+      <DependentUpon>frmNewWorkday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkSchedule\frmSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSchedule\frmSchedule.Designer.cs">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Appointment\frmAppointmentOverview.resx">
       <DependentUpon>frmAppointmentOverview.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +230,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\frmStaffMembers.resx">
       <DependentUpon>frmStaffMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSchedule\frmNewWorkday.resx">
+      <DependentUpon>frmNewWorkday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSchedule\frmSchedule.resx">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

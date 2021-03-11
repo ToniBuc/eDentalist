@@ -5,6 +5,7 @@ using eDentalist.WinUI.Material;
 using eDentalist.WinUI.Patient;
 using eDentalist.WinUI.Requisition;
 using eDentalist.WinUI.Staff;
+using eDentalist.WinUI.WorkSchedule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -174,6 +175,16 @@ namespace eDentalist.WinUI
         private void button2_Click(object sender, EventArgs e)
         {
             frmAppointmentOverview frm = new frmAppointmentOverview();
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            frmSchedule frm = new frmSchedule();
             frm.MdiParent = this;
             frm.FormBorderStyle = FormBorderStyle.FixedSingle;
             frm.MaximizeBox = false;

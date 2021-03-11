@@ -8,7 +8,14 @@ namespace eDentalist.Model
     {
         public int UserWorkdayID { get; set; }
         public int UserID { get; set; }
+        public User User { get; set; }
+        public string UserFullName { get; set; }
+        public string UserRole { get; set; }
         public int WorkdayID { get; set; }
+        public Workday Workday { get; set; }
+        public DateTime Date { get; set; }
         public int ShiftID { get; set; }
+        public Shift Shift { get; set; }
+        public int ShiftNumber { get; set; }
     }
 }

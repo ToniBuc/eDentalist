@@ -6,6 +6,7 @@ namespace eDentalist.Model.Requests
 {
     public class WorkdaySearchRequest
     {
-        public int? WorkdayID { get; set; }
+        //public int? WorkdayID { get; set; }
+        public DateTime Date { get; set; }
     }
 }
