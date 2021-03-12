@@ -23,10 +23,16 @@ namespace eDentalist.WebAPI.Services
             
             bool isRequestNull = !string.IsNullOrWhiteSpace(search.Name);
 
+
             if (isRequestNull)
             {
                 query = query.Where(x => x.Dentist.FirstName.Contains(search.Name) || x.Dentist.LastName.Contains(search.Name)
                 || x.Patient.FirstName.Contains(search.Name) || x.Patient.LastName.Contains(search.Name));
+            }
+
+            if (search.WorkdayID != null)
+            {
+                query = query.Where(x => x.WorkdayID == search.WorkdayID);
             }
 
             query = query.OrderBy(x => x.Workday.Date);

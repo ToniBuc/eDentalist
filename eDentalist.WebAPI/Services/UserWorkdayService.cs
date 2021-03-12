@@ -27,7 +27,7 @@ namespace eDentalist.WebAPI.Services
                 query = query.Where(x => x.User.FirstName.Contains(search.Name) || x.User.LastName.Contains(search.Name));
             }
 
-            query = query.OrderBy(x => x.Workday.Date);
+            query = query.OrderByDescending(x => x.Workday.Date);
 
             var list = query.ToList();
 
@@ -44,6 +44,14 @@ namespace eDentalist.WebAPI.Services
             return result;
         }
 
+        public override Model.UserWorkday GetById(int id)
+        {
+            var entity = _context.UserWorkday.Where(i => i.UserWorkdayID == id).Include(i => i.Workday).FirstOrDefault();
+            var result = _mapper.Map<Model.UserWorkday>(entity);
+            result.Date = result.Workday.Date;
+
+            return result;
+        }
 
         public override Model.UserWorkday Insert(UserWorkdayUpsertRequest request)
         {
@@ -53,6 +61,22 @@ namespace eDentalist.WebAPI.Services
             entity.WorkdayID = workday.WorkdayID;
 
             _context.UserWorkday.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.UserWorkday>(entity);
+        }
+
+        public override Model.UserWorkday Update(int id, UserWorkdayUpsertRequest request)
+        {
+            var workday = _context.Set<Database.Workday>().Where(i => i.Date.Date == request.Date.Date).FirstOrDefault();
+
+            var entity = _context.UserWorkday.Find(id);
+            _context.UserWorkday.Attach(entity);
+            _context.UserWorkday.Update(entity);
+
+            _mapper.Map(request, entity);
+            entity.WorkdayID = workday.WorkdayID;
+
             _context.SaveChanges();
 
             return _mapper.Map<Model.UserWorkday>(entity);

@@ -14,9 +14,11 @@ namespace eDentalist.WinUI.Appointment
     public partial class frmAppointmentOverview : Form
     {
         private readonly APIService _apiService = new APIService("Appointment");
-        public frmAppointmentOverview()
+        private int? _workdayId = null;
+        public frmAppointmentOverview(int ? workdayId = null)
         {
             InitializeComponent();
+            _workdayId = workdayId;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -29,6 +31,21 @@ namespace eDentalist.WinUI.Appointment
 
             dgvAppointments.AutoGenerateColumns = false;
             dgvAppointments.DataSource = result;
+        }
+
+        private async void frmAppointmentOverview_Load(object sender, EventArgs e)
+        {
+            if (_workdayId.HasValue)
+            {
+                var search = new AppointmentSearchRequest()
+                {
+                    WorkdayID = _workdayId
+                };
+                var result = await _apiService.Get<List<Model.Appointment>>(search);
+
+                dgvAppointments.AutoGenerateColumns = false;
+                dgvAppointments.DataSource = result;
+            }
         }
     }
 }

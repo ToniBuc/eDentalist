@@ -7,5 +7,6 @@ namespace eDentalist.Model.Requests
     public class AppointmentSearchRequest
     {
         public string Name { get; set; }
+        public int? WorkdayID { get; set; }
     }
 }

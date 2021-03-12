@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,16 +36,9 @@
             this.cmbShift = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.Location = new System.Drawing.Point(36, 92);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(238, 20);
-            this.dtpDate.TabIndex = 0;
-            this.dtpDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDate_Validating);
             // 
             // btnSave
             // 
@@ -78,6 +70,7 @@
             // 
             // cmbStaffMember
             // 
+            this.cmbStaffMember.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStaffMember.FormattingEnabled = true;
             this.cmbStaffMember.Location = new System.Drawing.Point(36, 47);
             this.cmbStaffMember.Name = "cmbStaffMember";
@@ -87,6 +80,7 @@
             // 
             // cmbShift
             // 
+            this.cmbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShift.FormattingEnabled = true;
             this.cmbShift.Location = new System.Drawing.Point(36, 136);
             this.cmbShift.Name = "cmbShift";
@@ -107,18 +101,26 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // dtpDate
+            // 
+            this.dtpDate.AllowDrop = true;
+            this.dtpDate.Location = new System.Drawing.Point(36, 93);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(238, 20);
+            this.dtpDate.TabIndex = 70;
+            // 
             // frmNewWorkday
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 331);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.cmbShift);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbStaffMember);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dtpDate);
             this.Name = "frmNewWorkday";
             this.Text = "frmNewWorkday";
             this.Load += new System.EventHandler(this.frmNewWorkday_Load);
@@ -129,8 +131,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -138,5 +138,6 @@
         private System.Windows.Forms.ComboBox cmbShift;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.DateTimePicker dtpDate;
     }
 }

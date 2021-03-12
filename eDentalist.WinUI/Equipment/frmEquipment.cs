@@ -83,8 +83,8 @@ namespace eDentalist.WinUI.Equipment
                 dtpDateLastUsed.Value = equipment.LastUsed;
                 rtxtDescription.Text = equipment.Description;
                 cbCondition.Checked = equipment.Condition;
-                cmbEquipmentType.SelectedItem = equipment.EquipmentTypeID;
-                cmbEquipmentType.SelectedText = equipment.EquipmentTypeName;
+                //cmbEquipmentType.SelectedItem = equipment.EquipmentTypeID;
+                //cmbEquipmentType.SelectedText = equipment.EquipmentTypeName;
                 cmbEquipmentType.SelectedValue = equipment.EquipmentTypeID;
             }
             else

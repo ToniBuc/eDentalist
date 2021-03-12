@@ -32,6 +32,9 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAddWorkday = new System.Windows.Forms.Button();
+            this.btnAppointments = new System.Windows.Forms.Button();
+            this.UserWorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dentist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +48,8 @@
             this.dgvSchedule.AllowUserToDeleteRows = false;
             this.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UserWorkdayID,
+            this.WorkdayID,
             this.Dentist,
             this.Role,
             this.Date,
@@ -52,8 +57,10 @@
             this.dgvSchedule.Location = new System.Drawing.Point(12, 65);
             this.dgvSchedule.Name = "dgvSchedule";
             this.dgvSchedule.ReadOnly = true;
+            this.dgvSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSchedule.Size = new System.Drawing.Size(776, 373);
             this.dgvSchedule.TabIndex = 0;
+            this.dgvSchedule.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSchedule_MouseDoubleClick);
             // 
             // txtSearch
             // 
@@ -81,6 +88,32 @@
             this.btnAddWorkday.Text = "Add workday";
             this.btnAddWorkday.UseVisualStyleBackColor = true;
             this.btnAddWorkday.Click += new System.EventHandler(this.btnAddWorkday_Click);
+            // 
+            // btnAppointments
+            // 
+            this.btnAppointments.Location = new System.Drawing.Point(96, 444);
+            this.btnAppointments.Name = "btnAppointments";
+            this.btnAppointments.Size = new System.Drawing.Size(116, 23);
+            this.btnAppointments.TabIndex = 4;
+            this.btnAppointments.Text = "Check appointments";
+            this.btnAppointments.UseVisualStyleBackColor = true;
+            this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
+            // 
+            // UserWorkdayID
+            // 
+            this.UserWorkdayID.DataPropertyName = "UserWorkdayID";
+            this.UserWorkdayID.HeaderText = "UserWorkdayID";
+            this.UserWorkdayID.Name = "UserWorkdayID";
+            this.UserWorkdayID.ReadOnly = true;
+            this.UserWorkdayID.Visible = false;
+            // 
+            // WorkdayID
+            // 
+            this.WorkdayID.DataPropertyName = "WorkdayID";
+            this.WorkdayID.HeaderText = "WorkdayID";
+            this.WorkdayID.Name = "WorkdayID";
+            this.WorkdayID.ReadOnly = true;
+            this.WorkdayID.Visible = false;
             // 
             // Dentist
             // 
@@ -117,6 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 531);
+            this.Controls.Add(this.btnAppointments);
             this.Controls.Add(this.btnAddWorkday);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
@@ -135,6 +169,9 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAddWorkday;
+        private System.Windows.Forms.Button btnAppointments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserWorkdayID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WorkdayID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dentist;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;

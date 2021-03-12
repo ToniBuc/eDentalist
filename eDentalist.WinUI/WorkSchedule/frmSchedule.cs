@@ -1,4 +1,5 @@
 ﻿using eDentalist.Model.Requests;
+using eDentalist.WinUI.Appointment;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,35 @@ namespace eDentalist.WinUI.WorkSchedule
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Show();
+        }
+
+        private void btnAppointments_Click(object sender, EventArgs e)
+        {
+            var id = dgvSchedule.SelectedRows[0].Cells[1].Value;
+            frmAppointmentOverview frm = new frmAppointmentOverview(int.Parse(id.ToString()));
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private async void dgvSchedule_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvSchedule.RowCount.Equals(0))
+            {
+                var id = dgvSchedule.SelectedRows[0].Cells[0].Value;
+
+                var dateCheck = await _apiService.GetById<Model.UserWorkday>(id);
+                var today = DateTime.Now;
+                if (dateCheck.Date.Date > today.Date)
+                {
+                    frmNewWorkday frm = new frmNewWorkday(int.Parse(id.ToString()));
+                    frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                    frm.MaximizeBox = false;
+                    frm.MinimizeBox = false;
+                    frm.Show();
+                }
+            }
         }
     }
 }

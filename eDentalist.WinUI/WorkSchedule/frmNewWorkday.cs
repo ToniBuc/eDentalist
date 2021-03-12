@@ -17,24 +17,29 @@ namespace eDentalist.WinUI.WorkSchedule
         private readonly APIService _workdayService = new APIService("Workday");
         private readonly APIService _userService = new APIService("User");
         private readonly APIService _shiftService = new APIService("Shift");
-       // private int? _id = null;
+        private int? _id = null;
         public frmNewWorkday(int ? id = null)
         {
             InitializeComponent();
-            //_id = id;
+            _id = id;
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            //dtpDate.Value.AddHours(-1);
             if (this.ValidateChildren())
             {
+                //had to add this and use it for setting the value of workdaySearchRequest because for some reason after passing through the Get for Workday the hours gets increased by one
+                //and then causes a bug where during the last hour of the day it would switch to the next day instead of staying on the assigned one, potentially crashing the app
+                var dateTemp = dtpDate.Value.AddHours(-1);
                 var request = new UserWorkdayUpsertRequest()
                 {
                     Date = dtpDate.Value
+                    
                 };
                 var workdaySearchRequest = new WorkdaySearchRequest()
                 {
-                    Date = dtpDate.Value
+                    Date = dateTemp
                 };
                 var workdayUpsertRequest = new WorkdayUpsertRequest()
                 {
@@ -61,7 +66,15 @@ namespace eDentalist.WinUI.WorkSchedule
                     await _workdayService.Insert<Model.Workday>(workdayUpsertRequest);
                 }
 
-                await _apiService.Insert<Model.UserWorkday>(request);
+                if (_id.HasValue)
+                {
+                    await _apiService.Update<Model.UserWorkday>(_id, request);
+                }
+                else
+                {
+                    await _apiService.Insert<Model.UserWorkday>(request);
+                }
+                
 
                 MessageBox.Show("Operation successful!");
             }
@@ -85,13 +98,31 @@ namespace eDentalist.WinUI.WorkSchedule
 
         private async void frmNewWorkday_Load(object sender, EventArgs e)
         {
+            dtpDate.Format = DateTimePickerFormat.Custom;
+            dtpDate.CustomFormat = "dd/MM/yyyy";
             await LoadUser();
             await LoadShift();
+            if (_id.HasValue)
+            {
+                var userWorkday = await _apiService.GetById<Model.UserWorkday>(_id);
+                dtpDate.Value = userWorkday.Date;
+                cmbStaffMember.SelectedItem = userWorkday.UserID;
+                cmbStaffMember.SelectedText = userWorkday.UserFullName;
+                cmbStaffMember.SelectedValue = userWorkday.UserID;
+                cmbShift.SelectedItem = userWorkday.ShiftID;
+                cmbShift.SelectedText = userWorkday.ShiftNumber.ToString();
+                cmbShift.SelectedValue = userWorkday.ShiftID;
+            }
         }
 
         private void cmbStaffMember_Validating(object sender, CancelEventArgs e)
         {
-            if (cmbStaffMember.SelectedValue.Equals(0))
+            if (cmbStaffMember.SelectedValue == null)
+            {
+                errorProvider.SetError(cmbStaffMember, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else if (cmbStaffMember.SelectedValue.Equals(0))
             {
                 errorProvider.SetError(cmbStaffMember, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
@@ -104,7 +135,12 @@ namespace eDentalist.WinUI.WorkSchedule
 
         private void cmbShift_Validating(object sender, CancelEventArgs e)
         {
-            if (cmbShift.SelectedValue.Equals(0))
+            if (cmbShift.SelectedValue == null)
+            {
+                errorProvider.SetError(cmbShift, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else if (cmbShift.SelectedValue.Equals(0))
             {
                 errorProvider.SetError(cmbShift, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
