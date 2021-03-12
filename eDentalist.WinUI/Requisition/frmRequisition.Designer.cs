@@ -106,6 +106,7 @@
             // 
             // cmbRequisitionedBy
             // 
+            this.cmbRequisitionedBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRequisitionedBy.FormattingEnabled = true;
             this.cmbRequisitionedBy.Location = new System.Drawing.Point(60, 223);
             this.cmbRequisitionedBy.Name = "cmbRequisitionedBy";

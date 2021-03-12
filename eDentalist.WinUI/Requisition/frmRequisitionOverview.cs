@@ -50,6 +50,7 @@ namespace eDentalist.WinUI.Requisition
 
         private async void frmRequisitionOverview_Load(object sender, EventArgs e)
         {
+            dgvRequisitions.Columns["DateRequisitioned"].DefaultCellStyle.Format = "dd/MM/yyyy";
             await LoadRequisitionType();
         }
 

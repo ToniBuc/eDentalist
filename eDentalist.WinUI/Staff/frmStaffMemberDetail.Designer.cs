@@ -44,7 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbGender = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAppointments = new System.Windows.Forms.DataGridView();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -60,8 +60,10 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.cmbCity = new System.Windows.Forms.ComboBox();
+            this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,16 +198,19 @@
             this.cmbGender.TabIndex = 15;
             this.cmbGender.Validating += new System.ComponentModel.CancelEventHandler(this.cmbGender_Validating);
             // 
-            // dataGridView1
+            // dgvAppointments
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(321, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 482);
-            this.dataGridView1.TabIndex = 17;
+            this.dgvAppointments.AllowUserToAddRows = false;
+            this.dgvAppointments.AllowUserToDeleteRows = false;
+            this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Procedure,
+            this.Date});
+            this.dgvAppointments.Location = new System.Drawing.Point(321, 53);
+            this.dgvAppointments.Name = "dgvAppointments";
+            this.dgvAppointments.ReadOnly = true;
+            this.dgvAppointments.Size = new System.Drawing.Size(278, 531);
+            this.dgvAppointments.TabIndex = 17;
             // 
             // dtpDateOfBirth
             // 
@@ -332,11 +337,26 @@
             this.cmbCity.TabIndex = 30;
             this.cmbCity.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCity_Validating);
             // 
+            // Procedure
+            // 
+            this.Procedure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Procedure.DataPropertyName = "ProcedureName";
+            this.Procedure.HeaderText = "Procedure";
+            this.Procedure.Name = "Procedure";
+            this.Procedure.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
             // frmStaffMemberDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 643);
+            this.ClientSize = new System.Drawing.Size(611, 643);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cmbCity);
             this.Controls.Add(this.cmbUserRole);
@@ -351,7 +371,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.dtpDateOfBirth);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAppointments);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbGender);
             this.Controls.Add(this.label7);
@@ -371,7 +391,7 @@
             this.Text = "frmStaffMemberDetail";
             this.Load += new System.EventHandler(this.frmStaffMemberDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -395,7 +415,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbGender;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAppointments;
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtAddress;
@@ -411,5 +431,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmbCity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Procedure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
     }
 }

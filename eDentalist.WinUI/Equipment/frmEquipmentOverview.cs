@@ -52,5 +52,11 @@ namespace eDentalist.WinUI.Equipment
                 frm.Show();
             }
         }
+
+        private void frmEquipmentOverview_Load(object sender, EventArgs e)
+        {
+            dgvEquipment.Columns["DateAdded"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvEquipment.Columns["DateLastUsed"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
     }
 }

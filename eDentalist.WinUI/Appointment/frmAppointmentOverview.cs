@@ -35,6 +35,7 @@ namespace eDentalist.WinUI.Appointment
 
         private async void frmAppointmentOverview_Load(object sender, EventArgs e)
         {
+            dgvAppointments.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
             if (_workdayId.HasValue)
             {
                 var search = new AppointmentSearchRequest()

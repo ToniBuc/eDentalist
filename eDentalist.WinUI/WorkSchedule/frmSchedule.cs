@@ -70,5 +70,10 @@ namespace eDentalist.WinUI.WorkSchedule
                 }
             }
         }
+
+        private void frmSchedule_Load(object sender, EventArgs e)
+        {
+            dgvSchedule.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
     }
 }

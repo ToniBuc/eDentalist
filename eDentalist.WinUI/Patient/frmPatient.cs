@@ -24,6 +24,7 @@ namespace eDentalist.WinUI.Patient
 
         private async void frmPatient_Load(object sender, EventArgs e)
         {
+            dgvAnamneses.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
             //dgvAnamneses.AllowUserToAddRows = false;
             if (_id.HasValue)
             {

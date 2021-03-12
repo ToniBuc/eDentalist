@@ -143,6 +143,7 @@
             this.Controls.Add(this.dgvMaterials);
             this.Name = "frmMaterialOverview";
             this.Text = "frmMaterialOverview";
+            this.Load += new System.EventHandler(this.frmMaterialOverview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterials)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -18,6 +18,7 @@ namespace eDentalist.WinUI.Staff
         private readonly APIService _genderService = new APIService("Gender");
         private readonly APIService _userRoleService = new APIService("UserRole");
         private readonly APIService _cityService = new APIService("City");
+        private readonly APIService _appService = new APIService("Appointment");
         private int? _id = null;
         public frmStaffMemberDetail(int? userId = null)
         {
@@ -96,6 +97,16 @@ namespace eDentalist.WinUI.Staff
         {
             if (_id.HasValue)
             {
+                dgvAppointments.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                var search = new AppointmentSearchRequest()
+                {
+                    DentistID = _id
+                };
+                var result = await _appService.Get<List<Model.Appointment>>(search);
+
+                dgvAppointments.AutoGenerateColumns = false;
+                dgvAppointments.DataSource = result;
+
                 var user = await _service.GetById<Model.User>(_id);
 
                 //loading in image

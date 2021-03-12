@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvEquipment = new System.Windows.Forms.DataGridView();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnAddNew = new System.Windows.Forms.Button();
             this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipmentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +37,9 @@
             this.DateLastUsed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condition = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnAddNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,33 +64,6 @@
             this.dgvEquipment.Size = new System.Drawing.Size(935, 383);
             this.dgvEquipment.TabIndex = 0;
             this.dgvEquipment.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvEquipment_MouseDoubleClick);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(281, 27);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(12, 29);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(262, 20);
-            this.txtSearch.TabIndex = 5;
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Location = new System.Drawing.Point(12, 444);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNew.TabIndex = 7;
-            this.btnAddNew.Text = "Add new";
-            this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // EquipmentID
             // 
@@ -154,6 +127,33 @@
             this.Condition.ReadOnly = true;
             this.Condition.Width = 57;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(281, 27);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(12, 29);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(262, 20);
+            this.txtSearch.TabIndex = 5;
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(12, 444);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNew.TabIndex = 7;
+            this.btnAddNew.Text = "Add new";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
             // frmEquipmentOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +165,7 @@
             this.Controls.Add(this.dgvEquipment);
             this.Name = "frmEquipmentOverview";
             this.Text = "frmEquipmentOverview";
+            this.Load += new System.EventHandler(this.frmEquipmentOverview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -21,6 +21,7 @@ namespace eDentalist.WinUI.HygieneProcess
         }
         private async void frmHygieneProcessOverview_Load(object sender, EventArgs e)
         {
+            dgvHygieneProcesses.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
             await LoadHygieneProcessType();
         }
 

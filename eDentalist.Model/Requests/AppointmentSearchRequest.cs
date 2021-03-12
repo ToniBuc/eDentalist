@@ -8,5 +8,6 @@ namespace eDentalist.Model.Requests
     {
         public string Name { get; set; }
         public int? WorkdayID { get; set; }
+        public int? DentistID { get; set; }
     }
 }

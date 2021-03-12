@@ -52,5 +52,11 @@ namespace eDentalist.WinUI.Material
                 frm.Show();
             }
         }
+
+        private void frmMaterialOverview_Load(object sender, EventArgs e)
+        {
+            dgvMaterials.Columns["DateAdded"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvMaterials.Columns["DateLastUsed"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
     }
 }

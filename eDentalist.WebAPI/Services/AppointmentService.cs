@@ -35,6 +35,11 @@ namespace eDentalist.WebAPI.Services
                 query = query.Where(x => x.WorkdayID == search.WorkdayID);
             }
 
+            if (search.DentistID != null)
+            {
+                query = query.Where(x => x.DentistID == search.DentistID);
+            }
+
             query = query.OrderBy(x => x.Workday.Date);
 
             var list = query.ToList();
