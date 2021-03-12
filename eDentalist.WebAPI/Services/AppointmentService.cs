@@ -22,7 +22,7 @@ namespace eDentalist.WebAPI.Services
                 .Include(i => i.AppointmentStatus).Include(i => i.Procedure).AsQueryable();
             
             bool isRequestNull = !string.IsNullOrWhiteSpace(search.Name);
-
+            query = query.OrderByDescending(x => x.Workday.Date);
 
             if (isRequestNull)
             {
@@ -40,7 +40,11 @@ namespace eDentalist.WebAPI.Services
                 query = query.Where(x => x.DentistID == search.DentistID);
             }
 
-            query = query.OrderBy(x => x.Workday.Date);
+            if (search.Date.Date == DateTime.Now.Date)
+            {
+                query = query.Where(x => x.Workday.Date.Date == search.Date.Date && x.From > search.Time);
+                query = query.OrderBy(x => x.From);
+            }
 
             var list = query.ToList();
 

@@ -34,6 +34,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSchedule = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnRequisition = new System.Windows.Forms.Button();
@@ -41,9 +42,15 @@
             this.btnMaterial = new System.Windows.Forms.Button();
             this.btnHygiene = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSchedule = new System.Windows.Forms.Button();
+            this.dgvAppointments = new System.Windows.Forms.DataGridView();
+            this.AssignedDentist = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -88,6 +95,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 605);
             this.panel1.TabIndex = 5;
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.Location = new System.Drawing.Point(12, 385);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(193, 38);
+            this.btnSchedule.TabIndex = 11;
+            this.btnSchedule.Text = "Schedule";
+            this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // button2
             // 
@@ -157,22 +175,61 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dgvAppointments);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(220, 457);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(852, 148);
             this.panel2.TabIndex = 6;
             // 
-            // btnSchedule
+            // dgvAppointments
             // 
-            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSchedule.Location = new System.Drawing.Point(12, 385);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(193, 38);
-            this.btnSchedule.TabIndex = 11;
-            this.btnSchedule.Text = "Schedule";
-            this.btnSchedule.UseVisualStyleBackColor = true;
-            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            this.dgvAppointments.AllowUserToAddRows = false;
+            this.dgvAppointments.AllowUserToDeleteRows = false;
+            this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AssignedDentist,
+            this.Patient,
+            this.Procedure,
+            this.StartTime});
+            this.dgvAppointments.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvAppointments.Enabled = false;
+            this.dgvAppointments.Location = new System.Drawing.Point(0, 0);
+            this.dgvAppointments.Name = "dgvAppointments";
+            this.dgvAppointments.ReadOnly = true;
+            this.dgvAppointments.Size = new System.Drawing.Size(852, 148);
+            this.dgvAppointments.TabIndex = 0;
+            // 
+            // AssignedDentist
+            // 
+            this.AssignedDentist.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AssignedDentist.DataPropertyName = "DentistName";
+            this.AssignedDentist.HeaderText = "Assigned dentist";
+            this.AssignedDentist.Name = "AssignedDentist";
+            this.AssignedDentist.ReadOnly = true;
+            // 
+            // Patient
+            // 
+            this.Patient.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Patient.DataPropertyName = "PatientName";
+            this.Patient.HeaderText = "Patient";
+            this.Patient.Name = "Patient";
+            this.Patient.ReadOnly = true;
+            // 
+            // Procedure
+            // 
+            this.Procedure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Procedure.DataPropertyName = "ProcedureName";
+            this.Procedure.HeaderText = "Procedure";
+            this.Procedure.Name = "Procedure";
+            this.Procedure.ReadOnly = true;
+            // 
+            // StartTime
+            // 
+            this.StartTime.DataPropertyName = "From";
+            this.StartTime.HeaderText = "Start time";
+            this.StartTime.Name = "StartTime";
+            this.StartTime.ReadOnly = true;
             // 
             // frmIndex
             // 
@@ -186,9 +243,12 @@
             this.Name = "frmIndex";
             this.Text = "frmIndex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmIndex_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,6 +268,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.DataGridView dgvAppointments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssignedDentist;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Patient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Procedure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
     }
 }
 

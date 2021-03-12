@@ -1,4 +1,5 @@
-﻿using eDentalist.WinUI.Appointment;
+﻿using eDentalist.Model.Requests;
+using eDentalist.WinUI.Appointment;
 using eDentalist.WinUI.Equipment;
 using eDentalist.WinUI.HygieneProcess;
 using eDentalist.WinUI.Material;
@@ -21,7 +22,7 @@ namespace eDentalist.WinUI
     public partial class frmIndex : Form
     {
         private int childFormNumber = 0;
-
+        private readonly APIService _apiService = new APIService("Appointment");
         public frmIndex()
         {
             InitializeComponent();
@@ -190,6 +191,22 @@ namespace eDentalist.WinUI
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Show();
+        }
+
+        private async void frmIndex_Load(object sender, EventArgs e)
+        {
+            var search = new AppointmentSearchRequest()
+            {
+                //hours need to be lowered by one because for an unknown reason after search gets passed into the Get, it increases the date by an hour (possible timezone issue somehow?)
+                Date = DateTime.Now.AddHours(-1),
+                Time = DateTime.Now.TimeOfDay
+            };
+            var result = await _apiService.Get<List<Model.Appointment>>(search);
+
+            dgvAppointments.AutoGenerateColumns = false;
+            dgvAppointments.DataSource = result;
+
+            dgvAppointments.ClearSelection();
         }
     }
 }
