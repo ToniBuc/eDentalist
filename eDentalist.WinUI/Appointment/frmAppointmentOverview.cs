@@ -48,5 +48,18 @@ namespace eDentalist.WinUI.Appointment
                 dgvAppointments.DataSource = result;
             }
         }
+
+        private void dgvAppointments_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvAppointments.RowCount.Equals(0))
+            {
+                var id = dgvAppointments.SelectedRows[0].Cells[0].Value;
+                frmAppointment frm = new frmAppointment(int.Parse(id.ToString()));
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
+        }
     }
 }

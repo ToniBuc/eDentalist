@@ -69,6 +69,24 @@ namespace eDentalist.WebAPI.Services
             return result;
         }
 
+        public override Model.Appointment GetById(int id)
+        {
+            var entity = _context.Appointment.Where(i => i.AppointmentID == id).Include(i => i.AppointmentStatus).Include(i => i.Dentist)
+                .Include(i => i.Patient).Include(i => i.Procedure).Include(i => i.Workday).FirstOrDefault();
+
+            var result = _mapper.Map<Model.Appointment>(entity);
+            result.AppointmentStatusName = result.AppointmentStatus.Name;
+            result.ProcedureName = result.Procedure.Name;
+            if (result.DentistID.HasValue)
+            {
+                result.DentistName = result.Dentist.FirstName + " " + result.Dentist.LastName;
+            }
+            result.PatientName = result.Patient.FirstName + " " + result.Patient.LastName;
+            result.Date = result.Workday.Date;
+
+            return result;
+        }
+
         public override Model.Appointment Insert(AppointmentInsertRequest request)
         {
             var entity = _mapper.Map<Database.Appointment>(request);
@@ -82,6 +100,30 @@ namespace eDentalist.WebAPI.Services
             _context.SaveChanges();
 
             return _mapper.Map<Model.Appointment>(entity);
+        }
+
+        public override Model.Appointment Update(int id, AppointmentUpdateRequest request)
+        {
+
+            var entity = _context.Appointment.Find(id);
+            _context.Appointment.Attach(entity);
+            _context.Appointment.Update(entity);
+
+            if (request.DentistID == 0)
+            {
+                entity.AppointmentStatusID = request.AppointmentStatusID;
+                entity.DentistID = null;
+            }
+            else
+            {
+                _mapper.Map(request, entity);
+            }
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Appointment>(entity);
+
+
         }
     }
 }

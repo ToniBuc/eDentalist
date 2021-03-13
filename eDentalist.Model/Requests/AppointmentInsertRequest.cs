@@ -12,6 +12,6 @@ namespace eDentalist.Model.Requests
         //public int DentistID { get; set; }
         public int PatientID { get; set; }
         public int ProcedureID { get; set; }
-        //public int AppointmentStatusID { get; set; }
+        public int AppointmentStatusID { get; set; }
     }
 }

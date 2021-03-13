@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.dgvAppointments = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.AppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AssignedDentist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.dgvAppointments.AllowUserToDeleteRows = false;
             this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AppointmentID,
             this.AssignedDentist,
             this.Patient,
             this.Procedure,
@@ -53,8 +55,35 @@
             this.dgvAppointments.Location = new System.Drawing.Point(12, 66);
             this.dgvAppointments.Name = "dgvAppointments";
             this.dgvAppointments.ReadOnly = true;
+            this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAppointments.Size = new System.Drawing.Size(859, 372);
             this.dgvAppointments.TabIndex = 0;
+            this.dgvAppointments.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvAppointments_MouseDoubleClick);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(13, 40);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(244, 20);
+            this.txtSearch.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(264, 38);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // AppointmentID
+            // 
+            this.AppointmentID.DataPropertyName = "AppointmentID";
+            this.AppointmentID.HeaderText = "AppointmentID";
+            this.AppointmentID.Name = "AppointmentID";
+            this.AppointmentID.ReadOnly = true;
+            this.AppointmentID.Visible = false;
             // 
             // AssignedDentist
             // 
@@ -95,23 +124,6 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(13, 40);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(244, 20);
-            this.txtSearch.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(264, 38);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // frmAppointmentOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +146,7 @@
         private System.Windows.Forms.DataGridView dgvAppointments;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn AssignedDentist;
         private System.Windows.Forms.DataGridViewTextBoxColumn Patient;
         private System.Windows.Forms.DataGridViewTextBoxColumn Procedure;

@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="Appointment\frmAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointment\frmAppointment.Designer.cs">
+      <DependentUpon>frmAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Appointment\frmAppointmentOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     <Compile Include="WorkSchedule\frmSchedule.Designer.cs">
       <DependentUpon>frmSchedule.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Appointment\frmAppointment.resx">
+      <DependentUpon>frmAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Appointment\frmAppointmentOverview.resx">
       <DependentUpon>frmAppointmentOverview.cs</DependentUpon>
     </EmbeddedResource>
