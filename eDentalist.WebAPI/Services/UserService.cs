@@ -55,7 +55,7 @@ namespace eDentalist.WebAPI.Services
             System.Buffer.BlockCopy(src, 0, dst, 0, src.Length);
             System.Buffer.BlockCopy(bytes, 0, dst, src.Length, bytes.Length);
 
-            HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
+            HashAlgorithm algorithm = HashAlgorithm.Create("SHA512");
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
         }
@@ -65,21 +65,10 @@ namespace eDentalist.WebAPI.Services
 
             bool isRequestNull = !string.IsNullOrWhiteSpace(request.FirstName) || !string.IsNullOrWhiteSpace(request.LastName);
 
-            //if (!string.IsNullOrWhiteSpace(request?.Ime))
-            //{
-            //    query = query.Where(x => x.Ime.StartsWith(request.Ime));
-            //}
-            //if (!string.IsNullOrWhiteSpace(request?.Prezime))
-            //{
-            //    query = query.Where(x => x.Prezime.StartsWith(request.Prezime));
-            //}
-
             if (isRequestNull)
             {
                 query = query.Where(i => (!string.IsNullOrWhiteSpace(request.FirstName) && i.FirstName.StartsWith(request.FirstName)) || (!string.IsNullOrWhiteSpace(request.LastName) && i.LastName.StartsWith(request.LastName)));
             }
-
-
 
             var list = query.ToList();
 
