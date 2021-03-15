@@ -38,6 +38,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.btnReportStaff = new System.Windows.Forms.Button();
+            this.btnCity = new System.Windows.Forms.Button();
             this.StaffMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).BeginInit();
             this.SuspendLayout();
@@ -122,20 +123,30 @@
             // 
             this.btnAddStaff.Location = new System.Drawing.Point(15, 435);
             this.btnAddStaff.Name = "btnAddStaff";
-            this.btnAddStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnAddStaff.Size = new System.Drawing.Size(81, 23);
             this.btnAddStaff.TabIndex = 3;
-            this.btnAddStaff.Text = "Add new";
+            this.btnAddStaff.Text = "Add new staff";
             this.btnAddStaff.UseVisualStyleBackColor = true;
             this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
             // 
             // btnReportStaff
             // 
-            this.btnReportStaff.Location = new System.Drawing.Point(283, 435);
+            this.btnReportStaff.Location = new System.Drawing.Point(277, 435);
             this.btnReportStaff.Name = "btnReportStaff";
-            this.btnReportStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnReportStaff.Size = new System.Drawing.Size(81, 23);
             this.btnReportStaff.TabIndex = 4;
             this.btnReportStaff.Text = "Report";
             this.btnReportStaff.UseVisualStyleBackColor = true;
+            // 
+            // btnCity
+            // 
+            this.btnCity.Location = new System.Drawing.Point(102, 435);
+            this.btnCity.Name = "btnCity";
+            this.btnCity.Size = new System.Drawing.Size(81, 23);
+            this.btnCity.TabIndex = 5;
+            this.btnCity.Text = "Cities";
+            this.btnCity.UseVisualStyleBackColor = true;
+            this.btnCity.Click += new System.EventHandler(this.btnCity_Click);
             // 
             // frmStaffMembers
             // 
@@ -143,6 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(375, 540);
+            this.Controls.Add(this.btnCity);
             this.Controls.Add(this.btnReportStaff);
             this.Controls.Add(this.btnAddStaff);
             this.Controls.Add(this.txtSearch);
@@ -169,5 +181,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffRole;
+        private System.Windows.Forms.Button btnCity;
     }
 }

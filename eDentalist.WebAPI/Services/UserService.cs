@@ -112,18 +112,6 @@ namespace eDentalist.WebAPI.Services
             _context.User.Add(entity);
             _context.SaveChanges();
 
-            //foreach (var uloga in request.Uloge)
-            //{
-            //    _context.KorisniciUloge.Add(new Database.KorisniciUloge()
-            //    {
-            //        DatumIzmjene = DateTime.Now,
-            //        KorisnikId = entity.KorisnikId,
-            //        UlogaId = uloga
-            //    });
-            //}
-
-           // _context.SaveChanges();
-
             return _mapper.Map<Model.User>(entity);
         }
 

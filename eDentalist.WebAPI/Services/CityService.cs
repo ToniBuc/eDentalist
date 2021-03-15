@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eDentalist.Model.Requests;
 using eDentalist.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,19 @@ namespace eDentalist.WebAPI.Services
 
         public override List<Model.City> Get(CitySearchRequest search)
         {
-            var query = _context.Set<Database.City>().AsQueryable();
+            var query = _context.Set<Database.City>().Include(i => i.Country).AsQueryable();
 
-            if (search?.CityID.HasValue == true)
+            if (!string.IsNullOrWhiteSpace(search.CityName) && !string.IsNullOrWhiteSpace(search.CountryName))
             {
-                query = query.Where(x => x.CityID == search.CityID);
+                query = query.Where(x => x.Name.Contains(search.CityName) && x.Country.Name.Contains(search.CountryName));
+            }
+            else if (!string.IsNullOrWhiteSpace(search.CityName) && string.IsNullOrWhiteSpace(search.CountryName))
+            {
+                query = query.Where(x => x.Name.Contains(search.CityName));
+            }
+            else if (!string.IsNullOrWhiteSpace(search.CountryName) && string.IsNullOrWhiteSpace(search.CityName))
+            {
+                query = query.Where(x => x.Country.Name.Contains(search.CountryName));
             }
             query = query.OrderBy(x => x.Country.Name); // !! KEEP IN MIND
 

@@ -64,5 +64,14 @@ namespace eDentalist.WinUI.Staff
             frm.MinimizeBox = false;
             frm.Show();
         }
+
+        private void btnCity_Click(object sender, EventArgs e)
+        {
+            frmCityOverview frm = new frmCityOverview();
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
     }
 }
