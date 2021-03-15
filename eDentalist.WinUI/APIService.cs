@@ -11,6 +11,8 @@ namespace eDentalist.WinUI
 {
     public class APIService
     {
+        public static string Username { get; set; }
+        public static string Password { get; set; }
         private string _route = null;
         public APIService(string route)
         {
@@ -28,7 +30,7 @@ namespace eDentalist.WinUI
                 url += await search.ToQueryString();
             }
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
             return result;
         }
@@ -44,7 +46,7 @@ namespace eDentalist.WinUI
                 url += await search.ToQueryString();
             }
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
             return result;
         }
@@ -54,7 +56,7 @@ namespace eDentalist.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
             return result;
         }
@@ -64,7 +66,7 @@ namespace eDentalist.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
-            var result = await url.PostJsonAsync(request).ReceiveJson<T>();
+            var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
             return result;
         }
@@ -74,7 +76,7 @@ namespace eDentalist.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            var result = await url.PutJsonAsync(request).ReceiveJson<T>();
+            var result = await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
 
             return result;
         }

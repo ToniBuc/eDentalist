@@ -59,11 +59,15 @@ namespace eDentalist.WinUI.Staff
                     request.CityID = cityId;
                 }
 
-
-
-                await _service.Insert<Model.User>(request);
-
-                MessageBox.Show("Operation successful!");
+                try
+                {
+                    await _service.Insert<Model.User>(request);
+                    MessageBox.Show("Operation successful!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Authorization", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             
         }

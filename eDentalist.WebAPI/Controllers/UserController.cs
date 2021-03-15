@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using eDentalist.Model.Requests;
 using eDentalist.WebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace eDentalist.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _service;
@@ -34,7 +36,7 @@ namespace eDentalist.WebAPI.Controllers
             return _service.GetById(id);
         }
 
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public Model.User Insert(UserInsertRequest request)
         {

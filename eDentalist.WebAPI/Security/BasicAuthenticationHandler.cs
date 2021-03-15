@@ -62,11 +62,6 @@ namespace eDentalist.WebAPI.Security
                 new Claim(ClaimTypes.Name, user.FirstName),
             };
 
-            //foreach (var role in user.KorisniciUloge)
-            //{
-            //    claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
-            //}
-
             claims.Add(new Claim(ClaimTypes.Role, user.UserRole.Name)); // keep in mind, not a 100% sure about this!!!
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);
