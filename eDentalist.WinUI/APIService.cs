@@ -13,6 +13,9 @@ namespace eDentalist.WinUI
     {
         public static string Username { get; set; }
         public static string Password { get; set; }
+        public static string Role { get; set; }
+        public static int UserID { get; set; }
+
         private string _route = null;
         public APIService(string route)
         {
@@ -77,6 +80,16 @@ namespace eDentalist.WinUI
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
             var result = await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+
+            return result;
+        }
+
+        public async Task<T> Login<T>(object request)
+        {
+
+            var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
+
+            var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
             return result;
         }

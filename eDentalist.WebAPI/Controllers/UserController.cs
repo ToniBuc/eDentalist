@@ -48,5 +48,11 @@ namespace eDentalist.WebAPI.Controllers
         {
             return _service.Update(id, request);
         }
+
+        [HttpPost("Login")]
+        public Model.User Login(UserLoginRequest request)
+        {
+            return _service.Login(request);
+        }
     }
 }

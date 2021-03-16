@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eDentalist.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,8 @@ namespace eDentalist.WinUI
 {
     public partial class frmLogin : Form
     {
-        private readonly APIService _apiService = new APIService("Material"); //temporary
+        //private readonly APIService _apiService = new APIService("Material"); //temporary
+        private readonly APIService _apiService = new APIService("User/Login");
         public frmLogin()
         {
             InitializeComponent();
@@ -24,7 +26,16 @@ namespace eDentalist.WinUI
             {
                 APIService.Username = txtUsername.Text;
                 APIService.Password = txtPassword.Text;
-                await _apiService.Get<dynamic>(null);
+
+                var login = new UserLoginRequest()
+                {
+                    Username = txtUsername.Text,
+                    Password = txtPassword.Text
+                };
+
+                var userLogin = await _apiService.Login<Model.User>(login);
+                APIService.Role = userLogin.UserRole.Name;
+                APIService.UserID = userLogin.UserID;
 
                 frmIndex frm = new frmIndex();
                 frm.Show();
