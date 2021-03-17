@@ -48,21 +48,36 @@ namespace eDentalist.WinUI.Staff
             if (!dgvStaffMembers.RowCount.Equals(0))
             {
                 var id = dgvStaffMembers.SelectedRows[0].Cells[0].Value;
-                frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
-                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-                frm.MaximizeBox = false;
-                frm.MinimizeBox = false;
-                frm.Show();
+                if (APIService.UserID == int.Parse(id.ToString()) || APIService.Role == "Administrator")
+                {
+                    frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
+                    frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                    frm.MaximizeBox = false;
+                    frm.MinimizeBox = false;
+                    frm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("You do not have permission to access this user's information!", "Authorization", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
-            frmNewStaffMember frm = new frmNewStaffMember();
-            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
+            if (APIService.Role == "Administrator")
+            {
+                frmNewStaffMember frm = new frmNewStaffMember();
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have permission to access this function!", "Authorization", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void btnCity_Click(object sender, EventArgs e)

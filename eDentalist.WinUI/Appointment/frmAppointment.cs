@@ -58,9 +58,18 @@ namespace eDentalist.WinUI.Appointment
                     request.AppointmentStatusID = statusId;
                 }
                 
-                await _apiService.Update<Model.Appointment>(_id, request);
+                if (APIService.UserID == request.DentistID || APIService.Role == "Administrator")
+                {
+                    await _apiService.Update<Model.Appointment>(_id, request);
 
-                MessageBox.Show("Operation successful!");
+                    MessageBox.Show("Operation successful!");
+                }
+                else
+                {
+                    MessageBox.Show("You do not have permission to assign this staff member to an appointment!", "Authorization", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                
             }
         }
 
