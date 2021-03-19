@@ -36,6 +36,9 @@ namespace eDentalist.Mobile.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.Procedures:
+                        MenuPages.Add(id, new NavigationPage(new ProceduresPage()));
+                        break;
                 }
             }
 

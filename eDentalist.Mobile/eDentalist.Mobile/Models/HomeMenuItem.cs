@@ -7,7 +7,8 @@ namespace eDentalist.Mobile.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        Procedures
     }
     public class HomeMenuItem
     {
