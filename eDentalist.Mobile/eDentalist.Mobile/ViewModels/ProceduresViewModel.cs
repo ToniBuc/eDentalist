@@ -9,12 +9,27 @@ using Xamarin.Forms;
 
 namespace eDentalist.Mobile.ViewModels
 {
-    public class ProceduresViewModel
+    public class ProceduresViewModel : BaseViewModel
     {
         private readonly APIService _procedureService = new APIService("Procedure");
         public ProceduresViewModel()
         {
             InitCommand = new Command(async () => await Init());
+        }
+
+        private string _searchText = null;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                SetProperty(ref _searchText, value);
+                if (value != null)
+                {
+                    InitCommand.Execute(null);
+                }
+            }
+
         }
 
         public ObservableCollection<Procedure> ProcedureList { get; set; } = new ObservableCollection<Procedure>();
@@ -26,9 +41,23 @@ namespace eDentalist.Mobile.ViewModels
             var list = await _procedureService.Get<IEnumerable<Model.Procedure>>(null);
 
             ProcedureList.Clear();
-            foreach(var x in list)
+            if (_searchText != null)
             {
-                ProcedureList.Add(x);
+                var normalizedQuery = _searchText?.ToLower() ?? "";
+                foreach (var x in list)
+                {
+                    if (x.Name.ToLowerInvariant().Contains(normalizedQuery))
+                    {
+                        ProcedureList.Add(x);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var x in list)
+                {
+                    ProcedureList.Add(x);
+                }
             }
         }
     }

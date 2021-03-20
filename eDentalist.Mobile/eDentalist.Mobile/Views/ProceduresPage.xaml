@@ -33,6 +33,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>-->
+            <SearchBar Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}"></SearchBar>
             <CollectionView ItemsSource="{Binding ProcedureList}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="3" />
