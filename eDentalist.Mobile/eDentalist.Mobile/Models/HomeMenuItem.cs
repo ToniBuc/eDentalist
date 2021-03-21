@@ -8,7 +8,8 @@ namespace eDentalist.Mobile.Models
     {
         Browse,
         About,
-        Procedures
+        Procedures,
+        Profile
     }
     public class HomeMenuItem
     {

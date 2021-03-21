@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="eDentalist.Mobile.Views.StaffProfilePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="eDentalist" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="{Binding Username}" FontSize="24" HorizontalOptions="CenterAndExpand"></Label>
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0">
+                    <Label Text="First name:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding FirstName}" FontSize="15" ></Label>
+                    </Frame>
+                    <Label Text="Last name:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding LastName}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="Role:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding Role}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="JMBG:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding JMBG}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="Gender:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding Gender}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="Date of birth:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding DateOfBirth}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="Email:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding Email}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="Phone number:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding PhoneNumber}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="City of residence:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding City}" FontSize="15"></Label>
+                    </Frame>
+                    <Label Text="Address:" FontSize="16"></Label>
+                    <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand" Padding="5" WidthRequest="400">
+                        <Label Text="{Binding Address}" FontSize="15"></Label>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
