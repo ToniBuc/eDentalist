@@ -8,14 +8,14 @@
              x:Class="eDentalist.Mobile.Views.ProcedureDetailPage">
     <!--<ContentPage.BindingContext>
         <viewModels:ProcedureDetailViewModel></viewModels:ProcedureDetailViewModel>
-    </ContentPage.BindingContext>-->
+    </ContentPage.BindingContext>-->      
     <ContentPage.Content>
         <StackLayout>
             <Label Text="eDentalist" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
             <Label Text="{Binding Name}" FontSize="24" HorizontalOptions="CenterAndExpand"></Label>
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto" ></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>

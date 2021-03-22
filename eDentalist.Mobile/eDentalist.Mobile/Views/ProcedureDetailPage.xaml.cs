@@ -14,7 +14,7 @@ namespace eDentalist.Mobile.Views
     public partial class ProcedureDetailPage : ContentPage
     {
         private ProcedureDetailViewModel model = null;
-        public ProcedureDetailPage(int ? id)
+        public ProcedureDetailPage(int? id)
         {
             InitializeComponent();
             BindingContext = model = new ProcedureDetailViewModel()

@@ -57,9 +57,6 @@
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" 
                                     HorizontalOptions="CenterAndExpand">
-                                <!--<Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1"/>
-                                </Label.GestureRecognizers>-->
                             </Label>
                             <Label  Grid.Row="1"
                                     Grid.Column="0"
