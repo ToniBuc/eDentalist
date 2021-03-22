@@ -15,9 +15,11 @@ namespace eDentalist.Mobile.ViewModels
         private readonly APIService _userService = new APIService("User");
         private readonly APIService _genderService = new APIService("Gender");
         private readonly APIService _cityService = new APIService("City");
+        private readonly APIService _userRoleService = new APIService("UserRole");
         public StaffProfileViewModel()
         {
             InitCommand = new Command(async () => await Init());
+            SaveCommand = new Command(async () => await Save());
         }
 
         public ObservableCollection<Gender> GenderList { get; set; } = new ObservableCollection<Gender>();
@@ -37,6 +39,7 @@ namespace eDentalist.Mobile.ViewModels
             set { SetProperty(ref _selectedGender, value); }
         }
         public ICommand InitCommand { get; set; }
+        public ICommand SaveCommand { get; set; }
 
         #region Profile Initialization
         private string _firstName = string.Empty;
@@ -92,12 +95,6 @@ namespace eDentalist.Mobile.ViewModels
             get { return _username; }
             set { SetProperty(ref _username, value); }
         }
-        //private string _dateOfBirth = string.Empty;
-        //public string DateOfBirth
-        //{
-        //    get { return _dateOfBirth; }
-        //    set { SetProperty(ref _dateOfBirth, value); }
-        //}
         private DateTime _dateOfBirth = DateTime.Now;
         public DateTime DateOfBirth
         {
@@ -154,7 +151,6 @@ namespace eDentalist.Mobile.ViewModels
             //    }
             //}
 
-            //var dateString = user.DateOfBirth.ToShortDateString();
             if (user != null)
             {
                 FirstName = user.FirstName;
@@ -163,11 +159,8 @@ namespace eDentalist.Mobile.ViewModels
                 Email = user.Email;
                 PhoneNumber = user.PhoneNumber;
                 Address = user.Address;
-                //City = user.City.Name;
                 Role = APIService.Role;
-                //Gender = user.Gender.Name;
                 Username = user.Username;
-                //DateOfBirth = user.DateOfBirth.ToShortDateString();
                 DateOfBirth = user.DateOfBirth;
             }
         }
@@ -181,8 +174,34 @@ namespace eDentalist.Mobile.ViewModels
                 JMBG = JMBG,
                 Email = Email,
                 PhoneNumber = PhoneNumber,
-                Address = Address
+                Address = Address,
+                DateOfBirth = DateOfBirth,
+                CityID = SelectedCity.CityID,
+                GenderID = SelectedGender.GenderID,
+                Username = Username
             };
+
+            var userRoleList = await _userRoleService.Get<List<UserRole>>(null);
+            int userRoleId = 0;
+            foreach (var x in userRoleList)
+            {
+                if (x.Name == APIService.Role)
+                {
+                    userRoleId = x.UserRoleID;
+                }
+            }
+
+            request.UserRoleID = userRoleId;
+
+            try
+            {
+                await _userService.Update<Model.User>(APIService.UserID, request);
+                await Application.Current.MainPage.DisplayAlert("Notification", "You have successfully updated your personal information!", "OK");
+            }
+            catch(Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "There was an error during the updating process of your personal information, please make sure you have entered all the required information correctly.", "OK");
+            }
         }
     }
 }

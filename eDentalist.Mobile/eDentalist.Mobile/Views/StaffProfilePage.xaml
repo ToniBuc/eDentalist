@@ -42,6 +42,7 @@
                     <Picker ItemsSource="{Binding CityList}" SelectedItem="{Binding SelectedCity}" ItemDisplayBinding="{Binding Name}"></Picker>
                     <Label Text="Address:" FontSize="16"></Label>
                     <Entry Text="{Binding Address}" FontSize="15"></Entry>
+                    <Button Command="{Binding SaveCommand}" Text="Update profile"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>

@@ -118,10 +118,15 @@ namespace eDentalist.WebAPI.Services
         public Model.User Update(int id, UserUpdateRequest request)
         {
             var entity = _context.User.Find(id);
+            if (request.Image == null)
+            {
+                request.Image = entity.Image;
+            }
             _context.User.Attach(entity);
             _context.User.Update(entity);
 
             _mapper.Map(request, entity);
+
 
             if (!string.IsNullOrWhiteSpace(request.Password))
             {
