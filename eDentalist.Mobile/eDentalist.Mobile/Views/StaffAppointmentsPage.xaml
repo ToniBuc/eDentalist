@@ -4,14 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="eDentalist.Mobile.Views.StaffWorkdaysPage">
+             x:Class="eDentalist.Mobile.Views.StaffAppointmentsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Workdays" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
             <Label Text="{Binding Username}"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="24" Margin="0,0,0,15" />
-            <ListView ItemsSource="{Binding UserWorkdayList}" ItemSelected="ListView_OnItemSelected">
+                HorizontalOptions="CenterAndExpand" FontSize="24"/>
+            <Label Text="{Binding UserWorkday.Workday.Date, StringFormat='{0:dd/MM/yyyy}'}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="22" Margin="0,0,0,20"/>
+            <ListView ItemsSource="{Binding AppointmentList}">
                 <ListView.Header>
                     <StackLayout>
                         <Grid>
@@ -21,9 +23,11 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Label Text="Date" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
-                            <Label Text="Shift" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="Appointment" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="Timeframe" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="Patient" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                         </Grid>
                         <BoxView Color="Black" HeightRequest="1"></BoxView>
                     </StackLayout>
@@ -40,9 +44,11 @@
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"></ColumnDefinition>
                                             <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding Workday.Date, StringFormat='{0:dd/MM/yyyy}'}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding Shift.ShiftNumber}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding ProcedureName}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding FromTo}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding PatientName}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"></Label>
                                     </Grid>
                                 </StackLayout>
                             </StackLayout>

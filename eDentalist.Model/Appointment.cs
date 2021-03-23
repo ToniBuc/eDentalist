@@ -12,6 +12,7 @@ namespace eDentalist.Model
         public DateTime Date { get; set; }
         public string From { get; set; }
         public string To { get; set; }
+        public string FromTo { get; set; }
         public int? DentistID { get; set; }
         public User Dentist { get; set; }
         public string DentistName { get; set; }

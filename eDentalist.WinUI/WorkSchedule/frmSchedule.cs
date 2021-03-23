@@ -44,12 +44,15 @@ namespace eDentalist.WinUI.WorkSchedule
 
         private void btnAppointments_Click(object sender, EventArgs e)
         {
-            var id = dgvSchedule.SelectedRows[0].Cells[1].Value;
-            frmAppointmentOverview frm = new frmAppointmentOverview(int.Parse(id.ToString()));
-            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
+            if (!dgvSchedule.RowCount.Equals(0))
+            {
+                var id = dgvSchedule.SelectedRows[0].Cells[1].Value;
+                frmAppointmentOverview frm = new frmAppointmentOverview(int.Parse(id.ToString()));
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
         }
 
         private async void dgvSchedule_MouseDoubleClick(object sender, MouseEventArgs e)

@@ -12,24 +12,21 @@ using Xamarin.Forms.Xaml;
 namespace eDentalist.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StaffWorkdaysPage : ContentPage
+    public partial class StaffAppointmentsPage : ContentPage
     {
-        private StaffWorkdaysViewModel model = null;
-        public StaffWorkdaysPage()
+        private StaffAppointmentsViewModel model = null;
+        public StaffAppointmentsPage(UserWorkday userWorkday)
         {
             InitializeComponent();
-            BindingContext = model = new StaffWorkdaysViewModel();
+            BindingContext = model = new StaffAppointmentsViewModel()
+            {
+                UserWorkday = userWorkday
+            };
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-        }
-        private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var item = e.SelectedItem as UserWorkday;
-
-            await Navigation.PushAsync(new StaffAppointmentsPage(item));
         }
     }
 }
