@@ -11,22 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace eDentalist.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StaffProfilePage : ContentPage
+    public partial class StaffWorkdaysPage : ContentPage
     {
-        private StaffProfileViewModel model = null;
-        public StaffProfilePage()
+        private StaffWorkdaysViewModel model = null;
+        public StaffWorkdaysPage()
         {
             InitializeComponent();
-            BindingContext = model = new StaffProfileViewModel();
+            BindingContext = model = new StaffWorkdaysViewModel();
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-        }
-        private async void OpenSchedule_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new StaffWorkdaysPage());
         }
     }
 }

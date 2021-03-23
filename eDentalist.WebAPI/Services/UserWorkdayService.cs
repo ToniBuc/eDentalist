@@ -26,6 +26,10 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.User.FirstName.Contains(search.Name) || x.User.LastName.Contains(search.Name));
             }
+            if (search.Date.HasValue && search.UserID.HasValue)
+            {
+                query = query.Where(x => x.Workday.Date.Date >= search.Date.Value.Date && x.UserID == search.UserID); //need to test
+            }
 
             query = query.OrderByDescending(x => x.Workday.Date);
 

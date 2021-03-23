@@ -11,7 +11,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="eDentalist" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Profile" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
             <Label Text="{Binding Username}" FontSize="24" HorizontalOptions="CenterAndExpand"></Label>
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
                 <Grid.RowDefinitions>
@@ -43,6 +43,7 @@
                     <Label Text="Address:" FontSize="16"></Label>
                     <Entry Text="{Binding Address}" FontSize="15"></Entry>
                     <Button Command="{Binding SaveCommand}" Text="Update profile"></Button>
+                    <Button Text="Schedule" Clicked="OpenSchedule_Clicked"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>
