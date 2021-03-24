@@ -30,16 +30,6 @@ namespace eDentalist.WebAPI.Services
                 || x.Patient.FirstName.Contains(search.Name) || x.Patient.LastName.Contains(search.Name));
             }
 
-            //if (search.WorkdayID != null)
-            //{
-            //    query = query.Where(x => x.WorkdayID == search.WorkdayID);
-            //}
-
-            //if (search.DentistID != null)
-            //{
-            //    query = query.Where(x => x.DentistID == search.DentistID);
-            //}
-
             if (search.DentistID != null && search.WorkdayID != null)
             {
                 query = query.Where(x => x.WorkdayID == search.WorkdayID && x.DentistID == search.DentistID);
@@ -51,6 +41,11 @@ namespace eDentalist.WebAPI.Services
             else if (search.DentistID != null && search.WorkdayID == null)
             {
                 query = query.Where(x => x.DentistID == search.DentistID);
+            }
+
+            if (search.PatientID != null)
+            {
+                query = query.Where(x => x.PatientID == search.PatientID);
             }
 
             if (search.Date.Date == DateTime.Now.Date)

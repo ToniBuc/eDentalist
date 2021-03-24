@@ -9,6 +9,7 @@ namespace eDentalist.Model.Requests
         public string Name { get; set; }
         public int? WorkdayID { get; set; }
         public int? DentistID { get; set; }
+        public int? PatientID { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
     }

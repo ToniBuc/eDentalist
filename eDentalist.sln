@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDentalist.Mobile.Android",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDentalist.Mobile.iOS", "eDentalist.Mobile\eDentalist.Mobile.iOS\eDentalist.Mobile.iOS.csproj", "{FA19080B-A2FA-4680-B0A9-DEDB3F7BB0C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eDentalist.Mobile", "eDentalist.Mobile\eDentalist.Mobile\eDentalist.Mobile.csproj", "{9156D129-EB3C-4498-B221-3784621C5D62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eDentalist.Mobile", "eDentalist.Mobile\eDentalist.Mobile\eDentalist.Mobile.csproj", "{9156D129-EB3C-4498-B221-3784621C5D62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

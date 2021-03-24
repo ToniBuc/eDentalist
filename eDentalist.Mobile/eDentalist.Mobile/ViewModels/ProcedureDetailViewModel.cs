@@ -18,7 +18,6 @@ namespace eDentalist.Mobile.ViewModels
             InitCommand = new Command(async () => await Init());
         }
 
-        //public ObservableCollection<Procedure> Procedure { get; set; } = new ObservableCollection<Procedure>();
         public Procedure Procedure { get; set; }
         public ICommand InitCommand { get; set; }
 

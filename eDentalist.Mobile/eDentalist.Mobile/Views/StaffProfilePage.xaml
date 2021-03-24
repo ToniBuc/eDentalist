@@ -26,8 +26,8 @@
                     <Entry Text="{Binding FirstName}" FontSize="15"></Entry>
                     <Label Text="Last name:" FontSize="16"></Label>
                     <Entry Text="{Binding LastName}" FontSize="15"></Entry>
-                    <Label Text="Role:" FontSize="16"></Label>
-                    <Entry Text="{Binding Role}" FontSize="15" IsReadOnly="True"></Entry>
+                    <Label Text="Role:" FontSize="16" x:Name="roleLabel"></Label>
+                    <Entry Text="{Binding Role}" FontSize="15" IsReadOnly="True" x:Name="roleEntry"></Entry>
                     <Label Text="JMBG:" FontSize="16"></Label>
                     <Entry Text="{Binding JMBG}" FontSize="15"></Entry>
                     <Label Text="Gender:" FontSize="16"></Label>
@@ -43,7 +43,8 @@
                     <Label Text="Address:" FontSize="16"></Label>
                     <Entry Text="{Binding Address}" FontSize="15"></Entry>
                     <Button Command="{Binding SaveCommand}" Text="Update profile"></Button>
-                    <Button Text="Schedule" Clicked="OpenSchedule_Clicked"></Button>
+                    <Button Text="Schedule" Clicked="OpenSchedule_Clicked" x:Name="staffScheduleButton"></Button>
+                    <Button Text="Anamneses" Clicked="OpenAnamneses_Clicked" x:Name="patientAnamnesesButton"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>

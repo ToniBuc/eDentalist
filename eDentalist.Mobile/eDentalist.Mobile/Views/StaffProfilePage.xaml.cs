@@ -18,6 +18,16 @@ namespace eDentalist.Mobile.Views
         {
             InitializeComponent();
             BindingContext = model = new StaffProfileViewModel();
+            if (APIService.Role == "Patient")
+            {
+                roleEntry.IsVisible = false;
+                roleLabel.IsVisible = false;
+                staffScheduleButton.IsVisible = false;
+            }
+            if (APIService.Role != "Patient")
+            {
+                patientAnamnesesButton.IsVisible = false;
+            }
         }
         protected async override void OnAppearing()
         {
@@ -27,6 +37,10 @@ namespace eDentalist.Mobile.Views
         private async void OpenSchedule_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new StaffWorkdaysPage());
+        }
+        private async void OpenAnamneses_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PatientAnamnesesPage());
         }
     }
 }
