@@ -28,11 +28,16 @@ namespace eDentalist.Mobile.Views
             {
                 patientAnamnesesButton.IsVisible = false;
             }
+            
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
+            if (profileImage.Source == null)
+            {
+                profileImage.Source = ImageSource.FromFile("logo.png");
+            }
         }
         private async void OpenSchedule_Clicked(object sender, EventArgs e)
         {

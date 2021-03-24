@@ -101,6 +101,12 @@ namespace eDentalist.Mobile.ViewModels
             get { return _dateOfBirth; }
             set { SetProperty(ref _dateOfBirth, value); }
         }
+        private byte[] _image = null;
+        public byte[] Image
+        {
+            get { return _image; }
+            set { SetProperty(ref _image, value); }
+        }
         #endregion
 
         public async Task Init()
@@ -162,7 +168,15 @@ namespace eDentalist.Mobile.ViewModels
                 Role = APIService.Role;
                 Username = user.Username;
                 DateOfBirth = user.DateOfBirth;
+                //Image = user.Image;
+                var str = System.Text.Encoding.Default.GetString(user.Image);
+                if (str != "")
+                {
+                    Image = user.Image;
+                }
+
             }
+
         }
 
         public async Task Save()
