@@ -26,8 +26,10 @@
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Text="Appointment" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
-                            <Label Text="Timeframe" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
-                            <Label Text="Patient" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="Timeframe" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="timeframeHeader"></Label>
+                            <Label Text="Date and time" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="datetimeHeader"></Label>
+                            <Label Text="Patient" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="patientHeader"></Label>
+                            <Label Text="Status" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="statusHeader"></Label>
                         </Grid>
                         <BoxView Color="Black" HeightRequest="1"></BoxView>
                     </StackLayout>
@@ -47,8 +49,8 @@
                                             <ColumnDefinition Width="*"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
                                         <Label Text="{Binding ProcedureName}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding FromTo}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding PatientName}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding TimeframeOrDatetime}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding PatientOrStatus}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"></Label>
                                     </Grid>
                                 </StackLayout>
                             </StackLayout>

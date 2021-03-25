@@ -22,6 +22,16 @@ namespace eDentalist.Mobile.Views
             {
                 UserWorkday = userWorkday
             };
+            if (APIService.Role != "Patient")
+            {
+                statusHeader.IsVisible = false;
+                datetimeHeader.IsVisible = false;
+            }
+            else
+            {
+                patientHeader.IsVisible = false;
+                timeframeHeader.IsVisible = false;
+            }
         }
         protected async override void OnAppearing()
         {

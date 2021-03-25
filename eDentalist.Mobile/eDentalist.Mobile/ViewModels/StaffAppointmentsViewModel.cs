@@ -37,11 +37,18 @@ namespace eDentalist.Mobile.ViewModels
         public async Task Init()
         {
             Username = APIService.Username;
-            var request = new AppointmentSearchRequest()
+
+            var request = new AppointmentSearchRequest();
+
+            if (APIService.Role != "Patient")
             {
-                DentistID = APIService.UserID,
-                WorkdayID = UserWorkday.WorkdayID
-            };
+                request.DentistID = APIService.UserID;
+                request.WorkdayID = UserWorkday.WorkdayID;
+            }
+            else
+            {
+                request.PatientID = APIService.UserID;
+            }
 
             var list = await _appointmentService.Get<IEnumerable<Appointment>>(request);
 

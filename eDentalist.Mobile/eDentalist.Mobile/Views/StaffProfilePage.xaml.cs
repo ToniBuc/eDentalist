@@ -26,6 +26,7 @@ namespace eDentalist.Mobile.Views
             }
             if (APIService.Role != "Patient")
             {
+                patientAppointmentsButton.IsVisible = false;
                 patientAnamnesesButton.IsVisible = false;
             }
             
@@ -46,6 +47,10 @@ namespace eDentalist.Mobile.Views
         private async void OpenAnamneses_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PatientAnamnesesPage());
+        }
+        private async void OpenAppointments_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StaffAppointmentsPage(null));
         }
     }
 }

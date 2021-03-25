@@ -25,5 +25,9 @@ namespace eDentalist.Model
         public int AppointmentStatusID { get; set; }
         public AppointmentStatus AppointmentStatus { get; set;}
         public string AppointmentStatusName { get; set; }
+
+        //specific for mobile, used to display different things in listviews for patients and staff roles
+        public string PatientOrStatus { get; set; }
+        public string TimeframeOrDatetime { get; set; }
     }
 }

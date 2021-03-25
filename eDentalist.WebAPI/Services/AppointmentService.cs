@@ -24,6 +24,7 @@ namespace eDentalist.WebAPI.Services
             bool isRequestNull = !string.IsNullOrWhiteSpace(search.Name);
             query = query.OrderByDescending(x => x.Workday.Date);
 
+            //search bar in the desktop app
             if (isRequestNull)
             {
                 query = query.Where(x => x.Dentist.FirstName.Contains(search.Name) || x.Dentist.LastName.Contains(search.Name)
@@ -43,9 +44,11 @@ namespace eDentalist.WebAPI.Services
                 query = query.Where(x => x.DentistID == search.DentistID);
             }
 
+            //for retrieving a patient's appointments in the mobile app, only appointments that are still relevant are retrieved, i.e. ones that are not cancelled/declined or already passed
             if (search.PatientID != null)
             {
-                query = query.Where(x => x.PatientID == search.PatientID);
+                query = query.Where(x => x.PatientID == search.PatientID && x.AppointmentStatus.Name != "Cancelled" && x.Workday.Date.Date < DateTime.Now.Date);
+                query = query.Where(x => x.AppointmentStatus.Name != "Declined");
             }
 
             if (search.Date.Date == DateTime.Now.Date)
@@ -73,6 +76,18 @@ namespace eDentalist.WebAPI.Services
                 x.PatientName = x.Patient.FirstName + " " + x.Patient.LastName;
                 x.Date = x.Workday.Date;
                 x.FromTo = x.From + " - " + x.To;
+
+                //specific for mobile, used to display different things in listviews for patients and staff roles
+                if (search.PatientID != null)
+                {
+                    x.PatientOrStatus = x.AppointmentStatus.Name;
+                    x.TimeframeOrDatetime = x.Date.ToShortDateString() + " - " + x.From;
+                }
+                else
+                {
+                    x.PatientOrStatus = x.Patient.FirstName + " " + x.Patient.LastName;
+                    x.TimeframeOrDatetime = x.From + " - " + x.To; 
+                }
             }
 
             return result;
