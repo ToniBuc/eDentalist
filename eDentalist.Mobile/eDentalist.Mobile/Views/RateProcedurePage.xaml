@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="eDentalist.Mobile.Views.RateProcedurePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="eDentalist" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
+            <Grid HorizontalOptions="CenterAndExpand" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0" Padding="5" WidthRequest="400">
+                    <Label Text="Appointment procedure:" FontSize="16"></Label>
+                    <Entry Text="{Binding Procedure}" FontSize="15" IsReadOnly="True"></Entry>
+                    <Label Text="Rating:" FontSize="16"></Label>
+                    <Picker ItemsSource="{Binding RatingList}" SelectedItem="{Binding Rating}" x:Name="pickerRating"></Picker>
+                    <Label Text="Comment:" FontSize="16" x:Name="roleLabel"></Label>
+                    <Editor Text="{Binding Description}" FontSize="15" AutoSize="TextChanges"></Editor>
+                    <Button Command="{Binding SubmitCommand}" Text="Submit Rating"></Button>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

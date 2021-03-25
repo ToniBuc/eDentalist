@@ -1,5 +1,4 @@
 ﻿using eDentalist.Mobile.ViewModels;
-using eDentalist.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,26 +11,22 @@ using Xamarin.Forms.Xaml;
 namespace eDentalist.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PatientAnamnesisPage : ContentPage
+    public partial class RateProcedurePage : ContentPage
     {
-        private PatientAnamnesisViewModel model = null;
-        public PatientAnamnesisPage(int ? id)
+        private RateProcedureViewModel model = null;
+        public RateProcedurePage(int ? id)
         {
             InitializeComponent();
-            BindingContext = model = new PatientAnamnesisViewModel()
+            BindingContext = model = new RateProcedureViewModel()
             {
-                AnamnesisID = id
+                AppointmentID = id
             };
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-        }
-        private async void RateProcedure_Clicked(object sender, EventArgs e)
-        {
-            var id = model.Anamnesis.AppointmentID;
-            await Navigation.PushAsync(new RateProcedurePage(id));
+            pickerRating.SelectedIndex = model.Rating - 1;
         }
     }
 }

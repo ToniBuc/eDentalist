@@ -23,6 +23,11 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.RatingID == search.RatingID);
             }
+            //should only return one
+            if (search.UserID != null && search.ProcedureID != null)
+            {
+                query = query.Where(x => x.UserID == search.UserID && x.ProcedureID == search.ProcedureID);
+            }
             query = query.OrderBy(x => x.Procedure.Name);
 
             var list = query.ToList();

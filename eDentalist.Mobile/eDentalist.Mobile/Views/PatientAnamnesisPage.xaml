@@ -28,6 +28,8 @@
                     <Editor Text="{Binding Therapy}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
                     <Label Text="Additional notes:" FontSize="16"></Label>
                     <Editor Text="{Binding AdditionalNotes}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
+                    <Label></Label>
+                    <Button Text="Rate Procedure" Clicked="RateProcedure_Clicked" x:Name="patientRateButton"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>
