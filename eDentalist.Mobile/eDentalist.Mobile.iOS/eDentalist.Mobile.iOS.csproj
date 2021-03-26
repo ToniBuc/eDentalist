@@ -144,4 +144,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rating4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rating3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rating2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rating1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rating5.png" />
+  </ItemGroup>
 </Project>
