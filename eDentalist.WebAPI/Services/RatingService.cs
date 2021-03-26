@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eDentalist.Model.Requests;
 using eDentalist.WebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace eDentalist.WebAPI.Services
 
         public override List<Model.Rating> Get(RatingSearchRequest search)
         {
-            var query = _context.Set<Database.Rating>().AsQueryable();
+            var query = _context.Set<Database.Rating>().Include(i => i.User).AsQueryable();
 
             if (search?.RatingID.HasValue == true)
             {

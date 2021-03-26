@@ -51,6 +51,16 @@ namespace eDentalist.Mobile.Views
             {
                 ratingImage.Source = ImageSource.FromFile("rating5.png");
             }
+
+            if (model.RatingList.Count == 0)
+            {
+                reviewsButton.IsEnabled = false;
+            }
+        }
+        private async void OpenReviews_Clicked(object sender, EventArgs e)
+        {
+            var id = model.ProcedureID;
+            await Navigation.PushAsync(new ProcedureReviewsPage(id));
         }
     }
 }

@@ -32,6 +32,7 @@
                         <Image x:Name="ratingImage" Aspect="AspectFit" HorizontalOptions="Start" Grid.Column="1"></Image>
                         <Label Text="This procedure has not yet been rated!" Grid.Column="1" VerticalOptions="Center" FontSize="13" x:Name="labelProc" IsVisible="False"></Label>
                     </Grid>
+                    <Button Text="Reviews" Clicked="OpenReviews_Clicked" x:Name="reviewsButton"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>
