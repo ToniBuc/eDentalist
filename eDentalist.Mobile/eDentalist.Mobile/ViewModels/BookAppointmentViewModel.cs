@@ -33,7 +33,8 @@ namespace eDentalist.Mobile.ViewModels
         public ICommand InitCommand { get; set; }
         public ICommand SubmitCommand { get; set; }
 
-        #region Initialization
+        #region Initialization & Validation
+        //initialization
         private DateTime _date = DateTime.Now;
         public DateTime Date
         {
@@ -52,20 +53,112 @@ namespace eDentalist.Mobile.ViewModels
             get { return _to; }
             set { SetProperty(ref _to, value); }
         }
+        //validation
+        bool _procedureValidation = false;
+        public bool ProcedureValidation
+        {
+            get { return _procedureValidation; }
+            set { SetProperty(ref _procedureValidation, value); }
+        }
+        bool _fromValidation = false;
+        public bool FromValidation
+        {
+            get { return _fromValidation; }
+            set { SetProperty(ref _fromValidation, value); }
+        }
+        bool _toValidation = false;
+        public bool ToValidation
+        {
+            get { return _toValidation; }
+            set { SetProperty(ref _toValidation, value); }
+        }
+        bool _dateValidation = false;
+        public bool DateValidation
+        {
+            get { return _dateValidation; }
+            set { SetProperty(ref _dateValidation, value); }
+        }
+        bool _shiftValidation = false;
+        public bool ShiftValidation
+        {
+            get { return _shiftValidation; }
+            set { SetProperty(ref _shiftValidation, value); }
+        }
         #endregion
 
         public async Task Init()
         {
+            ProcedureValidation = false;
+            DateValidation = false;
+            FromValidation = false;
+            ToValidation = false;
             var procedureList = await _procedureService.Get<IEnumerable<Procedure>>(null);
+            ProcedureList.Clear();
             foreach (var x in procedureList)
             {
                 ProcedureList.Add(x);
             }
         }
+
+        private bool ValidateForm()
+        {
+            TimeSpan fromShiftOne = TimeSpan.Parse("07:00:00");
+            TimeSpan toShiftOne = TimeSpan.Parse("15:00:00");
+            TimeSpan fromShiftTwo = TimeSpan.Parse("15:00:00");
+            TimeSpan toShiftTwo = TimeSpan.Parse("23:00:00");
+
+            ProcedureValidation = false;
+            DateValidation = false;
+            FromValidation = false;
+            ToValidation = false;
+            ShiftValidation = false;
+
+            bool IsValidated = true;
+            if (SelectedProcedure == null)
+            {
+                ProcedureValidation = true;
+                IsValidated = false;
+            }
+
+            if (Date.Date <= DateTime.Now.Date)
+            {
+                DateValidation = true;
+                IsValidated = false;
+            }
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            if (From > fromShiftOne && To > toShiftOne)
+            {
+                //FromValidation = true;
+                //ToValidation = true;
+                ShiftValidation = true;
+                IsValidated = false;
+            }
+
+            if (From > fromShiftTwo && To > toShiftTwo)
+            {
+                FromValidation = true;
+                ToValidation = true;
+                IsValidated = false;
+            }
+
+            if (From < fromShiftOne)
+            {
+                FromValidation = true;
+                IsValidated = false;
+            }
+
+            if (To > toShiftTwo)
+            {
+                ToValidation = true;
+                IsValidated = false;
+            }
+
+            return IsValidated;
+        }
+
         public async Task Submit()
         {
-            //first try catch is a temporary solution to an error being thrown when a procedure isn't selected, form validation will be done next to prevent it from happening properly
-            try
+            if (ValidateForm())
             {
                 var searchWorkday = new WorkdaySearchRequest()
                 {
@@ -104,11 +197,6 @@ namespace eDentalist.Mobile.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Error", "There was an error during the booking process of the appointment, please make sure you have entered all the required information correctly.", "OK");
                 }
             }
-            catch (Exception)
-            {
-                await Application.Current.MainPage.DisplayAlert("Error", "There was an error during the booking process of the appointment, please make sure you have entered all the required information correctly.", "OK");
-            }
-            
         }
     }
 }
