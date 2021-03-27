@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="eDentalist.Mobile.Views.BookAppointmentPage">
+    <ContentPage.Content>
+        <StackLayout Padding="15" HorizontalOptions="CenterAndExpand">
+            <Label Text="eDentalist"
+                HorizontalOptions="CenterAndExpand" FontSize="30"/>
+            <Grid Margin="0,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0" Padding="5" WidthRequest="400">
+                    <Label Text="Appointment procedure:" FontSize="16" ></Label>
+                    <Picker ItemsSource="{Binding ProcedureList}" SelectedItem="{Binding SelectedProcedure}" ItemDisplayBinding="{Binding Name}" Unfocused="UnfocusedPicker"></Picker>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Date:" FontSize="16" Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" Margin="0,10,0,0"></Label>
+                        <DatePicker Date="{Binding Date}" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="1" Margin="0,10,0,0"></DatePicker>
+                        <Label Text="From:" FontSize="16" Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand" Margin="0,10,0,0"></Label>
+                        <TimePicker Time="{Binding From}" Format="HH:mm" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0" x:Name="timeFrom" PropertyChanged="UnfocusedPicker"></TimePicker>
+                        <Label Text="To:" FontSize="16" Grid.Row="2" Grid.Column="0" VerticalOptions="CenterAndExpand" Margin="0,10,0,0"></Label>
+                        <TimePicker Time="{Binding To}" Format="HH:mm" HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.Column="1" Margin="0,10,0,0" x:Name="timeTo"></TimePicker>
+                    </Grid>
+                    <Button Command="{Binding SubmitCommand}" Text="Submit"></Button>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

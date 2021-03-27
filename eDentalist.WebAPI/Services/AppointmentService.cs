@@ -44,11 +44,12 @@ namespace eDentalist.WebAPI.Services
                 query = query.Where(x => x.DentistID == search.DentistID);
             }
 
-            //for retrieving a patient's appointments in the mobile app, only appointments that are still relevant are retrieved, i.e. ones that are not cancelled/declined or already passed
+            //for retrieving a patient's appointments in the mobile app
             if (search.PatientID != null)
             {
-                query = query.Where(x => x.PatientID == search.PatientID && x.AppointmentStatus.Name != "Cancelled" && x.Workday.Date.Date < DateTime.Now.Date);
-                query = query.Where(x => x.AppointmentStatus.Name != "Declined");
+                //query = query.Where(x => x.PatientID == search.PatientID && x.AppointmentStatus.Name != "Cancelled" && x.Workday.Date.Date < DateTime.Now.Date);
+                //query = query.Where(x => x.AppointmentStatus.Name != "Declined");
+                query = query.Where(x => x.PatientID == search.PatientID);
             }
 
             if (search.Date.Date == DateTime.Now.Date)
