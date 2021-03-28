@@ -15,6 +15,7 @@ namespace eDentalist.Mobile.ViewModels
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await Login());
+            RegisterCommand = new Command(() => Register());
         }
 
         string _username = string.Empty;
@@ -32,7 +33,7 @@ namespace eDentalist.Mobile.ViewModels
         }
 
         public ICommand LoginCommand { get; set; }
-
+        public ICommand RegisterCommand { get; set; }
         async Task Login()
         {
             IsBusy = true;
@@ -61,6 +62,10 @@ namespace eDentalist.Mobile.ViewModels
                 Password = string.Empty;
                 await Application.Current.MainPage.DisplayAlert("Error", "You have entered an incorrect username or password!", "OK");
             }
+        }
+        void Register()
+        {
+            Application.Current.MainPage = new RegistrationPage();
         }
     }
 }

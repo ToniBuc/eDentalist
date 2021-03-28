@@ -191,5 +191,59 @@ namespace eDentalist.WebAPI.Services
 
             return staff;
         }
+
+        public Model.User Register(UserInsertRequest request)
+        {
+            var entity = _mapper.Map<User>(request);
+            if (request.Password != request.PasswordConfirmation)
+            {
+                throw new UserException("The passwords do not match!");
+            }
+
+            var users = _context.User.ToList();
+            foreach(var x in users)
+            {
+                if (x.Username == request.Username)
+                {
+                    throw new UserException("This username is taken!");
+                }
+                else if (x.Email == request.Email)
+                {
+                    throw new UserException("This email is taken!");
+                }
+            }
+            var roles = _context.UserRole.ToList();
+            foreach (var x in roles)
+            {
+                if (x.Name == "Patient")
+                {
+                    entity.UserRoleID = x.UserRoleID;
+                }
+            }
+            var genders = _context.Gender.ToList();
+            foreach (var x in genders)
+            {
+                if (x.Name == "Unassigned")
+                {
+                    entity.GenderID = x.GenderID;
+                }
+            }
+            var cities = _context.City.ToList();
+            foreach (var x in cities)
+            {
+                if (x.Name == "Unassigned")
+                {
+                    entity.CityID = x.CityID;
+                }
+            }
+
+            entity.PasswordSalt = GenerateSalt();
+            entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
+
+            _context.User.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.User>(entity);
+        }
     }
 }

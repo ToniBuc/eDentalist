@@ -15,5 +15,6 @@ namespace eDentalist.WebAPI.Services
         Model.User Update(int id, UserUpdateRequest request);
         Model.User Authenticate(string username, string pass);
         Model.User Login(UserLoginRequest userLoginRequest);
+        Model.User Register(UserInsertRequest request);
     }
 }

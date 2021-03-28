@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using eDentalist.Model;
 using System.Threading.Tasks;
-
+using Xamarin.Forms;
+using eDentalist.Model.Requests;
 
 namespace eDentalist.Mobile
 {
@@ -98,6 +99,14 @@ namespace eDentalist.Mobile
 
             var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
+            return result;
+        }
+
+        public async Task<T> Register<T>(UserInsertRequest request)
+        {
+            var url = $"{_apiUrl}/{_route}";
+
+            var result = await url.PostJsonAsync(request).ReceiveJson<T>();
             return result;
         }
     }
