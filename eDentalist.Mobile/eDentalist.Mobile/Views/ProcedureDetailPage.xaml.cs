@@ -62,5 +62,10 @@ namespace eDentalist.Mobile.Views
             var id = model.ProcedureID;
             await Navigation.PushAsync(new ProcedureReviewsPage(id));
         }
+        private async void BookAppointment_Clicked(object sender, EventArgs e)
+        {
+            var id = model.ProcedureID;
+            await Navigation.PushAsync(new BookAppointmentPage(id));
+        }
     }
 }

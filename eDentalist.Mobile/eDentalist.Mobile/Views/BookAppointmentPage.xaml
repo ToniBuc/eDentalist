@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:eDentalist.Mobile.ViewModels"
              mc:Ignorable="d"
              x:Class="eDentalist.Mobile.Views.BookAppointmentPage">
+    <ContentPage.BindingContext>
+        <viewModels:BookAppointmentViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="15" HorizontalOptions="CenterAndExpand">
             <Label Text="eDentalist"
@@ -24,7 +28,8 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Text="Appointment procedure:" FontSize="16" Grid.Row="0"></Label>
-                        <Picker ItemsSource="{Binding ProcedureList}" SelectedItem="{Binding SelectedProcedure}" ItemDisplayBinding="{Binding Name}" Unfocused="UnfocusedPicker" Grid.Row="1"></Picker>
+                        <Picker ItemsSource="{Binding ProcedureList}"  SelectedItem="{Binding SelectedProcedure}" ItemDisplayBinding="{Binding Name}" Unfocused="UnfocusedPicker" Grid.Row="1" x:Name="procPicker"></Picker>
+                        <Entry Text="{Binding SelectedProcedure.Name}" FontSize="15" x:Name="procName" Grid.Row="1"></Entry>
                         <Label IsVisible="{Binding ProcedureValidation}" TextColor="Red" Text="You must pick a procedure!" Grid.Row="2"></Label>
                     </Grid>
                     <Grid>

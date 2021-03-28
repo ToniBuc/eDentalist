@@ -126,14 +126,6 @@ namespace eDentalist.Mobile.ViewModels
 
                 }
             }
-            //if (GenderList.Count > 0 && genderList.Count > 0)
-            //{
-            //    GenderList.Clear();
-            //    foreach (var x in genderList)
-            //    {
-            //        GenderList.Add(x);
-            //    }
-            //}
 
             var cityList = await _cityService.Get<List<City>>(null);
             if (CityList.Count == 0)
@@ -148,14 +140,6 @@ namespace eDentalist.Mobile.ViewModels
                     }
                 }
             }
-            //if (CityList.Count > 0 && cityList.Count > 0)
-            //{
-            //    CityList.Clear();
-            //    foreach (var x in cityList)
-            //    {
-            //        CityList.Add(x);
-            //    }
-            //}
 
             if (user != null)
             {
@@ -168,7 +152,6 @@ namespace eDentalist.Mobile.ViewModels
                 Role = APIService.Role;
                 Username = user.Username;
                 DateOfBirth = user.DateOfBirth;
-                //Image = user.Image;
                 var str = System.Text.Encoding.Default.GetString(user.Image);
                 if (str != "")
                 {

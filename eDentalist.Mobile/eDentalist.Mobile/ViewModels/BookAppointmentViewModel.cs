@@ -15,6 +15,7 @@ namespace eDentalist.Mobile.ViewModels
         private readonly APIService _appointmentService = new APIService("Appointment");
         private readonly APIService _procedureService = new APIService("Procedure");
         private readonly APIService _workdayService = new APIService("Workday");
+        public int? ProcedureID;
         public BookAppointmentViewModel()
         {
             InitCommand = new Command(async () => await Init());
@@ -23,11 +24,11 @@ namespace eDentalist.Mobile.ViewModels
 
         public ObservableCollection<Procedure> ProcedureList { get; set; } = new ObservableCollection<Procedure>();
 
-        private Procedure _selectedProcedure;
+        public Procedure _selectedProcedure;
         public Procedure SelectedProcedure
         {
             get { return _selectedProcedure; }
-            set { SetProperty(ref _selectedProcedure, value); }
+            set { SetProperty(ref _selectedProcedure, value); OnPropertyChanged(); }
         }
 
         public ICommand InitCommand { get; set; }
@@ -98,6 +99,15 @@ namespace eDentalist.Mobile.ViewModels
             {
                 ProcedureList.Add(x);
             }
+
+            if (ProcedureID != null)
+            {
+                var proc = await _procedureService.GetById<Procedure>(ProcedureID);
+                if (proc != null)
+                {
+                    SelectedProcedure = proc;
+                }
+            }
         }
 
         private bool ValidateForm()
@@ -126,7 +136,7 @@ namespace eDentalist.Mobile.ViewModels
                 IsValidated = false;
             }
             ///////////////////////////////////////////////////////////////////////////////////////////////
-            if (From > fromShiftOne && To > toShiftOne)
+            if (From > fromShiftOne && To > toShiftOne && From < fromShiftTwo)
             {
                 //FromValidation = true;
                 //ToValidation = true;

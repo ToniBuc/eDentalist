@@ -43,7 +43,7 @@ namespace eDentalist.Mobile.Views
                         MenuPages.Add(id, new NavigationPage(new StaffProfilePage()));
                         break;
                     case (int)MenuItemType.BookAppointment:
-                        MenuPages.Add(id, new NavigationPage(new BookAppointmentPage()));
+                        MenuPages.Add(id, new NavigationPage(new BookAppointmentPage(null)));
                         break;
                 }
             }

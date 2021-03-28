@@ -14,19 +14,27 @@ namespace eDentalist.Mobile.Views
     public partial class BookAppointmentPage : ContentPage
     {
         private BookAppointmentViewModel model = null;
-        public BookAppointmentPage()
+        public BookAppointmentPage(int ? id)
         {
             InitializeComponent();
-            BindingContext = model = new BookAppointmentViewModel();
+            BindingContext = model = new BookAppointmentViewModel()
+            {
+                ProcedureID = id
+            };
+
+            if (id != null)
+            {
+                procPicker.IsVisible = false;
+            }
+            else
+            {
+                procName.IsVisible = false;
+            }
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-            if (model.SelectedProcedure != null)
-            {
-                timeTo.Time = timeFrom.Time + TimeSpan.Parse(model.SelectedProcedure.Duration);
-            }
         }
         private async void UnfocusedPicker(object sender, EventArgs e)
         {
