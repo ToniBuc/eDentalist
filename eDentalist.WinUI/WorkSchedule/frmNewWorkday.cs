@@ -57,26 +57,48 @@ namespace eDentalist.WinUI.WorkSchedule
                     request.ShiftID = shiftId;
                 }
 
-                //used to check if a workday on the specified day exists, if it does it will return a list with only one workday and if not it will return all workdays
-                var workdayDate = await _workdayService.Get<List<Model.Workday>>(workdaySearchRequest);
-
-                //if the workday doesn't exist, insertion of a workday for the specified date will be performed
-                if (workdayDate.Count == 0)
+                if (request.Date.Date > DateTime.Now.Date)
                 {
-                    await _workdayService.Insert<Model.Workday>(workdayUpsertRequest);
-                }
+                    //used to check if a workday on the specified day exists, if it does it will return a list with only one workday and if not it will return all workdays
+                    var workdayDate = await _workdayService.Get<List<Model.Workday>>(workdaySearchRequest);
 
-                if (_id.HasValue)
-                {
-                    await _apiService.Update<Model.UserWorkday>(_id, request);
+                    //if the workday doesn't exist, insertion of a workday for the specified date will be performed
+                    if (workdayDate.Count == 0)
+                    {
+                        await _workdayService.Insert<Model.Workday>(workdayUpsertRequest);
+                    }
+
+                    //used to check if a userworkday with these exact ids and date exists
+                    var userWorkdaySearchRequest = new UserWorkdaySearchRequest()
+                    {
+                        UserID = request.UserID,
+                        ShiftID = request.ShiftID,
+                        Date = request.Date
+                    };
+                    var userWorkdays = await _apiService.Get<List<Model.UserWorkday>>(userWorkdaySearchRequest);
+
+                    //if the userworkday doesn't exist, insert or update will occur and there will be no duplication, otherwise an error message will be shot to the user
+                    if (userWorkdays.Count == 0)
+                    {
+                        if (_id.HasValue)
+                        {
+                            await _apiService.Update<Model.UserWorkday>(_id, request);
+                        }
+                        else
+                        {
+                            await _apiService.Insert<Model.UserWorkday>(request);
+                        }
+                        MessageBox.Show("Operation successful!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The specified workday and shift have already been assigned to this dentist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    await _apiService.Insert<Model.UserWorkday>(request);
+                    MessageBox.Show("The specified date must be a future date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
-
-                MessageBox.Show("Operation successful!");
             }
         }
         private async Task LoadUser()

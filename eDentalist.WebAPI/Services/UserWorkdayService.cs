@@ -26,9 +26,13 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.User.FirstName.Contains(search.Name) || x.User.LastName.Contains(search.Name));
             }
-            if (search.Date.HasValue && search.UserID.HasValue)
+            if (search.Date.HasValue && search.UserID.HasValue && !search.ShiftID.HasValue) //added false check for shiftid here, need to make sure this didn't mess something else up later
             {
                 query = query.Where(x => x.Workday.Date.Date >= search.Date.Value.Date && x.UserID == search.UserID); //need to test
+            }
+            if (search.Date.HasValue && search.UserID.HasValue && search.ShiftID.HasValue) //used for compare a new userworkday that is being added to all existing ones to make sure a duplicate isn't being made
+            {
+                query = query.Where(x => x.Workday.Date.Date == search.Date.Value.Date && x.UserID == search.UserID && x.ShiftID == search.ShiftID); //need to test
             }
 
             query = query.OrderByDescending(x => x.Workday.Date);

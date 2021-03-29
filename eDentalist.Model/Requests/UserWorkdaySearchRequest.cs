@@ -10,5 +10,7 @@ namespace eDentalist.Model.Requests
         public string Name { get; set; }
         public DateTime? Date { get; set; }
         public int? UserID { get; set; }
+        //public int? WorkdayID { get; set; }
+        public int? ShiftID { get; set; }
     }
 }
