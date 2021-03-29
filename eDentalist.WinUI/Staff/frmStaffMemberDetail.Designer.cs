@@ -45,6 +45,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cmbGender = new System.Windows.Forms.ComboBox();
             this.dgvAppointments = new System.Windows.Forms.DataGridView();
+            this.AppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -60,8 +63,10 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.cmbCity = new System.Windows.Forms.ComboBox();
-            this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtImageInput = new System.Windows.Forms.TextBox();
+            this.btnNewImage = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -113,7 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 186);
+            this.label3.Location = new System.Drawing.Point(13, 228);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 8;
@@ -121,7 +126,7 @@
             // 
             // txtJMBG
             // 
-            this.txtJMBG.Location = new System.Drawing.Point(12, 202);
+            this.txtJMBG.Location = new System.Drawing.Point(12, 244);
             this.txtJMBG.Name = "txtJMBG";
             this.txtJMBG.Size = new System.Drawing.Size(289, 20);
             this.txtJMBG.TabIndex = 7;
@@ -130,7 +135,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 142);
+            this.label4.Location = new System.Drawing.Point(13, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 6;
@@ -139,7 +144,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 367);
+            this.label5.Location = new System.Drawing.Point(13, 409);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 12;
@@ -147,7 +152,7 @@
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(12, 383);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(12, 425);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(289, 20);
             this.txtPhoneNumber.TabIndex = 11;
@@ -156,7 +161,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 323);
+            this.label6.Location = new System.Drawing.Point(13, 365);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 10;
@@ -164,7 +169,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(12, 339);
+            this.txtEmail.Location = new System.Drawing.Point(12, 381);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(289, 20);
             this.txtEmail.TabIndex = 9;
@@ -173,7 +178,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 231);
+            this.label7.Location = new System.Drawing.Point(13, 273);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 14;
@@ -182,7 +187,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 277);
+            this.label8.Location = new System.Drawing.Point(13, 319);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 16;
@@ -192,7 +197,7 @@
             // 
             this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Location = new System.Drawing.Point(12, 293);
+            this.cmbGender.Location = new System.Drawing.Point(12, 335);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(289, 21);
             this.cmbGender.TabIndex = 15;
@@ -204,17 +209,43 @@
             this.dgvAppointments.AllowUserToDeleteRows = false;
             this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AppointmentID,
             this.Procedure,
             this.Date});
             this.dgvAppointments.Location = new System.Drawing.Point(321, 53);
             this.dgvAppointments.Name = "dgvAppointments";
             this.dgvAppointments.ReadOnly = true;
-            this.dgvAppointments.Size = new System.Drawing.Size(278, 531);
+            this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAppointments.Size = new System.Drawing.Size(278, 573);
             this.dgvAppointments.TabIndex = 17;
+            this.dgvAppointments.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvAppointments_MouseDoubleClick);
+            // 
+            // AppointmentID
+            // 
+            this.AppointmentID.DataPropertyName = "AppointmentID";
+            this.AppointmentID.HeaderText = "AppointmentID";
+            this.AppointmentID.Name = "AppointmentID";
+            this.AppointmentID.ReadOnly = true;
+            this.AppointmentID.Visible = false;
+            // 
+            // Procedure
+            // 
+            this.Procedure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Procedure.DataPropertyName = "ProcedureName";
+            this.Procedure.HeaderText = "Procedure";
+            this.Procedure.Name = "Procedure";
+            this.Procedure.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(12, 247);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(12, 289);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(289, 20);
             this.dtpDateOfBirth.TabIndex = 18;
@@ -222,7 +253,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 459);
+            this.label9.Location = new System.Drawing.Point(13, 501);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 20;
@@ -230,7 +261,7 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(12, 475);
+            this.txtAddress.Location = new System.Drawing.Point(12, 517);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(289, 20);
             this.txtAddress.TabIndex = 19;
@@ -248,7 +279,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 548);
+            this.label11.Location = new System.Drawing.Point(13, 590);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 23;
@@ -256,7 +287,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 564);
+            this.txtPassword.Location = new System.Drawing.Point(12, 606);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(141, 20);
             this.txtPassword.TabIndex = 22;
@@ -264,7 +295,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(161, 548);
+            this.label12.Location = new System.Drawing.Point(161, 590);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 13);
             this.label12.TabIndex = 25;
@@ -272,7 +303,7 @@
             // 
             // txtPasswordConfirmation
             // 
-            this.txtPasswordConfirmation.Location = new System.Drawing.Point(160, 564);
+            this.txtPasswordConfirmation.Location = new System.Drawing.Point(160, 606);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
             this.txtPasswordConfirmation.Size = new System.Drawing.Size(141, 20);
             this.txtPasswordConfirmation.TabIndex = 24;
@@ -280,7 +311,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 504);
+            this.label13.Location = new System.Drawing.Point(13, 546);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(58, 13);
             this.label13.TabIndex = 27;
@@ -288,7 +319,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(12, 520);
+            this.txtUsername.Location = new System.Drawing.Point(12, 562);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(289, 20);
             this.txtUsername.TabIndex = 26;
@@ -296,7 +327,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(226, 590);
+            this.btnSave.Location = new System.Drawing.Point(226, 632);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 28;
@@ -308,7 +339,7 @@
             // 
             this.cmbUserRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUserRole.FormattingEnabled = true;
-            this.cmbUserRole.Location = new System.Drawing.Point(12, 159);
+            this.cmbUserRole.Location = new System.Drawing.Point(12, 201);
             this.cmbUserRole.Name = "cmbUserRole";
             this.cmbUserRole.Size = new System.Drawing.Size(289, 21);
             this.cmbUserRole.TabIndex = 29;
@@ -321,7 +352,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 413);
+            this.label14.Location = new System.Drawing.Point(13, 455);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(88, 13);
             this.label14.TabIndex = 31;
@@ -331,32 +362,50 @@
             // 
             this.cmbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCity.FormattingEnabled = true;
-            this.cmbCity.Location = new System.Drawing.Point(12, 429);
+            this.cmbCity.Location = new System.Drawing.Point(12, 471);
             this.cmbCity.Name = "cmbCity";
             this.cmbCity.Size = new System.Drawing.Size(289, 21);
             this.cmbCity.TabIndex = 30;
             this.cmbCity.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCity_Validating);
             // 
-            // Procedure
+            // label15
             // 
-            this.Procedure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Procedure.DataPropertyName = "ProcedureName";
-            this.Procedure.HeaderText = "Procedure";
-            this.Procedure.Name = "Procedure";
-            this.Procedure.ReadOnly = true;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(13, 141);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(63, 13);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "New image:";
             // 
-            // Date
+            // txtImageInput
             // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
+            this.txtImageInput.Location = new System.Drawing.Point(12, 157);
+            this.txtImageInput.Name = "txtImageInput";
+            this.txtImageInput.Size = new System.Drawing.Size(194, 20);
+            this.txtImageInput.TabIndex = 32;
+            // 
+            // btnNewImage
+            // 
+            this.btnNewImage.Location = new System.Drawing.Point(212, 155);
+            this.btnNewImage.Name = "btnNewImage";
+            this.btnNewImage.Size = new System.Drawing.Size(89, 23);
+            this.btnNewImage.TabIndex = 34;
+            this.btnNewImage.Text = "Add new image";
+            this.btnNewImage.UseVisualStyleBackColor = true;
+            this.btnNewImage.Click += new System.EventHandler(this.btnNewImage_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // frmStaffMemberDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 643);
+            this.ClientSize = new System.Drawing.Size(611, 700);
+            this.Controls.Add(this.btnNewImage);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtImageInput);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cmbCity);
             this.Controls.Add(this.cmbUserRole);
@@ -431,7 +480,12 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmbCity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Procedure;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.Button btnNewImage;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtImageInput;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

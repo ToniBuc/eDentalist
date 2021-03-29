@@ -28,6 +28,10 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.Appointment.PatientID == search.PatientID);
             }
+            if (search?.AppointmentID.HasValue == true)
+            {
+                query = query.Where(x => x.AppointmentID == search.AppointmentID);
+            }
             query = query.OrderBy(x => x.Appointment.Workday.Date);
 
             var list = query.ToList();

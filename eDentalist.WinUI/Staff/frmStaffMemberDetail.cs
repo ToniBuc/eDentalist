@@ -1,4 +1,5 @@
 ﻿using eDentalist.Model.Requests;
+using eDentalist.WinUI.Patient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace eDentalist.WinUI.Staff
         private readonly APIService _userRoleService = new APIService("UserRole");
         private readonly APIService _cityService = new APIService("City");
         private readonly APIService _appService = new APIService("Appointment");
+        private readonly APIService _anamService = new APIService("Anamnesis");
         private int? _id = null;
         public frmStaffMemberDetail(int? userId = null)
         {
@@ -26,23 +28,21 @@ namespace eDentalist.WinUI.Staff
             _id = userId;
         }
 
+        UserUpdateRequest request = new UserUpdateRequest();
         private async void btnSave_Click(object sender, EventArgs e)
         {
             if (this.ValidateChildren())
             {
-                var request = new UserUpdateRequest()
-                {
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    JMBG = txtJMBG.Text,
-                    DateOfBirth = dtpDateOfBirth.Value,
-                    Email = txtEmail.Text,
-                    PhoneNumber = txtPhoneNumber.Text,
-                    Address = txtAddress.Text,
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPasswordConfirmation.Text,
-                };
+                request.FirstName = txtFirstName.Text;
+                request.LastName = txtLastName.Text;
+                request.JMBG = txtJMBG.Text;
+                request.DateOfBirth = dtpDateOfBirth.Value;
+                request.Email = txtEmail.Text;
+                request.PhoneNumber = txtPhoneNumber.Text;
+                request.Address = txtAddress.Text;
+                request.Username = txtUsername.Text;
+                request.Password = txtPassword.Text;
+                request.PasswordConfirmation = txtPasswordConfirmation.Text;
 
                 var gender = cmbGender.SelectedValue;
                 if (int.TryParse(gender.ToString(), out int genderId))
@@ -275,6 +275,51 @@ namespace eDentalist.WinUI.Staff
             else
             {
                 errorProvider.SetError(txtAddress, null);
+            }
+        }
+
+        private async void dgvAppointments_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvAppointments.RowCount.Equals(0))
+            {
+                var appId = dgvAppointments.SelectedRows[0].Cells[0].Value;
+                var search = new AnamnesisSearchRequest()
+                {
+                    AppointmentID = int.Parse(appId.ToString())
+                };
+                var anam = await _anamService.Get<List<Model.Anamnesis>>(search);
+                int ? anamId = new int();
+                if (anam.Count == 1)
+                {
+                    anamId = anam[0].AnamnesisID;
+                }
+                else
+                {
+                    anamId = null;
+                }
+                
+                frmAnamnesis frm = new frmAnamnesis(int.Parse(appId.ToString()), anamId);
+                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
+        }
+
+        private void btnNewImage_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var fileName = openFileDialog.FileName;
+                var file = File.ReadAllBytes(fileName);
+
+                request.Image = file;
+                txtImageInput.Text = fileName;
+
+                Image image = Image.FromFile(fileName);
+                pictureBox.Image = image;
             }
         }
     }

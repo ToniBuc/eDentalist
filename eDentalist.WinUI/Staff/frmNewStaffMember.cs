@@ -39,8 +39,6 @@ namespace eDentalist.WinUI.Staff
                 request.Password = txtPassword.Text;
                 request.PasswordConfirmation = txtPasswordConfirmation.Text;
 
-
-
                 var gender = cmbGender.SelectedValue;
                 if (int.TryParse(gender.ToString(), out int genderId))
                 {

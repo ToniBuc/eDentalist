@@ -14,6 +14,7 @@ namespace eDentalist.WinUI.Patient
     public partial class frmAnamnesis : Form
     {
         private readonly APIService _apiService = new APIService("Anamnesis");
+        private readonly APIService _appointmentService = new APIService("Appointment");
         private readonly APIService _userService = new APIService("User");
         private int? _id = null;
         private int _appId;
@@ -51,15 +52,16 @@ namespace eDentalist.WinUI.Patient
 
         private async void frmAnamnesis_Load(object sender, EventArgs e)
         {
+            var appointment = await _appointmentService.GetById<Model.Appointment>(_appId);
+            txtProcedure.Text = appointment.ProcedureName;
+            txtDate.Text = appointment.Date.ToString();
+            txtDentist.Text = appointment.DentistName;
             if (_id.HasValue)
             {
                 var anamnesis = await _apiService.GetById<Model.Anamnesis>(_id);
-                txtProcedure.Text = anamnesis.Procedure;
-                txtDate.Text = anamnesis.Date.ToString();
                 rtxtAnamnesis.Text = anamnesis.AnamnesisContent;
                 rtxtTherapy.Text = anamnesis.Therapy;
                 rtxtAdditionalNotes.Text = anamnesis.AdditionalNotes;
-                txtDentist.Text = anamnesis.DentistFullName;
             }
             
         }
