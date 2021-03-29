@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.dgvSchedule = new System.Windows.Forms.DataGridView();
-            this.UserWorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dentist = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAddWorkday = new System.Windows.Forms.Button();
             this.btnAppointments = new System.Windows.Forms.Button();
+            this.UserWorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dentist = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             this.dgvSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserWorkdayID,
             this.WorkdayID,
+            this.UserID,
             this.Dentist,
             this.Role,
             this.Date,
@@ -61,52 +63,6 @@
             this.dgvSchedule.Size = new System.Drawing.Size(776, 373);
             this.dgvSchedule.TabIndex = 0;
             this.dgvSchedule.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSchedule_MouseDoubleClick);
-            // 
-            // UserWorkdayID
-            // 
-            this.UserWorkdayID.DataPropertyName = "UserWorkdayID";
-            this.UserWorkdayID.HeaderText = "UserWorkdayID";
-            this.UserWorkdayID.Name = "UserWorkdayID";
-            this.UserWorkdayID.ReadOnly = true;
-            this.UserWorkdayID.Visible = false;
-            // 
-            // WorkdayID
-            // 
-            this.WorkdayID.DataPropertyName = "WorkdayID";
-            this.WorkdayID.HeaderText = "WorkdayID";
-            this.WorkdayID.Name = "WorkdayID";
-            this.WorkdayID.ReadOnly = true;
-            this.WorkdayID.Visible = false;
-            // 
-            // Dentist
-            // 
-            this.Dentist.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Dentist.DataPropertyName = "UserFullName";
-            this.Dentist.HeaderText = "Dentist";
-            this.Dentist.Name = "Dentist";
-            this.Dentist.ReadOnly = true;
-            // 
-            // Role
-            // 
-            this.Role.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Role.DataPropertyName = "UserRole";
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Shift
-            // 
-            this.Shift.DataPropertyName = "ShiftNumber";
-            this.Shift.HeaderText = "Shift";
-            this.Shift.Name = "Shift";
-            this.Shift.ReadOnly = true;
             // 
             // txtSearch
             // 
@@ -145,6 +101,60 @@
             this.btnAppointments.UseVisualStyleBackColor = true;
             this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
             // 
+            // UserWorkdayID
+            // 
+            this.UserWorkdayID.DataPropertyName = "UserWorkdayID";
+            this.UserWorkdayID.HeaderText = "UserWorkdayID";
+            this.UserWorkdayID.Name = "UserWorkdayID";
+            this.UserWorkdayID.ReadOnly = true;
+            this.UserWorkdayID.Visible = false;
+            // 
+            // WorkdayID
+            // 
+            this.WorkdayID.DataPropertyName = "WorkdayID";
+            this.WorkdayID.HeaderText = "WorkdayID";
+            this.WorkdayID.Name = "WorkdayID";
+            this.WorkdayID.ReadOnly = true;
+            this.WorkdayID.Visible = false;
+            // 
+            // UserID
+            // 
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "UserID";
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Visible = false;
+            // 
+            // Dentist
+            // 
+            this.Dentist.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Dentist.DataPropertyName = "UserFullName";
+            this.Dentist.HeaderText = "Dentist";
+            this.Dentist.Name = "Dentist";
+            this.Dentist.ReadOnly = true;
+            // 
+            // Role
+            // 
+            this.Role.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Role.DataPropertyName = "UserRole";
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Shift
+            // 
+            this.Shift.DataPropertyName = "ShiftNumber";
+            this.Shift.HeaderText = "Shift";
+            this.Shift.Name = "Shift";
+            this.Shift.ReadOnly = true;
+            // 
             // frmSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +183,7 @@
         private System.Windows.Forms.Button btnAppointments;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserWorkdayID;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkdayID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dentist;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;

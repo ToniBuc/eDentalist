@@ -46,8 +46,9 @@ namespace eDentalist.WinUI.WorkSchedule
         {
             if (!dgvSchedule.RowCount.Equals(0))
             {
-                var id = dgvSchedule.SelectedRows[0].Cells[1].Value;
-                frmAppointmentOverview frm = new frmAppointmentOverview(int.Parse(id.ToString()));
+                var workdayid = dgvSchedule.SelectedRows[0].Cells[1].Value;
+                var userid = dgvSchedule.SelectedRows[0].Cells[2].Value;
+                frmAppointmentOverview frm = new frmAppointmentOverview(int.Parse(workdayid.ToString()), int.Parse(userid.ToString()));
                 frm.FormBorderStyle = FormBorderStyle.FixedSingle;
                 frm.MaximizeBox = false;
                 frm.MinimizeBox = false;

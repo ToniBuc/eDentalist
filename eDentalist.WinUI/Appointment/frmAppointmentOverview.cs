@@ -15,10 +15,12 @@ namespace eDentalist.WinUI.Appointment
     {
         private readonly APIService _apiService = new APIService("Appointment");
         private int? _workdayId = null;
-        public frmAppointmentOverview(int ? workdayId = null)
+        private int? _userId = null;
+        public frmAppointmentOverview(int ? workdayId = null, int? userId = null)
         {
             InitializeComponent();
             _workdayId = workdayId;
+            _userId = userId;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -36,11 +38,12 @@ namespace eDentalist.WinUI.Appointment
         private async void frmAppointmentOverview_Load(object sender, EventArgs e)
         {
             dgvAppointments.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            if (_workdayId.HasValue)
+            if (_workdayId.HasValue && _userId.HasValue)
             {
                 var search = new AppointmentSearchRequest()
                 {
-                    WorkdayID = _workdayId
+                    WorkdayID = _workdayId,
+                    DentistID = _userId
                 };
                 var result = await _apiService.Get<List<Model.Appointment>>(search);
 
