@@ -283,26 +283,35 @@ namespace eDentalist.WinUI.Staff
             if (!dgvAppointments.RowCount.Equals(0))
             {
                 var appId = dgvAppointments.SelectedRows[0].Cells[0].Value;
-                var search = new AnamnesisSearchRequest()
+                var statusCheck = await _appService.GetById<Model.Appointment>(int.Parse(appId.ToString()));
+
+                if (statusCheck.AppointmentStatusName == "Done")
                 {
-                    AppointmentID = int.Parse(appId.ToString())
-                };
-                var anam = await _anamService.Get<List<Model.Anamnesis>>(search);
-                int ? anamId = new int();
-                if (anam.Count == 1)
-                {
-                    anamId = anam[0].AnamnesisID;
+                    var search = new AnamnesisSearchRequest()
+                    {
+                        AppointmentID = int.Parse(appId.ToString())
+                    };
+                    var anam = await _anamService.Get<List<Model.Anamnesis>>(search);
+                    int? anamId = new int();
+                    if (anam.Count == 1)
+                    {
+                        anamId = anam[0].AnamnesisID;
+                    }
+                    else
+                    {
+                        anamId = null;
+                    }
+
+                    frmAnamnesis frm = new frmAnamnesis(int.Parse(appId.ToString()), anamId);
+                    frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                    frm.MaximizeBox = false;
+                    frm.MinimizeBox = false;
+                    frm.Show();
                 }
                 else
                 {
-                    anamId = null;
+                    MessageBox.Show("The chosen appointment has not yet been finished! If it has, please update it's status to 'Done' before issuing an anamnesis to your patient!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
-                frmAnamnesis frm = new frmAnamnesis(int.Parse(appId.ToString()), anamId);
-                frm.FormBorderStyle = FormBorderStyle.FixedSingle;
-                frm.MaximizeBox = false;
-                frm.MinimizeBox = false;
-                frm.Show();
             }
         }
 
