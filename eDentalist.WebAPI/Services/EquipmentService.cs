@@ -28,7 +28,7 @@ namespace eDentalist.WebAPI.Services
             }
             if (isRequestNull)
             {
-                query = query.Where(x => x.Name.Contains(search.Name));
+                query = query.Where(x => x.Name.Contains(search.Name) || search.Name.Contains(x.Name));
             }
             query = query.OrderBy(x => x.Name);
 

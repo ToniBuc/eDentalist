@@ -24,7 +24,9 @@ namespace eDentalist.WebAPI.Services
 
             if (isRequestNull)
             {
-                query = query.Where(x => x.User.FirstName.Contains(search.Name) || x.User.LastName.Contains(search.Name));
+                //query = query.Where(x => x.User.FirstName.Contains(search.Name) || x.User.LastName.Contains(search.Name));
+                query = query.Where(x => search.Name.Contains(x.User.FirstName) || search.Name.Contains(x.User.LastName) || 
+                x.User.FirstName.Contains(search.Name) || x.User.LastName.Contains(search.Name));
             }
             if (search.Date.HasValue && search.UserID.HasValue && !search.ShiftID.HasValue) //added false check for shiftid here, need to make sure this didn't mess something else up later
             {

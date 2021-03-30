@@ -67,7 +67,8 @@ namespace eDentalist.WebAPI.Services
 
             if (isRequestNull)
             {
-                query = query.Where(i => (!string.IsNullOrWhiteSpace(request.FirstName) && i.FirstName.StartsWith(request.FirstName)) || (!string.IsNullOrWhiteSpace(request.LastName) && i.LastName.StartsWith(request.LastName)));
+                query = query.Where(x => x.FirstName.Contains(request.FirstName) || x.LastName.Contains(request.LastName) || 
+                request.FirstName.Contains(x.FirstName) || request.LastName.Contains(x.LastName));
             }
 
             var list = query.ToList();

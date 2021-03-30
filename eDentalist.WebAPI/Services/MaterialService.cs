@@ -9,21 +9,6 @@ using System.Threading.Tasks;
 
 namespace eDentalist.WebAPI.Services
 {
-    //public class MaterialService : IMaterialService
-    //{
-    //    private readonly eDentalistDbContext _context;
-    //    private readonly IMapper _mapper;
-    //    public MaterialService(eDentalistDbContext context, IMapper mapper)
-    //    {
-    //        _context = context;
-    //    }
-
-    //    public IList<Model.Material> Get()
-    //    {
-    //        var list = _context.Material.ToList();
-    //        return _mapper.Map<List<Model.Material>>(list);
-    //    }
-    //}
     public class MaterialService : BaseCRUDService<Model.Material, MaterialSearchRequest, Database.Material, MaterialUpsertRequest, MaterialUpsertRequest>
     {
         public MaterialService(eDentalistDbContext context, IMapper mapper) : base(context, mapper)
@@ -43,7 +28,7 @@ namespace eDentalist.WebAPI.Services
             }
             if (isRequestNull)
             {
-                query = query.Where(x => x.Name.Contains(search.Name));
+                query = query.Where(x => x.Name.Contains(search.Name) || search.Name.Contains(x.Name));
             }
             query = query.OrderBy(x => x.Name);
 

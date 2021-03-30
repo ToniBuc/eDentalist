@@ -27,7 +27,8 @@ namespace eDentalist.WinUI.Appointment
         {
             var search = new AppointmentSearchRequest()
             {
-                Name = txtSearch.Text
+                Name = txtSearch.Text, //dentist name
+                PatientName = txtPatientName.Text
             };
             var result = await _apiService.Get<List<Model.Appointment>>(search);
 

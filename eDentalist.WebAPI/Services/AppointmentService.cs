@@ -21,14 +21,15 @@ namespace eDentalist.WebAPI.Services
             var query = _context.Set<Database.Appointment>().Include(i => i.Workday).Include(i => i.Dentist).Include(i => i.Patient)
                 .Include(i => i.AppointmentStatus).Include(i => i.Procedure).AsQueryable();
             
-            bool isRequestNull = !string.IsNullOrWhiteSpace(search.Name);
+            bool isRequestNull = !string.IsNullOrWhiteSpace(search.Name) || !string.IsNullOrWhiteSpace(search.PatientName);
             query = query.OrderByDescending(x => x.Workday.Date);
 
             //search bar in the desktop app
             if (isRequestNull)
             {
-                query = query.Where(x => x.Dentist.FirstName.Contains(search.Name) || x.Dentist.LastName.Contains(search.Name)
-                || x.Patient.FirstName.Contains(search.Name) || x.Patient.LastName.Contains(search.Name));
+                query = query.Where(x => x.Dentist.FirstName.Contains(search.Name) || x.Dentist.LastName.Contains(search.Name) || search.Name.Contains(x.Dentist.FirstName) || search.Name.Contains(x.Dentist.LastName)
+                || x.Patient.FirstName.Contains(search.PatientName) || x.Patient.LastName.Contains(search.PatientName) 
+                || search.PatientName.Contains(x.Patient.FirstName) || search.PatientName.Contains(x.Patient.LastName));
             }
 
             if (search.DentistID != null && search.WorkdayID != null)

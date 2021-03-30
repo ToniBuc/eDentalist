@@ -39,6 +39,7 @@
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.btnReportStaff = new System.Windows.Forms.Button();
             this.btnCity = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.StaffMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).BeginInit();
             this.SuspendLayout();
@@ -148,12 +149,22 @@
             this.btnCity.UseVisualStyleBackColor = true;
             this.btnCity.Click += new System.EventHandler(this.btnCity_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Staff member:";
+            // 
             // frmStaffMembers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(375, 540);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCity);
             this.Controls.Add(this.btnReportStaff);
             this.Controls.Add(this.btnAddStaff);
@@ -182,5 +193,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffRole;
         private System.Windows.Forms.Button btnCity;
+        private System.Windows.Forms.Label label1;
     }
 }
