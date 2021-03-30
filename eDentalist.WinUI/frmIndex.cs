@@ -195,6 +195,9 @@ namespace eDentalist.WinUI
 
         private async void frmIndex_Load(object sender, EventArgs e)
         {
+            //pbxLogo.Image = Image.FromFile(@"./logo.png");
+            lblUsername.Text = APIService.Username;
+            lblDate.Text = DateTime.Now.Date.ToShortDateString();
             var search = new AppointmentSearchRequest()
             {
                 //hours need to be lowered by one because for an unknown reason after search gets passed into the Get, it increases the date by an hour (possible timezone issue somehow?)
