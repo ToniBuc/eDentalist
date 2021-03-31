@@ -147,7 +147,7 @@ namespace eDentalist.WebAPI.Services
 
         public Model.User Login(UserLoginRequest request)
         {
-            var entity = _context.User.Include(i => i.UserRole).FirstOrDefault(x => x.Username == request.Username);
+            var entity = _context.User.Include(i => i.UserRole).Include(i => i.City).Include(i => i.City.Country).FirstOrDefault(x => x.Username == request.Username);
 
             if (entity == null)
             {

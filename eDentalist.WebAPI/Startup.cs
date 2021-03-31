@@ -82,7 +82,7 @@ namespace eDentalist.WebAPI
             services.AddScoped<ICRUDService<Model.City, CitySearchRequest, CityUpsertRequest, CityUpsertRequest>, CityService>();
             services.AddScoped<ICRUDService<Model.Workday, WorkdaySearchRequest, WorkdayUpsertRequest, WorkdayUpsertRequest>, WorkdayService>();
             services.AddScoped<ICRUDService<Model.UserWorkday, UserWorkdaySearchRequest, UserWorkdayUpsertRequest, UserWorkdayUpsertRequest>, UserWorkdayService>();
-            services.AddScoped<ICRUDService<Model.Bill, BillSearchRequest, BillUpsertRequest, BillUpsertRequest>, BillService>();
+            services.AddScoped<ICRUDService<Model.Bill, BillSearchRequest, BillInsertRequest, BillUpdateRequest>, BillService>();
             services.AddScoped<ICRUDService<Model.Rating, RatingSearchRequest, RatingUpsertRequest, RatingUpsertRequest>, RatingService>();
             services.AddScoped<ICRUDService<Model.Appointment, AppointmentSearchRequest, AppointmentInsertRequest, AppointmentUpdateRequest>, AppointmentService>();
             services.AddScoped<ICRUDService<Model.Anamnesis, AnamnesisSearchRequest, AnamnesisUpsertRequest, AnamnesisUpsertRequest>, AnamnesisService>();

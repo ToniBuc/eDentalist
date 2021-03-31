@@ -56,6 +56,7 @@
                     <Button Text="Schedule" Clicked="OpenSchedule_Clicked" x:Name="staffScheduleButton"></Button>
                     <Button Text="Appointments" Clicked="OpenAppointments_Clicked" x:Name="patientAppointmentsButton"></Button>
                     <Button Text="Anamneses" Clicked="OpenAnamneses_Clicked" x:Name="patientAnamnesesButton"></Button>
+                    <Button Text="Bills" Clicked="OpenBills_Clicked" x:Name="patientBillsButton"></Button>
                 </StackLayout>
             </Grid>
             </StackLayout>

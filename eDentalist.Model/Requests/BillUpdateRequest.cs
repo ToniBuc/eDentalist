@@ -4,9 +4,8 @@ using System.Text;
 
 namespace eDentalist.Model.Requests
 {
-    public class BillSearchRequest
+    public class BillUpdateRequest
     {
-        public int? BillID { get; set; }
-        public int? PatientID { get; set; }
+        public bool IsPaid { get; set; }
     }
 }

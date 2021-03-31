@@ -28,6 +28,7 @@ namespace eDentalist.Mobile.Views
             {
                 patientAppointmentsButton.IsVisible = false;
                 patientAnamnesesButton.IsVisible = false;
+                patientBillsButton.IsVisible = false;
             }
             
         }
@@ -51,6 +52,10 @@ namespace eDentalist.Mobile.Views
         private async void OpenAppointments_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new StaffAppointmentsPage(null));
+        }
+        private async void OpenBills_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BillsPage());
         }
     }
 }

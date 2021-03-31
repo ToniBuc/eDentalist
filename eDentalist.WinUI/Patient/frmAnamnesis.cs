@@ -16,6 +16,7 @@ namespace eDentalist.WinUI.Patient
         private readonly APIService _apiService = new APIService("Anamnesis");
         private readonly APIService _appointmentService = new APIService("Appointment");
         private readonly APIService _userService = new APIService("User");
+        private readonly APIService _billService = new APIService("Bill");
         private int? _id = null;
         private int _appId;
         public frmAnamnesis(int appId, int ? id = null)
@@ -43,7 +44,19 @@ namespace eDentalist.WinUI.Patient
                 }
                 else
                 {
-                    await _apiService.Insert<Model.Anamnesis>(request);
+                    var anamInsert = await _apiService.Insert<Model.Anamnesis>(request);
+                    if (anamInsert != null)
+                    {
+                        var billRequest = new BillInsertRequest()
+                        {
+                            AppointmentID = _appId,
+                        };
+                        await _billService.Insert<Model.Bill>(billRequest);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Operation failed!");
+                    }
                 }
 
                 MessageBox.Show("Operation successful!");

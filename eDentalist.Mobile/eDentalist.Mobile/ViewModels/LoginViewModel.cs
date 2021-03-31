@@ -50,6 +50,7 @@ namespace eDentalist.Mobile.ViewModels
 
                 var userLogin = await _service.Login<Model.User>(login);
 
+                APIService.User = userLogin;
                 APIService.UserID = userLogin.UserID;
                 APIService.Role = userLogin.UserRole.Name;
 

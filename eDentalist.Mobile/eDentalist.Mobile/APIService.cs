@@ -16,6 +16,7 @@ namespace eDentalist.Mobile
         public static string Password { get; set; }
         public static string Role { get; set; }
         public static int UserID { get; set; }
+        public static User User { get; set; }
 
         private string _route = null;
 

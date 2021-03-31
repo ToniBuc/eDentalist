@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eDentalist.WebAPI.Controllers
 {
-    public class BillController : BaseCRUDController<Model.Bill, BillSearchRequest, BillUpsertRequest, BillUpsertRequest>
+    public class BillController : BaseCRUDController<Model.Bill, BillSearchRequest, BillInsertRequest, BillUpdateRequest>
     {
-        public BillController(ICRUDService<Bill, BillSearchRequest, BillUpsertRequest, BillUpsertRequest> service) : base(service)
+        public BillController(ICRUDService<Bill, BillSearchRequest, BillInsertRequest, BillUpdateRequest> service) : base(service)
         {
 
         }

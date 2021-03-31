@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eDentalist.WebAPI.Database;
 
 namespace eDentalist.WebAPI.Migrations
 {
     [DbContext(typeof(eDentalistDbContext))]
-    partial class eDentalistDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210331134604_migBillFix")]
+    partial class migBillFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,9 +124,14 @@ namespace eDentalist.WebAPI.Migrations
                     b.Property<decimal>("PaymentAmount")
                         .HasColumnType("DECIMAL(18,2)");
 
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
                     b.HasKey("BillID");
 
                     b.HasIndex("AppointmentID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("Bill");
                 });
@@ -323,9 +330,6 @@ namespace eDentalist.WebAPI.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("DECIMAL(18,2)");
 
                     b.HasKey("ProcedureID");
 
@@ -600,7 +604,15 @@ namespace eDentalist.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("eDentalist.WebAPI.Database.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Appointment");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("eDentalist.WebAPI.Database.City", b =>
