@@ -4,5 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:eDentalist.Mobile.UWP"
     RequestedTheme="Light">
-
+    <!--changes listview background color of selecteditem-->
+    <Application.Resources>
+        <SolidColorBrush x:Key="SystemControlHighlightListAccentLowBrush" Color="#ffb3b3" />
+        <SolidColorBrush x:Key="SystemControlHighlightListAccentMediumBrush" Color="#ffb3b3" />
+    </Application.Resources>
 </Application>

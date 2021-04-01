@@ -21,7 +21,7 @@ namespace eDentalist.Mobile.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Procedures, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)

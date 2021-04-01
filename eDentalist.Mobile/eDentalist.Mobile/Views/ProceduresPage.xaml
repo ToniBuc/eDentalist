@@ -14,25 +14,6 @@
             <Label Text="Procedures"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <!--Commented xaml is from method used in class for an ordinary list view-->
-            <!--<ListView ItemsSource="{Binding ProcedureList}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Name}"
-                                    LineBreakMode="NoWrap" 
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="16" />
-                            <Label Text="{Binding Description}"
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="13" />
-                        </StackLayout>
-                    </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
             <SearchBar Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}"></SearchBar>
             <CollectionView ItemsSource="{Binding ProcedureList}">
                 <CollectionView.ItemsLayout>
@@ -60,7 +41,7 @@
                             </Label>
                             <Label  Grid.Row="1"
                                     Grid.Column="0"
-                                    Text="{Binding Description}"
+                                    Text="{Binding PriceString}"
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" 

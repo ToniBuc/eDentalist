@@ -22,6 +22,8 @@ namespace eDentalist.Mobile
 
 #if DEBUG
         private string _apiUrl = "http://localhost:44311/api";
+        //for android emulator:
+        //private string _apiUrl = "http://10.0.2.2:44311/api";
 #endif
 #if RELEASE
         private string _apiUrl = "https://mywebsite.com/api";

@@ -28,7 +28,14 @@ namespace eDentalist.WebAPI.Services
 
             var list = query.ToList();
 
-            return _mapper.Map<List<Model.Procedure>>(list);
+            var result = _mapper.Map<List<Model.Procedure>>(list);
+
+            foreach(var x in result)
+            {
+                x.PriceString = x.Price.ToString() + " KM";
+            }
+
+            return result;
         }
     }
 }
