@@ -44,6 +44,39 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.DentistID == search.DentistID);
             }
+            #region Report Filtering
+            if (search.ProcedureID != null || search.From != null || search.To != null)
+            {
+                if (search.ProcedureID != null && search.From != null && search.To != null)
+                {
+                    query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date >= search.From.Value.Date && x.Workday.Date.Date <= search.To.Value.Date);
+                }
+                else if (search.ProcedureID == null && search.From != null && search.To != null)
+                {
+                    query = query.Where(x => x.Workday.Date.Date >= search.From.Value.Date && x.Workday.Date.Date <= search.To.Value.Date);
+                }
+                else if (search.ProcedureID != null && search.From == null && search.To == null)
+                {
+                    query = query.Where(x => x.ProcedureID == search.ProcedureID);
+                }
+                else if (search.ProcedureID != null && search.From != null && search.To == null)
+                {
+                    query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date >= search.From.Value.Date);
+                }
+                else if (search.ProcedureID != null && search.From == null && search.To != null)
+                {
+                    query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date <= search.To.Value.Date);
+                }
+                else if (search.ProcedureID == null && search.From != null && search.To == null)
+                {
+                    query = query.Where(x => x.Workday.Date.Date >= search.From.Value.Date);
+                }
+                else if (search.ProcedureID == null && search.From == null && search.To != null)
+                {
+                    query = query.Where(x => x.Workday.Date.Date <= search.To.Value.Date);
+                }
+            }
+            #endregion
 
             //for retrieving a patient's appointments in the mobile app
             if (search.PatientID != null)
@@ -53,6 +86,7 @@ namespace eDentalist.WebAPI.Services
                 query = query.Where(x => x.PatientID == search.PatientID);
             }
 
+            //bug that needs fixing, related to date sent through being one hour ahead than what it should be
             if (search.Date.Date == DateTime.Now.Date)
             {
                 query = query.Where(x => x.Workday.Date.Date == search.Date.Date && x.From > search.Time);
@@ -78,6 +112,7 @@ namespace eDentalist.WebAPI.Services
                 x.PatientName = x.Patient.FirstName + " " + x.Patient.LastName;
                 x.Date = x.Workday.Date;
                 x.FromTo = x.From + " - " + x.To;
+                x.DateString = x.Workday.Date.ToShortDateString();
 
                 //specific for mobile, used to display different things in listviews for patients and staff roles
                 if (search.PatientID != null)

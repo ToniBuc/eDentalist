@@ -34,25 +34,25 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
-            this.btnSchedule = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.btnRequisition = new System.Windows.Forms.Button();
-            this.btnEquipment = new System.Windows.Forms.Button();
             this.btnMaterial = new System.Windows.Forms.Button();
+            this.btnEquipment = new System.Windows.Forms.Button();
             this.btnHygiene = new System.Windows.Forms.Button();
+            this.btnSchedule = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbxLogo = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvAppointments = new System.Windows.Forms.DataGridView();
             this.AssignedDentist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -109,48 +109,47 @@
             this.panel1.Size = new System.Drawing.Size(220, 864);
             this.panel1.TabIndex = 5;
             // 
-            // pbxLogo
+            // label3
             // 
-            this.pbxLogo.Image = global::eDentalist.WinUI.Properties.Resources.logo;
-            this.pbxLogo.Location = new System.Drawing.Point(41, 0);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(141, 134);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLogo.TabIndex = 12;
-            this.pbxLogo.TabStop = false;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 839);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 25);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Date:";
             // 
-            // btnSchedule
+            // lblDate
             // 
-            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSchedule.Location = new System.Drawing.Point(12, 463);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(193, 67);
-            this.btnSchedule.TabIndex = 11;
-            this.btnSchedule.Text = "Schedule";
-            this.btnSchedule.UseVisualStyleBackColor = true;
-            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(77, 839);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(72, 25);
+            this.lblDate.TabIndex = 16;
+            this.lblDate.Text = "lblDate";
             // 
-            // button1
+            // label2
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 67);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Patients";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 216);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "User:";
             // 
-            // button2
+            // lblUsername
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 390);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(193, 67);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Appointments";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(68, 216);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(121, 25);
+            this.lblUsername.TabIndex = 14;
+            this.lblUsername.Text = "lblUsername";
             // 
             // btnRequisition
             // 
@@ -163,17 +162,6 @@
             this.btnRequisition.UseVisualStyleBackColor = true;
             this.btnRequisition.Click += new System.EventHandler(this.btnRequisition_Click);
             // 
-            // btnEquipment
-            // 
-            this.btnEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquipment.Location = new System.Drawing.Point(12, 682);
-            this.btnEquipment.Name = "btnEquipment";
-            this.btnEquipment.Size = new System.Drawing.Size(193, 67);
-            this.btnEquipment.TabIndex = 7;
-            this.btnEquipment.Text = "Equipment";
-            this.btnEquipment.UseVisualStyleBackColor = true;
-            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
-            // 
             // btnMaterial
             // 
             this.btnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,6 +173,17 @@
             this.btnMaterial.UseVisualStyleBackColor = true;
             this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
+            // btnEquipment
+            // 
+            this.btnEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEquipment.Location = new System.Drawing.Point(12, 682);
+            this.btnEquipment.Name = "btnEquipment";
+            this.btnEquipment.Size = new System.Drawing.Size(193, 67);
+            this.btnEquipment.TabIndex = 7;
+            this.btnEquipment.Text = "Equipment";
+            this.btnEquipment.UseVisualStyleBackColor = true;
+            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
+            // 
             // btnHygiene
             // 
             this.btnHygiene.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,6 +194,59 @@
             this.btnHygiene.Text = "Hygiene";
             this.btnHygiene.UseVisualStyleBackColor = true;
             this.btnHygiene.Click += new System.EventHandler(this.btnHygiene_Click);
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.Location = new System.Drawing.Point(12, 463);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(193, 67);
+            this.btnSchedule.TabIndex = 11;
+            this.btnSchedule.Text = "Schedule";
+            this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(12, 390);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(193, 67);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Appointments";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(42, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 31);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "eDentalist";
+            // 
+            // pbxLogo
+            // 
+            this.pbxLogo.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pbxLogo.Location = new System.Drawing.Point(41, 0);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(141, 134);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLogo.TabIndex = 12;
+            this.pbxLogo.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 67);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Patients";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -253,58 +305,6 @@
             this.StartTime.HeaderText = "Start time";
             this.StartTime.Name = "StartTime";
             this.StartTime.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 137);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 31);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "eDentalist";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(68, 216);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(121, 25);
-            this.lblUsername.TabIndex = 14;
-            this.lblUsername.Text = "lblUsername";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 216);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 25);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "User:";
-            // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(77, 839);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(72, 25);
-            this.lblDate.TabIndex = 16;
-            this.lblDate.Text = "lblDate";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 839);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 25);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Date:";
             // 
             // frmIndex
             // 

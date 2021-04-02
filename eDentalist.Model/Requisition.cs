@@ -18,5 +18,8 @@ namespace eDentalist.Model
         public Equipment Equipment { get; set; }
         public string ItemName { get; set; }
         public bool Status { get; set; }
+        //for reports
+        public string DateRequisitionedString { get; set; }
+        public string ItemType { get; set; }
     }
 }

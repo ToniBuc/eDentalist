@@ -193,6 +193,7 @@ namespace eDentalist.WinUI
             frm.Show();
         }
 
+        //bug that needs fixing, related to date sent through being one hour ahead than what it should be
         private async void frmIndex_Load(object sender, EventArgs e)
         {
             //pbxLogo.Image = Image.FromFile(@"./logo.png");

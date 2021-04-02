@@ -26,5 +26,8 @@ namespace eDentalist.Model
         public City City { get; set; }
         public string CityName { get; set; }
         public byte[] Image { get; set; }
+        //for reports
+        public int NumberOfWorkdays { get; set; }
+        public int NumberOfAppointments { get; set; }
     }
 }

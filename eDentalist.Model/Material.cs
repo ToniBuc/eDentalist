@@ -12,5 +12,8 @@ namespace eDentalist.Model
         public DateTime DateAdded { get; set; }
         public DateTime LastUsed { get; set; }
         public string Description { get; set; }
+        //for reports
+        public string DateAddedString { get; set; }
+        public string LastUsedString { get; set; }
     }
 }

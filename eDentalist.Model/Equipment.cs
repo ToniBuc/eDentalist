@@ -16,5 +16,8 @@ namespace eDentalist.Model
         public int EquipmentTypeID { get; set; }
         public EquipmentType EquipmentType { get; set; }
         public string EquipmentTypeName { get; set; }
+        //for reports
+        public string DateAddedString { get; set; }
+        public string LastUsedString { get; set; }
     }
 }

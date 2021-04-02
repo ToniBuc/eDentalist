@@ -13,5 +13,9 @@ namespace eDentalist.Model.Requests
         public int? PatientID { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
+        //for reports
+        public DateTime? From { get; set; }
+        public DateTime? To { get; set; }
+        public int? ProcedureID { get; set; }
     }
 }

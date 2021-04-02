@@ -22,6 +22,7 @@ namespace eDentalist.Model
         public int ProcedureID { get; set; }
         public Procedure Procedure { get; set; }
         public string ProcedureName { get; set; }
+        public string ProcedurePrice { get; set; } //must add currency at end of string
         public int AppointmentStatusID { get; set; }
         public AppointmentStatus AppointmentStatus { get; set;}
         public string AppointmentStatusName { get; set; }
@@ -29,5 +30,6 @@ namespace eDentalist.Model
         //specific for mobile, used to display different things in listviews for patients and staff roles
         public string PatientOrStatus { get; set; }
         public string TimeframeOrDatetime { get; set; }
+        public string DateString { get; set; }
     }
 }
