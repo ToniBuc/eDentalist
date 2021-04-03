@@ -1,4 +1,5 @@
 ﻿using eDentalist.Model.Requests;
+using eDentalist.WinUI.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,6 +67,15 @@ namespace eDentalist.WinUI.Requisition
                 frm.MinimizeBox = false;
                 frm.Show();
             }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmRequisitionReport frm = new frmRequisitionReport();
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
         }
     }
 }

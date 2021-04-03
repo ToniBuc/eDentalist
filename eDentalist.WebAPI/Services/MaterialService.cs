@@ -34,7 +34,15 @@ namespace eDentalist.WebAPI.Services
 
             var list = query.ToList();
 
-            return _mapper.Map<List<Model.Material>>(list);
+            var result = _mapper.Map<List<Model.Material>>(list);
+
+            foreach(var x in result)
+            {
+                x.DateAddedString = x.DateAdded.ToShortDateString();
+                x.LastUsedString = x.LastUsed.ToShortDateString();
+            }
+
+            return result;
         }
     }
 }

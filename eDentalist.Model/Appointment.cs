@@ -31,5 +31,7 @@ namespace eDentalist.Model
         public string PatientOrStatus { get; set; }
         public string TimeframeOrDatetime { get; set; }
         public string DateString { get; set; }
+        //for reports
+        public decimal ProcedurePriceDecimal { get; set; }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.AppointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
@@ -38,9 +39,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.AppointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
+            // 
+            // AppointmentBindingSource
+            // 
+            this.AppointmentBindingSource.DataSource = typeof(eDentalist.Model.Appointment);
             // 
             // reportViewer
             // 
@@ -60,8 +66,7 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(200, 20);
             this.dtpFrom.TabIndex = 1;
-            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
-            this.dtpFrom.DropDown += new System.EventHandler(this.dtpFrom_DropDown);
+            this.dtpFrom.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFrom_Validating);
             // 
             // dtpTo
             // 
@@ -69,8 +74,7 @@
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(200, 20);
             this.dtpTo.TabIndex = 2;
-            this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
-            this.dtpTo.DropDown += new System.EventHandler(this.dtpTo_DropDown);
+            this.dtpTo.Validating += new System.ComponentModel.CancelEventHandler(this.dtpTo_Validating);
             // 
             // cmbProcedure
             // 
@@ -118,9 +122,9 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // AppointmentBindingSource
+            // errorProvider
             // 
-            this.AppointmentBindingSource.DataSource = typeof(eDentalist.Model.Appointment);
+            this.errorProvider.ContainerControl = this;
             // 
             // frmAppointmentReport
             // 
@@ -139,6 +143,7 @@
             this.Text = "frmAppointmentReport";
             this.Load += new System.EventHandler(this.frmAppointmentReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +160,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

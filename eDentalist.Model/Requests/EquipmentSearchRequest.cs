@@ -8,5 +8,7 @@ namespace eDentalist.Model.Requests
     {
         public int? EquipmentID { get; set; }
         public string Name { get; set; }
+        //for reports
+        public int? EquipmentTypeID { get; set; }
     }
 }

@@ -26,10 +26,20 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.EquipmentID == search.EquipmentID);
             }
-            if (isRequestNull)
+            if (isRequestNull && !search.EquipmentTypeID.HasValue)
             {
                 query = query.Where(x => x.Name.Contains(search.Name) || search.Name.Contains(x.Name));
             }
+            //for reports
+            if (isRequestNull && search.EquipmentTypeID.HasValue)
+            {
+                query = query.Where(x => x.Name.Contains(search.Name) && x.EquipmentTypeID == search.EquipmentTypeID);
+            }
+            if (!isRequestNull && search.EquipmentTypeID.HasValue)
+            {
+                query = query.Where(x => x.EquipmentTypeID == search.EquipmentTypeID);
+            }
+
             query = query.OrderBy(x => x.Name);
 
             var list = query.ToList();
@@ -38,6 +48,15 @@ namespace eDentalist.WebAPI.Services
             foreach(var x in result)
             {
                 x.EquipmentTypeName = x.EquipmentType.Name;
+                x.DateAddedString = x.DateAdded.ToShortDateString();
+                if (x.Condition)
+                {
+                    x.ConditionString = "Operational";
+                }
+                else
+                {
+                    x.ConditionString = "Non-operational";
+                }
             }
 
             return result;

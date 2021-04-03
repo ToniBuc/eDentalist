@@ -12,66 +12,42 @@ using System.Windows.Forms;
 
 namespace eDentalist.WinUI.Reports
 {
-    public partial class frmAppointmentReport : Form
+    public partial class frmStaffReport : Form
     {
-        private readonly APIService _appService = new APIService("Appointment");
-        private readonly APIService _procedureService = new APIService("Procedure");
-        public frmAppointmentReport()
+        private readonly APIService _userService = new APIService("User");
+        public frmStaffReport()
         {
             InitializeComponent();
         }
 
-        private async void frmAppointmentReport_Load(object sender, EventArgs e)
+        private void frmStaffReport_Load(object sender, EventArgs e)
         {
-            await LoadProcedure();
             reportViewer.ZoomMode = ZoomMode.PageWidth;
         }
-        private async Task LoadProcedure()
-        {
-            var result = await _procedureService.Get<List<Model.Procedure>>(null);
-            result.Insert(0, new Model.Procedure());
-            cmbProcedure.DisplayMember = "Name";
-            cmbProcedure.ValueMember = "ProcedureID";
-            cmbProcedure.DataSource = result;
-        }
+
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            int? IDContainer = null;
-            if (cmbProcedure.SelectedValue != null)
+            var search = new UserSearchRequest()
             {
-                var prType = cmbProcedure.SelectedValue;
-
-                if (int.TryParse(prType.ToString(), out int prTypeId))
-                {
-                    IDContainer = prTypeId;
-                }
-            }
-
-            var search = new AppointmentSearchRequest()
-            {
+                FirstName = txtStaff.Text,
+                LastName = txtStaff.Text,
                 From = dtpFrom.Value,
-                To = dtpTo.Value,
-                ProcedureID = IDContainer
+                To = dtpTo.Value
             };
 
-            if (search.ProcedureID == 0)
-            {
-                search.ProcedureID = null;
-            }
+            var staff = await _userService.GetStaff<List<Model.User>>(search);
 
-            var appointments = await _appService.Get<List<Model.Appointment>>(search);
-
-            if (appointments != null)
+            if (staff != null)
             {
-                AppointmentBindingSource.DataSource = appointments;
-                ReportDataSource source = new ReportDataSource("dsAppointment", AppointmentBindingSource);
+                UserBindingSource.DataSource = staff;
+                ReportDataSource source = new ReportDataSource("dsStaff", UserBindingSource);
                 this.reportViewer.LocalReport.DataSources.Add(source);
                 this.reportViewer.RefreshReport();
             }
             else
             {
-                AppointmentBindingSource.DataSource = null;
-                ReportDataSource source = new ReportDataSource("dsAppointment", AppointmentBindingSource);
+                UserBindingSource.DataSource = null;
+                ReportDataSource source = new ReportDataSource("dsStaff", UserBindingSource);
                 this.reportViewer.LocalReport.DataSources.Add(source);
                 this.reportViewer.RefreshReport();
             }

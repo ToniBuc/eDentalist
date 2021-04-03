@@ -8,5 +8,8 @@ namespace eDentalist.Model.Requests
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        //for reports
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Flurl.Http;
 using Flurl;
 using eDentalist.Model.Requests;
+using eDentalist.WinUI.Reports;
 
 namespace eDentalist.WinUI.Staff
 {
@@ -83,6 +84,15 @@ namespace eDentalist.WinUI.Staff
         private void btnCity_Click(object sender, EventArgs e)
         {
             frmCityOverview frm = new frmCityOverview();
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void btnReportStaff_Click(object sender, EventArgs e)
+        {
+            frmStaffReport frm = new frmStaffReport();
             frm.FormBorderStyle = FormBorderStyle.FixedSingle;
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;

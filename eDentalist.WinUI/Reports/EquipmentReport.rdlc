@@ -6,19 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.12467cm</Width>
+              <Width>6.20417cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.3335cm</Width>
+              <Width>4.93417cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.16675cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.16675cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>3.16675cm</Width>
+              <Width>3.71833cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -34,7 +31,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Patient</Value>
+                              <Value>Name</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -74,7 +71,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Procedure</Value>
+                              <Value>Equipment Type</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -114,7 +111,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Date</Value>
+                              <Value>Date Added</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -154,7 +151,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Price (KM)</Value>
+                              <Value>Condition</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -185,46 +182,6 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox9">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Status</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>#666666</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </BottomBorder>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -232,14 +189,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PatientName">
+                    <Textbox Name="Name">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PatientName.Value</Value>
+                              <Value>=Fields!Name.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -249,7 +206,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PatientName</rd:DefaultName>
+                      <rd:DefaultName>Name</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -265,14 +222,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ProcedureName">
+                    <Textbox Name="EquipmentTypeName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ProcedureName.Value</Value>
+                              <Value>=Fields!EquipmentTypeName.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -282,7 +239,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ProcedureName</rd:DefaultName>
+                      <rd:DefaultName>EquipmentTypeName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -298,14 +255,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="DateString">
+                    <Textbox Name="DateAddedString">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DateString.Value</Value>
+                              <Value>=Fields!DateAddedString.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -315,7 +272,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>DateString</rd:DefaultName>
+                      <rd:DefaultName>DateAddedString</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -331,50 +288,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ProcedurePriceDecimal">
+                    <Textbox Name="ConditionString">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ProcedurePriceDecimal.Value)</Value>
-                              <Style>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>ProcedurePriceDecimal</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <rd:Selected>true</rd:Selected>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="AppointmentStatusName">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!AppointmentStatusName.Value</Value>
+                              <Value>=Fields!ConditionString.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -384,7 +305,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AppointmentStatusName</rd:DefaultName>
+                      <rd:DefaultName>ConditionString</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -408,7 +329,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -421,9 +341,9 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsAppointment</DataSetName>
+        <DataSetName>dsEquipment</DataSetName>
         <Height>1.2cm</Height>
-        <Width>20.95842cm</Width>
+        <Width>17.35667cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -434,7 +354,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>8.25135in</Width>
+  <Width>6.83333in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -452,120 +372,76 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>92dfc622-16ee-451b-90e0-4a05c584e898</rd:DataSourceID>
+      <rd:DataSourceID>44de09c6-c00b-4d55-b568-64ae3ce98456</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsAppointment">
+    <DataSet Name="dsEquipment">
       <Query>
         <DataSourceName>eDentalistModel</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="AppointmentID">
-          <DataField>AppointmentID</DataField>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="AppointmentStatus">
-          <DataField>AppointmentStatus</DataField>
-          <rd:TypeName>eDentalist.Model.AppointmentStatus</rd:TypeName>
+        <Field Name="Condition">
+          <DataField>Condition</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="AppointmentStatusID">
-          <DataField>AppointmentStatusID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="AppointmentStatusName">
-          <DataField>AppointmentStatusName</DataField>
+        <Field Name="ConditionString">
+          <DataField>ConditionString</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
+        <Field Name="DateAdded">
+          <DataField>DateAdded</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="DateString">
-          <DataField>DateString</DataField>
+        <Field Name="DateAddedString">
+          <DataField>DateAddedString</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Dentist">
-          <DataField>Dentist</DataField>
-          <rd:TypeName>eDentalist.Model.User</rd:TypeName>
-        </Field>
-        <Field Name="DentistID">
-          <DataField>DentistID</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
-        </Field>
-        <Field Name="DentistName">
-          <DataField>DentistName</DataField>
+        <Field Name="Description">
+          <DataField>Description</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="From">
-          <DataField>From</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FromTo">
-          <DataField>FromTo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Patient">
-          <DataField>Patient</DataField>
-          <rd:TypeName>eDentalist.Model.User</rd:TypeName>
-        </Field>
-        <Field Name="PatientID">
-          <DataField>PatientID</DataField>
+        <Field Name="EquipmentID">
+          <DataField>EquipmentID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="PatientName">
-          <DataField>PatientName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="EquipmentType">
+          <DataField>EquipmentType</DataField>
+          <rd:TypeName>eDentalist.Model.EquipmentType</rd:TypeName>
         </Field>
-        <Field Name="PatientOrStatus">
-          <DataField>PatientOrStatus</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Procedure">
-          <DataField>Procedure</DataField>
-          <rd:TypeName>eDentalist.Model.Procedure</rd:TypeName>
-        </Field>
-        <Field Name="ProcedureID">
-          <DataField>ProcedureID</DataField>
+        <Field Name="EquipmentTypeID">
+          <DataField>EquipmentTypeID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ProcedureName">
-          <DataField>ProcedureName</DataField>
+        <Field Name="EquipmentTypeName">
+          <DataField>EquipmentTypeName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ProcedurePrice">
-          <DataField>ProcedurePrice</DataField>
+        <Field Name="LastUsed">
+          <DataField>LastUsed</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="LastUsedString">
+          <DataField>LastUsedString</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ProcedurePriceDecimal">
-          <DataField>ProcedurePriceDecimal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="TimeframeOrDatetime">
-          <DataField>TimeframeOrDatetime</DataField>
+        <Field Name="Name">
+          <DataField>Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="To">
-          <DataField>To</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Workday">
-          <DataField>Workday</DataField>
-          <rd:TypeName>eDentalist.Model.Workday</rd:TypeName>
-        </Field>
-        <Field Name="WorkdayID">
-          <DataField>WorkdayID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>eDentalist.Model</rd:DataSetName>
-        <rd:TableName>Appointment</rd:TableName>
-        <rd:ObjectDataSourceType>eDentalist.Model.Appointment, eDentalist.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>Equipment</rd:TableName>
+        <rd:ObjectDataSourceType>eDentalist.Model.Equipment, eDentalist.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>53b68682-ca5c-4c26-beb7-dc7dd6e7f17e</rd:ReportID>
+  <rd:ReportID>97481d37-820d-4e80-a02c-0701bceb7337</rd:ReportID>
 </Report>

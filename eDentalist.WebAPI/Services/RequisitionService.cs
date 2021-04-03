@@ -42,13 +42,16 @@ namespace eDentalist.WebAPI.Services
             foreach(var x in result)
             {
                 x.RequisitionedBy = x.User.FirstName + " " + x.User.LastName;
+                x.DateRequisitionedString = x.DateRequisitioned.ToShortDateString();
                 if (x.EquipmentID != null)
                 {
                     x.ItemName = x.Equipment.Name;
+                    x.ItemType = "Equipment";
                 }
                 else if (x.MaterialID != null)
                 {
                     x.ItemName = x.Material.Name;
+                    x.ItemType = "Material";
                 }
             }
 

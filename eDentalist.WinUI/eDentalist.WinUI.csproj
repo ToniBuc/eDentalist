@@ -168,6 +168,30 @@
     <Compile Include="Reports\frmAppointmentReport.Designer.cs">
       <DependentUpon>frmAppointmentReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmEquipmentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmEquipmentReport.Designer.cs">
+      <DependentUpon>frmEquipmentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmMaterialReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmMaterialReport.Designer.cs">
+      <DependentUpon>frmMaterialReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmRequisitionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRequisitionReport.Designer.cs">
+      <DependentUpon>frmRequisitionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmStaffReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStaffReport.Designer.cs">
+      <DependentUpon>frmStaffReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Requisition\frmRequisition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,10 +296,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\AppointmentReport.rdlc" />
+    <EmbeddedResource Include="Reports\EquipmentReport.rdlc" />
     <EmbeddedResource Include="Reports\frmAppointmentReport.resx">
       <DependentUpon>frmAppointmentReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmEquipmentReport.resx">
+      <DependentUpon>frmEquipmentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmMaterialReport.resx">
+      <DependentUpon>frmMaterialReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRequisitionReport.resx">
+      <DependentUpon>frmRequisitionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStaffReport.resx">
+      <DependentUpon>frmStaffReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AppointmentReport.rdlc" />
+    <EmbeddedResource Include="Reports\MaterialReport.rdlc" />
+    <EmbeddedResource Include="Reports\RequisitionReport.rdlc" />
     <EmbeddedResource Include="Reports\StaffReport.rdlc" />
     <EmbeddedResource Include="Requisition\frmRequisition.resx">
       <DependentUpon>frmRequisition.cs</DependentUpon>
@@ -306,6 +345,10 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\eDentalist.Model.Appointment.datasource" />
+    <None Include="Properties\DataSources\eDentalist.Model.Equipment.datasource" />
+    <None Include="Properties\DataSources\eDentalist.Model.Material.datasource" />
+    <None Include="Properties\DataSources\eDentalist.Model.Procedure.datasource" />
+    <None Include="Properties\DataSources\eDentalist.Model.Requisition.datasource" />
     <None Include="Properties\DataSources\eDentalist.Model.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>

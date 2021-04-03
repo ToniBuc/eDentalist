@@ -172,7 +172,8 @@ namespace eDentalist.WebAPI.Services
 
             if (isRequestNull)
             {
-                query = query.Where(i => (!string.IsNullOrWhiteSpace(request.FirstName) && i.FirstName.StartsWith(request.FirstName)) || (!string.IsNullOrWhiteSpace(request.LastName) && i.LastName.StartsWith(request.LastName)));
+                query = query.Where(x => x.FirstName.Contains(request.FirstName) || x.LastName.Contains(request.LastName) ||
+                request.FirstName.Contains(x.FirstName) || request.LastName.Contains(x.LastName));
             }
 
             var list = query.ToList();
@@ -187,7 +188,8 @@ namespace eDentalist.WebAPI.Services
                 {
                     staff.Add(x);
                 }
-                
+                x.NumberOfWorkdays = _context.UserWorkday.Where(i => i.UserID == x.UserID && i.Workday.Date.Date >= request.From.Date && i.Workday.Date.Date <= request.To.Date).Count();
+                x.NumberOfAppointments = _context.Appointment.Where(i => i.DentistID == x.UserID && i.Workday.Date.Date >= request.From.Date && i.Workday.Date.Date <= request.To.Date).Count();
             }
 
             return staff;

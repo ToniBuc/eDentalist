@@ -125,6 +125,9 @@ namespace eDentalist.WebAPI.Services
                     x.PatientOrStatus = x.Patient.FirstName + " " + x.Patient.LastName;
                     x.TimeframeOrDatetime = x.From + " - " + x.To; 
                 }
+
+                //for report
+                x.ProcedurePriceDecimal = x.Procedure.Price;
             }
 
             return result;
