@@ -75,5 +75,14 @@ namespace eDentalist.WinUI.Appointment
             frm.MinimizeBox = false;
             frm.Show();
         }
+
+        private void btnBills_Click(object sender, EventArgs e)
+        {
+            frmBillReport frm = new frmBillReport();
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
     }
 }

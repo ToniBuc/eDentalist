@@ -168,6 +168,12 @@
     <Compile Include="Reports\frmAppointmentReport.Designer.cs">
       <DependentUpon>frmAppointmentReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmBillReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmBillReport.Designer.cs">
+      <DependentUpon>frmBillReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmEquipmentReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,9 +302,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\BillReport.rdlc" />
     <EmbeddedResource Include="Reports\EquipmentReport.rdlc" />
     <EmbeddedResource Include="Reports\frmAppointmentReport.resx">
       <DependentUpon>frmAppointmentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmBillReport.resx">
+      <DependentUpon>frmBillReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmEquipmentReport.resx">
       <DependentUpon>frmEquipmentReport.cs</DependentUpon>
@@ -345,6 +355,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\eDentalist.Model.Appointment.datasource" />
+    <None Include="Properties\DataSources\eDentalist.Model.Bill.datasource" />
     <None Include="Properties\DataSources\eDentalist.Model.Equipment.datasource" />
     <None Include="Properties\DataSources\eDentalist.Model.Material.datasource" />
     <None Include="Properties\DataSources\eDentalist.Model.Procedure.datasource" />

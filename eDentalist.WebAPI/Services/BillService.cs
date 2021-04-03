@@ -18,12 +18,36 @@ namespace eDentalist.WebAPI.Services
 
         public override List<Model.Bill> Get(BillSearchRequest search)
         {
-            var query = _context.Set<Database.Bill>().Include(i => i.Appointment).Include(i => i.Appointment.Procedure).AsQueryable();
+            var query = _context.Set<Database.Bill>().Include(i => i.Appointment).Include(i => i.Appointment.Procedure).Include(i => i.Appointment.Patient).AsQueryable();
 
             if (search?.PatientID.HasValue == true)
             {
                 query = query.Where(x => x.Appointment.PatientID == search.PatientID);
             }
+
+            //for reports
+
+            if (!string.IsNullOrWhiteSpace(search.PatientName) && search.StatusString == "All")
+            {
+                query = query.Where(x => x.Appointment.Patient.FirstName.Contains(search.PatientName) || x.Appointment.Patient.LastName.Contains(search.PatientName) ||
+                search.PatientName.Contains(x.Appointment.Patient.FirstName) || search.PatientName.Contains(x.Appointment.Patient.LastName) &&
+                x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
+            }
+            if (!string.IsNullOrWhiteSpace(search.PatientName) && string.IsNullOrWhiteSpace(search.StatusString))
+            {
+                query = query.Where(x => x.Appointment.Patient.FirstName.Contains(search.PatientName) || x.Appointment.Patient.LastName.Contains(search.PatientName) ||
+                search.PatientName.Contains(x.Appointment.Patient.FirstName) || search.PatientName.Contains(x.Appointment.Patient.LastName) && x.IsPaid == search.Status &&
+                x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
+            }
+            if (string.IsNullOrWhiteSpace(search.PatientName) && string.IsNullOrWhiteSpace(search.StatusString))
+            {
+                query = query.Where(x => x.IsPaid == search.Status && x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
+            }
+            if (string.IsNullOrWhiteSpace(search.PatientName) && search.StatusString == "All")
+            {
+                query = query.Where(x => x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
+            }
+            //
             query = query.OrderBy(x => x.Date);
 
             var list = query.ToList();
@@ -34,6 +58,7 @@ namespace eDentalist.WebAPI.Services
             {
                 x.ProcedureName = x.Appointment.Procedure.Name;
                 x.DateString = x.Date.ToShortDateString();
+                x.PatientName = x.Appointment.Patient.FirstName + " " + x.Appointment.Patient.LastName;
                 if (x.IsPaid)
                 {
                     x.IsPaidString = "Paid";
