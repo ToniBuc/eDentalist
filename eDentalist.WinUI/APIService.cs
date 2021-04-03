@@ -53,6 +53,21 @@ namespace eDentalist.WinUI
 
             return result;
         }
+        public async Task<T> GetReportAppointments<T>(object search)
+        {
+
+            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/GetReportAppointments";
+
+            if (search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+            return result;
+        }
 
         public async Task<T> GetById<T>(object id)
         {

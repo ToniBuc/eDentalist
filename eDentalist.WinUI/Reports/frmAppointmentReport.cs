@@ -59,7 +59,7 @@ namespace eDentalist.WinUI.Reports
                 search.ProcedureID = null;
             }
 
-            var appointments = await _appService.Get<List<Model.Appointment>>(search);
+            var appointments = await _appService.GetReportAppointments<List<Model.Appointment>>(search);
 
             if (appointments != null)
             {

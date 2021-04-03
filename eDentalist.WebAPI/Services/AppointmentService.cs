@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 
 namespace eDentalist.WebAPI.Services
 {
-    public class AppointmentService : BaseCRUDService<Model.Appointment, AppointmentSearchRequest, Database.Appointment, AppointmentInsertRequest, AppointmentUpdateRequest>
+    //public class AppointmentService : BaseCRUDService<Model.Appointment, AppointmentSearchRequest, Database.Appointment, AppointmentInsertRequest, AppointmentUpdateRequest>
+    public class AppointmentService : IAppointmentService
     {
-        public AppointmentService(eDentalistDbContext context, IMapper mapper) : base(context, mapper)
+        private readonly eDentalistDbContext _context;
+        private readonly IMapper _mapper;
+        public AppointmentService(eDentalistDbContext context, IMapper mapper)
         {
-
+            _context = context;
+            _mapper = mapper;
         }
 
-        public override List<Model.Appointment> Get(AppointmentSearchRequest search)
+        public List<Model.Appointment> Get(AppointmentSearchRequest search)
         {
             var query = _context.Set<Database.Appointment>().Include(i => i.Workday).Include(i => i.Dentist).Include(i => i.Patient)
                 .Include(i => i.AppointmentStatus).Include(i => i.Procedure).AsQueryable();
@@ -44,45 +48,10 @@ namespace eDentalist.WebAPI.Services
             {
                 query = query.Where(x => x.DentistID == search.DentistID);
             }
-            #region Report Filtering
-            if (search.ProcedureID != null || search.From != null || search.To != null)
-            {
-                if (search.ProcedureID != null && search.From != null && search.To != null)
-                {
-                    query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date >= search.From.Value.Date && x.Workday.Date.Date <= search.To.Value.Date);
-                }
-                else if (search.ProcedureID == null && search.From != null && search.To != null)
-                {
-                    query = query.Where(x => x.Workday.Date.Date >= search.From.Value.Date && x.Workday.Date.Date <= search.To.Value.Date);
-                }
-                else if (search.ProcedureID != null && search.From == null && search.To == null)
-                {
-                    query = query.Where(x => x.ProcedureID == search.ProcedureID);
-                }
-                else if (search.ProcedureID != null && search.From != null && search.To == null)
-                {
-                    query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date >= search.From.Value.Date);
-                }
-                else if (search.ProcedureID != null && search.From == null && search.To != null)
-                {
-                    query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date <= search.To.Value.Date);
-                }
-                else if (search.ProcedureID == null && search.From != null && search.To == null)
-                {
-                    query = query.Where(x => x.Workday.Date.Date >= search.From.Value.Date);
-                }
-                else if (search.ProcedureID == null && search.From == null && search.To != null)
-                {
-                    query = query.Where(x => x.Workday.Date.Date <= search.To.Value.Date);
-                }
-            }
-            #endregion
 
             //for retrieving a patient's appointments in the mobile app
             if (search.PatientID != null)
             {
-                //query = query.Where(x => x.PatientID == search.PatientID && x.AppointmentStatus.Name != "Cancelled" && x.Workday.Date.Date < DateTime.Now.Date);
-                //query = query.Where(x => x.AppointmentStatus.Name != "Declined");
                 query = query.Where(x => x.PatientID == search.PatientID);
             }
 
@@ -125,15 +94,12 @@ namespace eDentalist.WebAPI.Services
                     x.PatientOrStatus = x.Patient.FirstName + " " + x.Patient.LastName;
                     x.TimeframeOrDatetime = x.From + " - " + x.To; 
                 }
-
-                //for report
-                x.ProcedurePriceDecimal = x.Procedure.Price;
             }
 
             return result;
         }
 
-        public override Model.Appointment GetById(int id)
+        public Model.Appointment GetById(int id)
         {
             var entity = _context.Appointment.Where(i => i.AppointmentID == id).Include(i => i.AppointmentStatus).Include(i => i.Dentist)
                 .Include(i => i.Patient).Include(i => i.Procedure).Include(i => i.Workday).FirstOrDefault();
@@ -151,7 +117,57 @@ namespace eDentalist.WebAPI.Services
             return result;
         }
 
-        public override Model.Appointment Insert(AppointmentInsertRequest request)
+        public List<Model.Appointment> GetReportAppointments(AppointmentSearchRequest search)
+        {
+            var query = _context.Set<Database.Appointment>().Include(i => i.Workday).Include(i => i.Dentist).Include(i => i.Patient)
+                .Include(i => i.AppointmentStatus).Include(i => i.Procedure).AsQueryable();
+
+            if (search.ProcedureID != null && search.From != null && search.To != null)
+            {
+                query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date >= search.From.Value.Date && x.Workday.Date.Date <= search.To.Value.Date);
+            }
+            else if (search.ProcedureID == null && search.From != null && search.To != null)
+            {
+                query = query.Where(x => x.Workday.Date.Date >= search.From.Value.Date && x.Workday.Date.Date <= search.To.Value.Date);
+            }
+            else if (search.ProcedureID != null && search.From == null && search.To == null)
+            {
+                query = query.Where(x => x.ProcedureID == search.ProcedureID);
+            }
+            else if (search.ProcedureID != null && search.From != null && search.To == null)
+            {
+                query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date >= search.From.Value.Date);
+            }
+            else if (search.ProcedureID != null && search.From == null && search.To != null)
+            {
+                query = query.Where(x => x.ProcedureID == search.ProcedureID && x.Workday.Date.Date <= search.To.Value.Date);
+            }
+            else if (search.ProcedureID == null && search.From != null && search.To == null)
+            {
+                query = query.Where(x => x.Workday.Date.Date >= search.From.Value.Date);
+            }
+            else if (search.ProcedureID == null && search.From == null && search.To != null)
+            {
+                query = query.Where(x => x.Workday.Date.Date <= search.To.Value.Date);
+            }
+
+            var list = query.ToList();
+
+            var result = _mapper.Map<List<Model.Appointment>>(list);
+
+            foreach (var x in result)
+            {
+                x.AppointmentStatusName = x.AppointmentStatus.Name;
+                x.ProcedureName = x.Procedure.Name;
+                x.PatientName = x.Patient.FirstName + " " + x.Patient.LastName;
+                x.DateString = x.Workday.Date.ToShortDateString();
+                x.ProcedurePriceDecimal = x.Procedure.Price;
+            }
+
+            return result;
+        }
+
+        public Model.Appointment Insert(AppointmentInsertRequest request)
         {
             var entity = _mapper.Map<Database.Appointment>(request);
 
@@ -166,7 +182,7 @@ namespace eDentalist.WebAPI.Services
             return _mapper.Map<Model.Appointment>(entity);
         }
 
-        public override Model.Appointment Update(int id, AppointmentUpdateRequest request)
+        public Model.Appointment Update(int id, AppointmentUpdateRequest request)
         {
 
             var entity = _context.Appointment.Find(id);
@@ -186,8 +202,6 @@ namespace eDentalist.WebAPI.Services
             _context.SaveChanges();
 
             return _mapper.Map<Model.Appointment>(entity);
-
-
         }
     }
 }

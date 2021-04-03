@@ -65,6 +65,7 @@ namespace eDentalist.WebAPI
             //services.AddScoped<IMaterialService, MaterialService>();
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
 
             services.AddScoped<IService<Model.Country, object>, BaseService<Model.Country, object, Country>>();
             services.AddScoped<IService<Model.EquipmentType, object>, BaseService<Model.EquipmentType, object, EquipmentType>>();
@@ -84,7 +85,7 @@ namespace eDentalist.WebAPI
             services.AddScoped<ICRUDService<Model.UserWorkday, UserWorkdaySearchRequest, UserWorkdayUpsertRequest, UserWorkdayUpsertRequest>, UserWorkdayService>();
             services.AddScoped<ICRUDService<Model.Bill, BillSearchRequest, BillInsertRequest, BillUpdateRequest>, BillService>();
             services.AddScoped<ICRUDService<Model.Rating, RatingSearchRequest, RatingUpsertRequest, RatingUpsertRequest>, RatingService>();
-            services.AddScoped<ICRUDService<Model.Appointment, AppointmentSearchRequest, AppointmentInsertRequest, AppointmentUpdateRequest>, AppointmentService>();
+            //services.AddScoped<ICRUDService<Model.Appointment, AppointmentSearchRequest, AppointmentInsertRequest, AppointmentUpdateRequest>, AppointmentService>();
             services.AddScoped<ICRUDService<Model.Anamnesis, AnamnesisSearchRequest, AnamnesisUpsertRequest, AnamnesisUpsertRequest>, AnamnesisService>();
 
             //var connection = @"Server=DESKTOP-ECJHPDM\MSSQLSERVER_OLAP;Database=eDentalist;User ID=;password=;ConnectRetryCount=0";
