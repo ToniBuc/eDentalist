@@ -4,6 +4,7 @@ using eDentalist.WinUI.Equipment;
 using eDentalist.WinUI.HygieneProcess;
 using eDentalist.WinUI.Material;
 using eDentalist.WinUI.Patient;
+using eDentalist.WinUI.Procedure;
 using eDentalist.WinUI.Requisition;
 using eDentalist.WinUI.Staff;
 using eDentalist.WinUI.WorkSchedule;
@@ -211,6 +212,16 @@ namespace eDentalist.WinUI
             dgvAppointments.DataSource = result;
 
             dgvAppointments.ClearSelection();
+        }
+
+        private void btnProcedure_Click(object sender, EventArgs e)
+        {
+            frmProcedureOverview frm = new frmProcedureOverview();
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
         }
     }
 }

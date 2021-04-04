@@ -53,6 +53,7 @@
             this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnProcedure = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -64,7 +65,7 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 864);
+            this.statusStrip.Location = new System.Drawing.Point(0, 939);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1072, 22);
             this.statusStrip.TabIndex = 2;
@@ -89,6 +90,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnProcedure);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.label2);
@@ -106,7 +108,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 864);
+            this.panel1.Size = new System.Drawing.Size(220, 939);
             this.panel1.TabIndex = 5;
             // 
             // label3
@@ -114,7 +116,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 839);
+            this.label3.Location = new System.Drawing.Point(12, 914);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 25);
             this.label3.TabIndex = 17;
@@ -125,7 +127,7 @@
             this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(77, 839);
+            this.lblDate.Location = new System.Drawing.Point(77, 914);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(72, 25);
             this.lblDate.TabIndex = 16;
@@ -154,7 +156,7 @@
             // btnRequisition
             // 
             this.btnRequisition.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRequisition.Location = new System.Drawing.Point(12, 755);
+            this.btnRequisition.Location = new System.Drawing.Point(12, 828);
             this.btnRequisition.Name = "btnRequisition";
             this.btnRequisition.Size = new System.Drawing.Size(193, 67);
             this.btnRequisition.TabIndex = 8;
@@ -165,7 +167,7 @@
             // btnMaterial
             // 
             this.btnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaterial.Location = new System.Drawing.Point(12, 609);
+            this.btnMaterial.Location = new System.Drawing.Point(12, 682);
             this.btnMaterial.Name = "btnMaterial";
             this.btnMaterial.Size = new System.Drawing.Size(193, 67);
             this.btnMaterial.TabIndex = 6;
@@ -176,7 +178,7 @@
             // btnEquipment
             // 
             this.btnEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquipment.Location = new System.Drawing.Point(12, 682);
+            this.btnEquipment.Location = new System.Drawing.Point(12, 755);
             this.btnEquipment.Name = "btnEquipment";
             this.btnEquipment.Size = new System.Drawing.Size(193, 67);
             this.btnEquipment.TabIndex = 7;
@@ -187,7 +189,7 @@
             // btnHygiene
             // 
             this.btnHygiene.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHygiene.Location = new System.Drawing.Point(12, 536);
+            this.btnHygiene.Location = new System.Drawing.Point(12, 609);
             this.btnHygiene.Name = "btnHygiene";
             this.btnHygiene.Size = new System.Drawing.Size(193, 67);
             this.btnHygiene.TabIndex = 5;
@@ -252,7 +254,7 @@
             // 
             this.panel2.Controls.Add(this.dgvAppointments);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(220, 716);
+            this.panel2.Location = new System.Drawing.Point(220, 791);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(852, 148);
             this.panel2.TabIndex = 6;
@@ -306,11 +308,22 @@
             this.StartTime.Name = "StartTime";
             this.StartTime.ReadOnly = true;
             // 
+            // btnProcedure
+            // 
+            this.btnProcedure.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcedure.Location = new System.Drawing.Point(12, 536);
+            this.btnProcedure.Name = "btnProcedure";
+            this.btnProcedure.Size = new System.Drawing.Size(193, 67);
+            this.btnProcedure.TabIndex = 18;
+            this.btnProcedure.Text = "Procedures";
+            this.btnProcedure.UseVisualStyleBackColor = true;
+            this.btnProcedure.Click += new System.EventHandler(this.btnProcedure_Click);
+            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 886);
+            this.ClientSize = new System.Drawing.Size(1072, 961);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip);
@@ -356,6 +369,7 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnProcedure;
     }
 }
 
