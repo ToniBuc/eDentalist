@@ -163,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(375, 540);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCity);
@@ -174,6 +174,7 @@
             this.Controls.Add(this.StaffMembers);
             this.Name = "frmStaffMembers";
             this.Text = "frmStaffMembers";
+            this.Load += new System.EventHandler(this.frmStaffMembers_Load);
             this.StaffMembers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).EndInit();
             this.ResumeLayout(false);

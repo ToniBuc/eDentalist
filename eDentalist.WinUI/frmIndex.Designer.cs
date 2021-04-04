@@ -34,6 +34,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnProcedure = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Procedure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnProcedure = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -90,6 +90,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.Controls.Add(this.btnProcedure);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lblDate);
@@ -110,6 +111,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 939);
             this.panel1.TabIndex = 5;
+            // 
+            // btnProcedure
+            // 
+            this.btnProcedure.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcedure.Location = new System.Drawing.Point(12, 536);
+            this.btnProcedure.Name = "btnProcedure";
+            this.btnProcedure.Size = new System.Drawing.Size(193, 67);
+            this.btnProcedure.TabIndex = 18;
+            this.btnProcedure.Text = "Procedures";
+            this.btnProcedure.UseVisualStyleBackColor = true;
+            this.btnProcedure.Click += new System.EventHandler(this.btnProcedure_Click);
             // 
             // label3
             // 
@@ -241,13 +253,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(12, 244);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(193, 67);
             this.button1.TabIndex = 9;
             this.button1.Text = "Patients";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
@@ -308,21 +321,11 @@
             this.StartTime.Name = "StartTime";
             this.StartTime.ReadOnly = true;
             // 
-            // btnProcedure
-            // 
-            this.btnProcedure.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcedure.Location = new System.Drawing.Point(12, 536);
-            this.btnProcedure.Name = "btnProcedure";
-            this.btnProcedure.Size = new System.Drawing.Size(193, 67);
-            this.btnProcedure.TabIndex = 18;
-            this.btnProcedure.Text = "Procedures";
-            this.btnProcedure.UseVisualStyleBackColor = true;
-            this.btnProcedure.Click += new System.EventHandler(this.btnProcedure_Click);
-            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1072, 961);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

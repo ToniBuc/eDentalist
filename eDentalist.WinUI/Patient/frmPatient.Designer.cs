@@ -48,12 +48,12 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvAnamneses = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtDateOfBirth = new System.Windows.Forms.TextBox();
             this.AnamnesisID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Appointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtDateOfBirth = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnamneses)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,23 +237,6 @@
             this.dgvAnamneses.TabIndex = 21;
             this.dgvAnamneses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvAnamneses_MouseDoubleClick);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(295, 36);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 13);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Anamneses:";
-            // 
-            // txtDateOfBirth
-            // 
-            this.txtDateOfBirth.Location = new System.Drawing.Point(24, 186);
-            this.txtDateOfBirth.Name = "txtDateOfBirth";
-            this.txtDateOfBirth.ReadOnly = true;
-            this.txtDateOfBirth.Size = new System.Drawing.Size(248, 20);
-            this.txtDateOfBirth.TabIndex = 23;
-            // 
             // AnamnesisID
             // 
             this.AnamnesisID.DataPropertyName = "AnamnesisID";
@@ -285,10 +268,28 @@
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(295, 36);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 13);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Anamneses:";
+            // 
+            // txtDateOfBirth
+            // 
+            this.txtDateOfBirth.Location = new System.Drawing.Point(24, 186);
+            this.txtDateOfBirth.Name = "txtDateOfBirth";
+            this.txtDateOfBirth.ReadOnly = true;
+            this.txtDateOfBirth.Size = new System.Drawing.Size(248, 20);
+            this.txtDateOfBirth.TabIndex = 23;
+            // 
             // frmPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(593, 615);
             this.Controls.Add(this.txtDateOfBirth);
             this.Controls.Add(this.label11);

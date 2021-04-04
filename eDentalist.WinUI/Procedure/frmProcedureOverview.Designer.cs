@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvProcedures = new System.Windows.Forms.DataGridView();
+            this.ProcedureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProcedureName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.ProcedureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProcedureName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcedures)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,22 @@
             this.dgvProcedures.Size = new System.Drawing.Size(301, 369);
             this.dgvProcedures.TabIndex = 0;
             this.dgvProcedures.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvProcedures_MouseDoubleClick);
+            // 
+            // ProcedureID
+            // 
+            this.ProcedureID.DataPropertyName = "ProcedureID";
+            this.ProcedureID.HeaderText = "ProcedureID";
+            this.ProcedureID.Name = "ProcedureID";
+            this.ProcedureID.ReadOnly = true;
+            this.ProcedureID.Visible = false;
+            // 
+            // ProcedureName
+            // 
+            this.ProcedureName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProcedureName.DataPropertyName = "Name";
+            this.ProcedureName.HeaderText = "Procedure name";
+            this.ProcedureName.Name = "ProcedureName";
+            this.ProcedureName.ReadOnly = true;
             // 
             // label1
             // 
@@ -90,26 +106,11 @@
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
-            // ProcedureID
-            // 
-            this.ProcedureID.DataPropertyName = "ProcedureID";
-            this.ProcedureID.HeaderText = "ProcedureID";
-            this.ProcedureID.Name = "ProcedureID";
-            this.ProcedureID.ReadOnly = true;
-            this.ProcedureID.Visible = false;
-            // 
-            // ProcedureName
-            // 
-            this.ProcedureName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProcedureName.DataPropertyName = "Name";
-            this.ProcedureName.HeaderText = "Procedure name";
-            this.ProcedureName.Name = "ProcedureName";
-            this.ProcedureName.ReadOnly = true;
-            // 
             // frmProcedureOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(327, 523);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.label1);

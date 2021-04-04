@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.dgvCities = new System.Windows.Forms.DataGridView();
+            this.CityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZIPCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.btnAddCity = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ZIPCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCities)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +59,37 @@
             this.dgvCities.Size = new System.Drawing.Size(460, 370);
             this.dgvCities.TabIndex = 0;
             this.dgvCities.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvCities_MouseDoubleClick);
+            // 
+            // CityID
+            // 
+            this.CityID.DataPropertyName = "CityID";
+            this.CityID.HeaderText = "CityID";
+            this.CityID.Name = "CityID";
+            this.CityID.ReadOnly = true;
+            this.CityID.Visible = false;
+            // 
+            // City
+            // 
+            this.City.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.City.DataPropertyName = "Name";
+            this.City.HeaderText = "City";
+            this.City.Name = "City";
+            this.City.ReadOnly = true;
+            // 
+            // Country
+            // 
+            this.Country.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Country.DataPropertyName = "CountryName";
+            this.Country.HeaderText = "Country";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
+            // 
+            // ZIPCode
+            // 
+            this.ZIPCode.DataPropertyName = "ZIPCode";
+            this.ZIPCode.HeaderText = "ZIP Code";
+            this.ZIPCode.Name = "ZIPCode";
+            this.ZIPCode.ReadOnly = true;
             // 
             // txtCountry
             // 
@@ -112,41 +143,11 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Country:";
             // 
-            // CityID
-            // 
-            this.CityID.DataPropertyName = "CityID";
-            this.CityID.HeaderText = "CityID";
-            this.CityID.Name = "CityID";
-            this.CityID.ReadOnly = true;
-            this.CityID.Visible = false;
-            // 
-            // City
-            // 
-            this.City.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.City.DataPropertyName = "Name";
-            this.City.HeaderText = "City";
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
-            // 
-            // Country
-            // 
-            this.Country.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Country.DataPropertyName = "CountryName";
-            this.Country.HeaderText = "Country";
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            // 
-            // ZIPCode
-            // 
-            this.ZIPCode.DataPropertyName = "ZIPCode";
-            this.ZIPCode.HeaderText = "ZIP Code";
-            this.ZIPCode.Name = "ZIPCode";
-            this.ZIPCode.ReadOnly = true;
-            // 
             // frmCityOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(483, 521);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.UserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.label1 = new System.Windows.Forms.Label();
-            this.UserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +43,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
+            // 
+            // UserBindingSource
+            // 
+            this.UserBindingSource.DataSource = typeof(eDentalist.Model.User);
             // 
             // reportViewer
             // 
@@ -64,10 +68,6 @@
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Staff member:";
-            // 
-            // UserBindingSource
-            // 
-            this.UserBindingSource.DataSource = typeof(eDentalist.Model.User);
             // 
             // btnSearch
             // 
@@ -128,6 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.txtStaff);
             this.Controls.Add(this.btnSearch);

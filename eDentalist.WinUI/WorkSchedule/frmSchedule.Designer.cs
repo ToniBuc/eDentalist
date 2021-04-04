@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvSchedule = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnAddWorkday = new System.Windows.Forms.Button();
-            this.btnAppointments = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.UserWorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WorkdayID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +36,11 @@
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Shift = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnAddWorkday = new System.Windows.Forms.Button();
+            this.btnAppointments = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,52 +64,6 @@
             this.dgvSchedule.Size = new System.Drawing.Size(776, 373);
             this.dgvSchedule.TabIndex = 0;
             this.dgvSchedule.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSchedule_MouseDoubleClick);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(13, 39);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(241, 20);
-            this.txtSearch.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(260, 37);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnAddWorkday
-            // 
-            this.btnAddWorkday.Location = new System.Drawing.Point(13, 444);
-            this.btnAddWorkday.Name = "btnAddWorkday";
-            this.btnAddWorkday.Size = new System.Drawing.Size(77, 23);
-            this.btnAddWorkday.TabIndex = 3;
-            this.btnAddWorkday.Text = "Add workday";
-            this.btnAddWorkday.UseVisualStyleBackColor = true;
-            this.btnAddWorkday.Click += new System.EventHandler(this.btnAddWorkday_Click);
-            // 
-            // btnAppointments
-            // 
-            this.btnAppointments.Location = new System.Drawing.Point(96, 444);
-            this.btnAppointments.Name = "btnAppointments";
-            this.btnAppointments.Size = new System.Drawing.Size(116, 23);
-            this.btnAppointments.TabIndex = 4;
-            this.btnAppointments.Text = "Check appointments";
-            this.btnAppointments.UseVisualStyleBackColor = true;
-            this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Staff member:";
             // 
             // UserWorkdayID
             // 
@@ -165,10 +119,57 @@
             this.Shift.Name = "Shift";
             this.Shift.ReadOnly = true;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(13, 39);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(241, 20);
+            this.txtSearch.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(260, 37);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnAddWorkday
+            // 
+            this.btnAddWorkday.Location = new System.Drawing.Point(13, 444);
+            this.btnAddWorkday.Name = "btnAddWorkday";
+            this.btnAddWorkday.Size = new System.Drawing.Size(77, 23);
+            this.btnAddWorkday.TabIndex = 3;
+            this.btnAddWorkday.Text = "Add workday";
+            this.btnAddWorkday.UseVisualStyleBackColor = true;
+            this.btnAddWorkday.Click += new System.EventHandler(this.btnAddWorkday_Click);
+            // 
+            // btnAppointments
+            // 
+            this.btnAppointments.Location = new System.Drawing.Point(96, 444);
+            this.btnAppointments.Name = "btnAppointments";
+            this.btnAppointments.Size = new System.Drawing.Size(116, 23);
+            this.btnAppointments.TabIndex = 4;
+            this.btnAppointments.Text = "Check appointments";
+            this.btnAppointments.UseVisualStyleBackColor = true;
+            this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Staff member:";
+            // 
             // frmSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 531);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAppointments);

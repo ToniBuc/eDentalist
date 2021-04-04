@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.AppointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
@@ -50,9 +50,9 @@
             // 
             // reportViewer
             // 
-            reportDataSource2.Name = "dsAppointment";
-            reportDataSource2.Value = this.AppointmentBindingSource;
-            this.reportViewer.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "dsAppointment";
+            reportDataSource1.Value = this.AppointmentBindingSource;
+            this.reportViewer.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer.LocalReport.ReportEmbeddedResource = "eDentalist.WinUI.Reports.AppointmentReport.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(0, 73);
             this.reportViewer.Name = "reportViewer";
@@ -130,6 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label3);

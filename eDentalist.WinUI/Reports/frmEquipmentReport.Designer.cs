@@ -30,17 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.EquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.txtEquipmentName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEquipmentType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.EquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AppointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.EquipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // EquipmentBindingSource
+            // 
+            this.EquipmentBindingSource.DataSource = typeof(eDentalist.Model.Equipment);
             // 
             // reportViewer
             // 
@@ -98,10 +102,6 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // EquipmentBindingSource
-            // 
-            this.EquipmentBindingSource.DataSource = typeof(eDentalist.Model.Equipment);
-            // 
             // AppointmentBindingSource
             // 
             this.AppointmentBindingSource.DataSource = typeof(eDentalist.Model.Appointment);
@@ -110,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label2);

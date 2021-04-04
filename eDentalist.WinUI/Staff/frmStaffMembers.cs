@@ -98,5 +98,10 @@ namespace eDentalist.WinUI.Staff
             frm.MinimizeBox = false;
             frm.Show();
         }
+
+        private void frmStaffMembers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
