@@ -270,12 +270,12 @@
             this.Procedure,
             this.StartTime});
             this.dgvAppointments.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvAppointments.Enabled = false;
             this.dgvAppointments.Location = new System.Drawing.Point(0, 0);
             this.dgvAppointments.Name = "dgvAppointments";
             this.dgvAppointments.ReadOnly = true;
             this.dgvAppointments.Size = new System.Drawing.Size(852, 148);
             this.dgvAppointments.TabIndex = 0;
+            this.dgvAppointments.SelectionChanged += new System.EventHandler(this.dgvAppointments_SelectionChanged);
             // 
             // AssignedDentist
             // 

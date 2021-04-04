@@ -223,5 +223,10 @@ namespace eDentalist.WinUI
             frm.MinimizeBox = false;
             frm.Show();
         }
+
+        private void dgvAppointments_SelectionChanged(object sender, EventArgs e)
+        {
+            dgvAppointments.ClearSelection();
+        }
     }
 }
