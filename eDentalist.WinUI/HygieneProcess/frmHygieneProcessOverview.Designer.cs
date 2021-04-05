@@ -38,7 +38,9 @@
             this.cmbHygieneProcessType = new System.Windows.Forms.ComboBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHygieneProcesses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvHygieneProcesses
@@ -136,12 +138,23 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(688, 445);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmHygieneProcessOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 486);
+            this.ClientSize = new System.Drawing.Size(800, 551);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.cmbHygieneProcessType);
@@ -150,6 +163,7 @@
             this.Text = "frmHygieneProcessOverview";
             this.Load += new System.EventHandler(this.frmHygieneProcessOverview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHygieneProcesses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,5 +180,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -40,8 +40,10 @@
             this.btnReportStaff = new System.Windows.Forms.Button();
             this.btnCity = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.StaffMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // StaffMembers
@@ -159,12 +161,23 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Staff member:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(263, 478);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmStaffMembers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(375, 540);
+            this.ClientSize = new System.Drawing.Size(375, 585);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCity);
             this.Controls.Add(this.btnReportStaff);
@@ -177,6 +190,7 @@
             this.Load += new System.EventHandler(this.frmStaffMembers_Load);
             this.StaffMembers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +210,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffRole;
         private System.Windows.Forms.Button btnCity;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

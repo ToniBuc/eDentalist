@@ -35,7 +35,9 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAddNew = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcedures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProcedures
@@ -106,12 +108,23 @@
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(215, 443);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmProcedureOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(327, 523);
+            this.ClientSize = new System.Drawing.Size(327, 550);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
@@ -120,6 +133,7 @@
             this.Name = "frmProcedureOverview";
             this.Text = "frmProcedureOverview";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcedures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +148,6 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProcedureID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProcedureName;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

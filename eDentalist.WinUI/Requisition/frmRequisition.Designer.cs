@@ -40,12 +40,14 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbStatus = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtItemName
             // 
-            this.txtItemName.Location = new System.Drawing.Point(60, 79);
+            this.txtItemName.Location = new System.Drawing.Point(45, 79);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.ReadOnly = true;
             this.txtItemName.Size = new System.Drawing.Size(269, 20);
@@ -54,7 +56,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 60);
+            this.label1.Location = new System.Drawing.Point(45, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 1;
@@ -63,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 111);
+            this.label2.Location = new System.Drawing.Point(45, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 3;
@@ -72,7 +74,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 159);
+            this.label3.Location = new System.Drawing.Point(45, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 5;
@@ -80,14 +82,14 @@
             // 
             // dtpDateRequisitioned
             // 
-            this.dtpDateRequisitioned.Location = new System.Drawing.Point(60, 175);
+            this.dtpDateRequisitioned.Location = new System.Drawing.Point(45, 175);
             this.dtpDateRequisitioned.Name = "dtpDateRequisitioned";
             this.dtpDateRequisitioned.Size = new System.Drawing.Size(269, 20);
             this.dtpDateRequisitioned.TabIndex = 6;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(254, 250);
+            this.btnSave.Location = new System.Drawing.Point(239, 250);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 7;
@@ -98,7 +100,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(60, 207);
+            this.label4.Location = new System.Drawing.Point(45, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 13);
             this.label4.TabIndex = 9;
@@ -108,7 +110,7 @@
             // 
             this.cmbRequisitionedBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRequisitionedBy.FormattingEnabled = true;
-            this.cmbRequisitionedBy.Location = new System.Drawing.Point(60, 223);
+            this.cmbRequisitionedBy.Location = new System.Drawing.Point(45, 223);
             this.cmbRequisitionedBy.Name = "cmbRequisitionedBy";
             this.cmbRequisitionedBy.Size = new System.Drawing.Size(269, 21);
             this.cmbRequisitionedBy.TabIndex = 8;
@@ -116,7 +118,7 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(60, 128);
+            this.txtAmount.Location = new System.Drawing.Point(45, 128);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(269, 20);
             this.txtAmount.TabIndex = 10;
@@ -129,19 +131,30 @@
             // cbStatus
             // 
             this.cbStatus.AutoSize = true;
-            this.cbStatus.Location = new System.Drawing.Point(172, 254);
+            this.cbStatus.Location = new System.Drawing.Point(157, 254);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(76, 17);
             this.cbStatus.TabIndex = 11;
             this.cbStatus.Text = "Completed";
             this.cbStatus.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(241, 289);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmRequisition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(398, 450);
+            this.ClientSize = new System.Drawing.Size(353, 396);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label4);
@@ -156,6 +169,7 @@
             this.Text = "frmRequisition";
             this.Load += new System.EventHandler(this.frmRequisition_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,5 +188,6 @@
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.CheckBox cbStatus;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -38,7 +38,9 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.cmbRequisitionType = new System.Windows.Forms.ComboBox();
             this.btnReport = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvRequisitions
@@ -131,7 +133,7 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(713, 444);
+            this.btnReport.Location = new System.Drawing.Point(713, 36);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(75, 23);
             this.btnReport.TabIndex = 6;
@@ -139,12 +141,23 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(688, 444);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmRequisitionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 544);
+            this.ClientSize = new System.Drawing.Size(800, 554);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cmbRequisitionType);
@@ -153,6 +166,7 @@
             this.Text = "frmRequisitionOverview";
             this.Load += new System.EventHandler(this.frmRequisitionOverview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -169,5 +183,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DateRequisitioned;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

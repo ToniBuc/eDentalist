@@ -37,7 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -109,12 +111,23 @@
             this.dtpDate.Size = new System.Drawing.Size(238, 20);
             this.dtpDate.TabIndex = 70;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(198, 209);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 71;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmNewWorkday
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(310, 331);
+            this.ClientSize = new System.Drawing.Size(310, 316);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.cmbShift);
             this.Controls.Add(this.label3);
@@ -126,6 +139,7 @@
             this.Text = "frmNewWorkday";
             this.Load += new System.EventHandler(this.frmNewWorkday_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

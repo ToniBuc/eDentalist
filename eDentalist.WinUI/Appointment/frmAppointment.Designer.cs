@@ -45,13 +45,15 @@
             this.txtEndTime = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 39);
+            this.label1.Location = new System.Drawing.Point(22, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
@@ -59,7 +61,7 @@
             // 
             // txtPatient
             // 
-            this.txtPatient.Location = new System.Drawing.Point(37, 56);
+            this.txtPatient.Location = new System.Drawing.Point(25, 57);
             this.txtPatient.Name = "txtPatient";
             this.txtPatient.ReadOnly = true;
             this.txtPatient.Size = new System.Drawing.Size(284, 20);
@@ -67,7 +69,7 @@
             // 
             // txtProcedure
             // 
-            this.txtProcedure.Location = new System.Drawing.Point(37, 103);
+            this.txtProcedure.Location = new System.Drawing.Point(25, 104);
             this.txtProcedure.Name = "txtProcedure";
             this.txtProcedure.ReadOnly = true;
             this.txtProcedure.Size = new System.Drawing.Size(284, 20);
@@ -76,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 86);
+            this.label2.Location = new System.Drawing.Point(22, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 2;
@@ -84,7 +86,7 @@
             // 
             // txtDateOfAppointment
             // 
-            this.txtDateOfAppointment.Location = new System.Drawing.Point(37, 149);
+            this.txtDateOfAppointment.Location = new System.Drawing.Point(25, 150);
             this.txtDateOfAppointment.Name = "txtDateOfAppointment";
             this.txtDateOfAppointment.ReadOnly = true;
             this.txtDateOfAppointment.Size = new System.Drawing.Size(284, 20);
@@ -93,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 132);
+            this.label3.Location = new System.Drawing.Point(22, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 4;
@@ -101,7 +103,7 @@
             // 
             // txtStartTime
             // 
-            this.txtStartTime.Location = new System.Drawing.Point(37, 193);
+            this.txtStartTime.Location = new System.Drawing.Point(25, 194);
             this.txtStartTime.Name = "txtStartTime";
             this.txtStartTime.ReadOnly = true;
             this.txtStartTime.Size = new System.Drawing.Size(134, 20);
@@ -110,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 177);
+            this.label4.Location = new System.Drawing.Point(22, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 6;
@@ -120,7 +122,7 @@
             // 
             this.cmbStaff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStaff.FormattingEnabled = true;
-            this.cmbStaff.Location = new System.Drawing.Point(37, 238);
+            this.cmbStaff.Location = new System.Drawing.Point(25, 239);
             this.cmbStaff.Name = "cmbStaff";
             this.cmbStaff.Size = new System.Drawing.Size(284, 21);
             this.cmbStaff.TabIndex = 8;
@@ -128,7 +130,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 222);
+            this.label5.Location = new System.Drawing.Point(22, 223);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 9;
@@ -137,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 269);
+            this.label6.Location = new System.Drawing.Point(22, 270);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 11;
@@ -147,7 +149,7 @@
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(37, 285);
+            this.cmbStatus.Location = new System.Drawing.Point(25, 286);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(284, 21);
             this.cmbStatus.TabIndex = 10;
@@ -155,7 +157,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(246, 312);
+            this.btnSave.Location = new System.Drawing.Point(234, 313);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 12;
@@ -165,7 +167,7 @@
             // 
             // txtEndTime
             // 
-            this.txtEndTime.Location = new System.Drawing.Point(186, 194);
+            this.txtEndTime.Location = new System.Drawing.Point(174, 195);
             this.txtEndTime.Name = "txtEndTime";
             this.txtEndTime.ReadOnly = true;
             this.txtEndTime.Size = new System.Drawing.Size(135, 20);
@@ -174,7 +176,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(183, 178);
+            this.label7.Location = new System.Drawing.Point(171, 179);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 13);
             this.label7.TabIndex = 13;
@@ -184,12 +186,23 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(209, 351);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(363, 492);
+            this.ClientSize = new System.Drawing.Size(332, 457);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtEndTime);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSave);
@@ -209,6 +222,7 @@
             this.Text = "frmAppointment";
             this.Load += new System.EventHandler(this.frmAppointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +246,6 @@
         private System.Windows.Forms.TextBox txtEndTime;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

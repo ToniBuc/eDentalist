@@ -42,7 +42,9 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReport = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvEquipment
@@ -167,7 +169,7 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(872, 444);
+            this.btnReport.Location = new System.Drawing.Point(872, 29);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(75, 23);
             this.btnReport.TabIndex = 9;
@@ -175,12 +177,23 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eDentalist.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(847, 444);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmEquipmentOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(959, 512);
+            this.ClientSize = new System.Drawing.Size(959, 555);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddNew);
@@ -191,6 +204,7 @@
             this.Text = "frmEquipmentOverview";
             this.Load += new System.EventHandler(this.frmEquipmentOverview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +226,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Condition;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
