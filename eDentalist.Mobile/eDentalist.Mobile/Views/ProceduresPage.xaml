@@ -10,46 +10,46 @@
         <viewModels:ProceduresViewModel></viewModels:ProceduresViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Procedures"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <SearchBar Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}"></SearchBar>
-            <CollectionView ItemsSource="{Binding ProcedureList}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="3" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProcedureID}"/>
-                            </Grid.GestureRecognizers>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label  Grid.Column="0"
-                                    Text="{Binding Name}"
-                                    LineBreakMode="NoWrap" 
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="16" 
-                                    HorizontalOptions="CenterAndExpand">
-                            </Label>
-                            <Label  Grid.Row="1"
-                                    Grid.Column="0"
-                                    Text="{Binding PriceString}"
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="13" 
-                                    HorizontalOptions="CenterAndExpand"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout  Padding="15">
+                <Label Text="Procedures"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+                <SearchBar Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}"></SearchBar>
+                <CollectionView ItemsSource="{Binding ProcedureList}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="3" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProcedureID}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label  Grid.Column="0"
+                                        Text="{Binding Name}"
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="15" 
+                                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                </Label>
+                                <Label  Grid.Row="1"
+                                        Grid.Column="0"
+                                        Text="{Binding PriceString}"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="13" 
+                                        HorizontalOptions="CenterAndExpand"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -52,11 +52,11 @@
                     <Picker ItemsSource="{Binding CityList}" SelectedItem="{Binding SelectedCity}" ItemDisplayBinding="{Binding Name}"></Picker>
                     <Label Text="Address:" FontSize="16"></Label>
                     <Entry Text="{Binding Address}" FontSize="15"></Entry>
-                    <Button Command="{Binding SaveCommand}" Text="Update profile"></Button>
-                    <Button Text="Schedule" Clicked="OpenSchedule_Clicked" x:Name="staffScheduleButton"></Button>
-                    <Button Text="Appointments" Clicked="OpenAppointments_Clicked" x:Name="patientAppointmentsButton"></Button>
-                    <Button Text="Anamneses" Clicked="OpenAnamneses_Clicked" x:Name="patientAnamnesesButton"></Button>
-                    <Button Text="Bills" Clicked="OpenBills_Clicked" x:Name="patientBillsButton"></Button>
+                    <Button Command="{Binding SaveCommand}" Text="Update profile" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"></Button>
+                    <Button Text="Schedule" Clicked="OpenSchedule_Clicked" x:Name="staffScheduleButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                    <Button Text="Appointments" Clicked="OpenAppointments_Clicked" x:Name="patientAppointmentsButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                    <Button Text="Anamneses" Clicked="OpenAnamneses_Clicked" x:Name="patientAnamnesesButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                    <Button Text="Bills" Clicked="OpenBills_Clicked" x:Name="patientBillsButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
                 </StackLayout>
             </Grid>
             </StackLayout>

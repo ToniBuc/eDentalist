@@ -32,8 +32,8 @@
                         <Image x:Name="ratingImage" Aspect="AspectFit" HorizontalOptions="Start" Grid.Column="1"></Image>
                         <Label Text="This procedure has not yet been rated!" Grid.Column="1" VerticalOptions="Center" FontSize="13" x:Name="labelProc" IsVisible="False"></Label>
                     </Grid>
-                    <Button Text="Reviews" Clicked="OpenReviews_Clicked" x:Name="reviewsButton"></Button>
-                    <Button Text="Book Appointment" Clicked="BookAppointment_Clicked"></Button>
+                    <Button Text="Reviews" Clicked="OpenReviews_Clicked" x:Name="reviewsButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"></Button>
+                    <Button Text="Book Appointment" Clicked="BookAppointment_Clicked" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>

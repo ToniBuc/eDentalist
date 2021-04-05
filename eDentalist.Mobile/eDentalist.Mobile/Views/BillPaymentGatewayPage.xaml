@@ -52,7 +52,7 @@
 
             </Grid>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="20">
-                <Button x:Name="Submit_Button" BorderRadius="0"  Text="Submit" Command="{Binding SubmitCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+                <Button x:Name="Submit_Button" BorderRadius="0"  Text="Submit" Command="{Binding SubmitCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

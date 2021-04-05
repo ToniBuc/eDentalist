@@ -39,7 +39,7 @@ namespace eDentalist.WebAPI.Services
                 search.PatientName.Contains(x.Appointment.Patient.FirstName) || search.PatientName.Contains(x.Appointment.Patient.LastName) && x.IsPaid == search.Status &&
                 x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
             }
-            if (string.IsNullOrWhiteSpace(search.PatientName) && string.IsNullOrWhiteSpace(search.StatusString))
+            if (string.IsNullOrWhiteSpace(search.PatientName) && string.IsNullOrWhiteSpace(search.StatusString) && search.PatientID.HasValue == false)
             {
                 query = query.Where(x => x.IsPaid == search.Status && x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
             }

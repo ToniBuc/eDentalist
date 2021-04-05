@@ -23,7 +23,7 @@
                     <Picker ItemsSource="{Binding RatingList}" SelectedItem="{Binding Rating}" x:Name="pickerRating"></Picker>
                     <Label Text="Comment:" FontSize="16" x:Name="roleLabel"></Label>
                     <Editor Text="{Binding Description}" FontSize="15" AutoSize="TextChanges"></Editor>
-                    <Button Command="{Binding SubmitCommand}" Text="Submit Rating"></Button>
+                    <Button Command="{Binding SubmitCommand}" Text="Submit Rating" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>

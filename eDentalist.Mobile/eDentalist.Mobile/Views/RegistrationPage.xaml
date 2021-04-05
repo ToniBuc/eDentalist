@@ -8,102 +8,104 @@
              mc:Ignorable="d"
              x:Class="eDentalist.Mobile.Views.RegistrationPage">
     <ContentPage.Content>
-        <StackLayout Padding="15">
-            <StackLayout.Behaviors>
-                <Behaviors:ValidationGroupBehavior x:Name="form" />
-            </StackLayout.Behaviors>
-            <Label Text="Registration"
-                HorizontalOptions="CenterAndExpand" FontSize="30"/>
-            <Label Text="First Name:"></Label>
-            <Entry Text="{Binding FirstName}">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="Last Name:"></Label>
-            <Entry Text="{Binding LastName}">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="JMBG:"></Label>
-            <Entry Text="{Binding JMBG}">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator/>
-                            <Validators:FormatValidator Format="^[0-9]{13}$" Message="Incorect format, the JMBG must contain 13 numbers!"/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="Date of birth:"></Label>
-            <DatePicker Date="{Binding DateOfBirth}"></DatePicker>
-            <!--<Label Text="Gender: "></Label>-->
-            <!--<Picker ItemsSource="{Binding GenderList}" SelectedItem="{Binding SelectedGender}" ItemDisplayBinding="{Binding Name}" SelectedIndex="0"></Picker>-->
-            <Label Text="Username:"></Label>
-            <Entry Text="{Binding Username}">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="Email:"></Label>
-            <Entry Text="{Binding Email}">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator/>
-                            <Validators:FormatValidator Format="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" Message="Incorect format"/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="Password:"></Label>
-            <Entry Text="{Binding Password}" IsPassword="True">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="Confirm Password:"></Label>
-            <Entry Text="{Binding PasswordConfirmation}" IsPassword="True">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="Phone Number:"></Label>
-            <Entry Text="{Binding PhoneNumber}">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:FormatValidator Format="([0-9\s\-]{7,})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" Message="Incorect format"/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Text="Address:"></Label>
-            <Entry Text="{Binding Address}"></Entry>
-            <!--<Picker ItemsSource="{Binding CityList}" SelectedItem="{Binding SelectedCity}" ItemDisplayBinding="{Binding Name}"></Picker>-->
-            <Button Command="{Binding RegisterCommand}" Text="Register"></Button>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="15">
+                <StackLayout.Behaviors>
+                    <Behaviors:ValidationGroupBehavior x:Name="form" />
+                </StackLayout.Behaviors>
+                <Label Text="Registration"
+                    HorizontalOptions="CenterAndExpand" FontSize="30"/>
+                <Label Text="First Name:"></Label>
+                <Entry Text="{Binding FirstName}">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:RequiredValidator/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Last Name:"></Label>
+                <Entry Text="{Binding LastName}">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:RequiredValidator/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="JMBG:"></Label>
+                <Entry Text="{Binding JMBG}">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:RequiredValidator/>
+                                <Validators:FormatValidator Format="^[0-9]{13}$" Message="Incorect format, the JMBG must contain 13 numbers!"/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Date of birth:"></Label>
+                <DatePicker Date="{Binding DateOfBirth}"></DatePicker>
+                <!--<Label Text="Gender: "></Label>-->
+                <!--<Picker ItemsSource="{Binding GenderList}" SelectedItem="{Binding SelectedGender}" ItemDisplayBinding="{Binding Name}" SelectedIndex="0"></Picker>-->
+                <Label Text="Username:"></Label>
+                <Entry Text="{Binding Username}">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:RequiredValidator/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Email:"></Label>
+                <Entry Text="{Binding Email}">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:RequiredValidator/>
+                                <Validators:FormatValidator Format="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" Message="Incorect format"/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Password:"></Label>
+                <Entry Text="{Binding Password}" IsPassword="True">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:RequiredValidator/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Confirm Password:"></Label>
+                <Entry Text="{Binding PasswordConfirmation}" IsPassword="True">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:RequiredValidator/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Phone Number:"></Label>
+                <Entry Text="{Binding PhoneNumber}">
+                    <Entry.Behaviors>
+                        <Behaviors:ValidationBehavior Group="{x:Reference form}" PropertyName="Text">
+                            <Behaviors:ValidationBehavior.Validators>
+                                <Validators:FormatValidator Format="([0-9\s\-]{7,})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" Message="Incorect format"/>
+                            </Behaviors:ValidationBehavior.Validators>
+                        </Behaviors:ValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Address:"></Label>
+                <Entry Text="{Binding Address}"></Entry>
+                <!--<Picker ItemsSource="{Binding CityList}" SelectedItem="{Binding SelectedCity}" ItemDisplayBinding="{Binding Name}"></Picker>-->
+                <Button Command="{Binding RegisterCommand}" Text="Register" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"></Button>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

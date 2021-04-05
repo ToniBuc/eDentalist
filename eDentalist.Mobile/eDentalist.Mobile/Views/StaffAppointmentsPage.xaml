@@ -6,58 +6,60 @@
              mc:Ignorable="d"
              x:Class="eDentalist.Mobile.Views.StaffAppointmentsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Username}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="24"/>
-            <Label Text="{Binding UserWorkday.Workday.Date, StringFormat='{0:dd/MM/yyyy}'}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="22" Margin="0,0,0,20"/>
-            <ListView ItemsSource="{Binding AppointmentList}">
-                <ListView.Header>
-                    <StackLayout>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="Appointment" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
-                            <Label Text="Timeframe" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="timeframeHeader"></Label>
-                            <Label Text="Date and time" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="datetimeHeader"></Label>
-                            <Label Text="Patient" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="patientHeader"></Label>
-                            <Label Text="Status" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="statusHeader"></Label>
-                        </Grid>
-                        <BoxView Color="Black" HeightRequest="1"></BoxView>
-                    </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="15">
-                                <StackLayout>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding ProcedureName}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding TimeframeOrDatetime}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding PatientOrStatus}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"></Label>
-                                    </Grid>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{Binding Username}"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="24"/>
+                <Label Text="{Binding UserWorkday.Workday.Date, StringFormat='{0:dd/MM/yyyy}'}"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="22" Margin="0,0,0,20"/>
+                <ListView ItemsSource="{Binding AppointmentList}">
+                    <ListView.Header>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Appointment" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                                <Label Text="Timeframe" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="timeframeHeader"></Label>
+                                <Label Text="Date and time" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="datetimeHeader"></Label>
+                                <Label Text="Patient" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="patientHeader"></Label>
+                                <Label Text="Status" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="statusHeader"></Label>
+                            </Grid>
+                            <BoxView Color="Black" HeightRequest="1"></BoxView>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="15">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding ProcedureName}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
+                                            <Label Text="{Binding TimeframeOrDatetime}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
+                                            <Label Text="{Binding PatientOrStatus}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"></Label>
+                                        </Grid>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

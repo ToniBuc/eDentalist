@@ -6,32 +6,34 @@
              mc:Ignorable="d"
              x:Class="eDentalist.Mobile.Views.PatientAnamnesisPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="eDentalist" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
-            <Label Text="{Binding Header}" FontSize="24" HorizontalOptions="CenterAndExpand"></Label>
-            <Grid HorizontalOptions="CenterAndExpand" Padding="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <StackLayout Grid.Row="0" Grid.Column="0" Padding="5" WidthRequest="400">
-                    <Label Text="Date issued:" FontSize="16"></Label>
-                    <Entry Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" FontSize="15" IsReadOnly="True" ></Entry>
-                    <Label Text="Dentist:" FontSize="16"></Label>
-                    <Entry Text="{Binding DentistName}" FontSize="15" IsReadOnly="True"></Entry>
-                    <Label Text="Anamnesis:" FontSize="16" x:Name="roleLabel"></Label>
-                    <Editor Text="{Binding AnamnesisContent}" FontSize="15" IsReadOnly="True" x:Name="roleEntry" AutoSize="TextChanges"></Editor>
-                    <Label Text="Therapy:" FontSize="16"></Label>
-                    <Editor Text="{Binding Therapy}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
-                    <Label Text="Additional notes:" FontSize="16"></Label>
-                    <Editor Text="{Binding AdditionalNotes}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
-                    <Label></Label>
-                    <Button Text="Rate Procedure" Clicked="RateProcedure_Clicked" x:Name="patientRateButton"></Button>
-                </StackLayout>
-            </Grid>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="eDentalist" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding Header}" FontSize="24" HorizontalOptions="CenterAndExpand"></Label>
+                <Grid HorizontalOptions="CenterAndExpand" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.Column="0" Padding="5" WidthRequest="400">
+                        <Label Text="Date issued:" FontSize="16"></Label>
+                        <Entry Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" FontSize="15" IsReadOnly="True" ></Entry>
+                        <Label Text="Dentist:" FontSize="16"></Label>
+                        <Entry Text="{Binding DentistName}" FontSize="15" IsReadOnly="True"></Entry>
+                        <Label Text="Anamnesis:" FontSize="16" x:Name="roleLabel"></Label>
+                        <Editor Text="{Binding AnamnesisContent}" FontSize="15" IsReadOnly="True" x:Name="roleEntry" AutoSize="TextChanges"></Editor>
+                        <Label Text="Therapy:" FontSize="16"></Label>
+                        <Editor Text="{Binding Therapy}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
+                        <Label Text="Additional notes:" FontSize="16"></Label>
+                        <Editor Text="{Binding AdditionalNotes}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
+                        <Label></Label>
+                        <Button Text="Rate Procedure" Clicked="RateProcedure_Clicked" x:Name="patientRateButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

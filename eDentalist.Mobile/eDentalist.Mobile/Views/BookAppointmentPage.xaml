@@ -57,7 +57,7 @@
                         <Label IsVisible="{Binding ToValidation}" TextColor="Red" Text="You must pick a timeframe within the working hours! (07:00 - 23:00)" Grid.Row="5" Grid.Column="1"></Label>
                         <Label IsVisible="{Binding ShiftValidation}" TextColor="Red" Text="You must pick a timeframe within a single shift! (07:00 - 15:00) or (15:00 - 23:00)" Grid.Row="5" Grid.Column="1"></Label>
                     </Grid>
-                    <Button Command="{Binding SubmitCommand}" Text="Submit"></Button>
+                    <Button Command="{Binding SubmitCommand}" Text="Submit" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
                 </StackLayout>
             </Grid>
         </StackLayout>

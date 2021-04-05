@@ -6,52 +6,54 @@
              mc:Ignorable="d"
              x:Class="eDentalist.Mobile.Views.PatientAnamnesesPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Anamneses"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="30"/>
-            <Label Text="{Binding Username}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="24" Margin="0,0,0,20"/>
-            <ListView ItemsSource="{Binding AnamnesisList}" ItemSelected="ListView_OnItemSelected">
-                <ListView.Header>
-                    <StackLayout>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="Appointment" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
-                            <Label Text="Date" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
-                        </Grid>
-                        <BoxView Color="Black" HeightRequest="1"></BoxView>
-                    </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="15">
-                                <StackLayout>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding Procedure}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
-                                    </Grid>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Anamneses"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="30"/>
+                <Label Text="{Binding Username}"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="24" Margin="0,0,0,20"/>
+                <ListView ItemsSource="{Binding AnamnesisList}" ItemSelected="ListView_OnItemSelected">
+                    <ListView.Header>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Appointment" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                                <Label Text="Date" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                            </Grid>
+                            <BoxView Color="Black" HeightRequest="1"></BoxView>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="15">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Procedure}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
+                                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"></Label>
+                                        </Grid>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
