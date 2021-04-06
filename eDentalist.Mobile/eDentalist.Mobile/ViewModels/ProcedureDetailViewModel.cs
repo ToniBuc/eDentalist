@@ -13,13 +13,14 @@ namespace eDentalist.Mobile.ViewModels
     public class ProcedureDetailViewModel : BaseViewModel
     {
         private readonly APIService _procedureService = new APIService("Procedure");
+        private readonly APIService _recommendedService = new APIService("Procedure/RecommendedProcedures");
         private readonly APIService _ratingService = new APIService("Rating");
         public int ? ProcedureID { get; set; }
         public ProcedureDetailViewModel()
         {
             InitCommand = new Command(async () => await Init());
         }
-
+        public ObservableCollection<Procedure> RecommendedProcedureList { get; set; } = new ObservableCollection<Procedure>();
         public List<Rating> RatingList { get; set; } = new List<Rating>();
         public Procedure Procedure { get; set; }
         public ICommand InitCommand { get; set; }
@@ -45,7 +46,6 @@ namespace eDentalist.Mobile.ViewModels
 
         public async Task Init()
         {
-            //var proc = await _procedureService.Get<IEnumerable<Model.Procedure>>(null);
             Procedure = await _procedureService.GetById<Model.Procedure>(ProcedureID);
             var search = new RatingSearchRequest()
             {
@@ -69,6 +69,14 @@ namespace eDentalist.Mobile.ViewModels
             {
                 Name = Procedure.Name;
                 Description = Procedure.Description;
+            }
+
+            var list = await _recommendedService.GetById<IEnumerable<Procedure>>(ProcedureID);
+
+            RecommendedProcedureList.Clear();
+            foreach(var x in list)
+            {
+                RecommendedProcedureList.Add(x);
             }
         }
     }

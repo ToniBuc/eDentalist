@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -66,6 +67,11 @@ namespace eDentalist.Mobile.Views
         {
             var id = model.ProcedureID;
             await Navigation.PushAsync(new BookAppointmentPage(id));
+        }
+        async void OnTapGestureRecognizerTapped(object sender, EventArgs e)
+        {
+            var x = (((TappedEventArgs)e).Parameter) as int?;
+            await Navigation.PushAsync(new ProcedureDetailPage(x));
         }
     }
 }

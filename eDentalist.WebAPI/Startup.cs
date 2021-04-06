@@ -66,6 +66,7 @@ namespace eDentalist.WebAPI
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<IRecommendationService<Model.Procedure>, RecommendationService>();
 
             services.AddScoped<IService<Model.Country, object>, BaseService<Model.Country, object, Country>>();
             services.AddScoped<IService<Model.EquipmentType, object>, BaseService<Model.EquipmentType, object, EquipmentType>>();
