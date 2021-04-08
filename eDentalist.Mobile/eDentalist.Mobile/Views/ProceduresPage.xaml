@@ -22,30 +22,32 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10">
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProcedureID}"/>
-                                </Grid.GestureRecognizers>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label  Grid.Column="0"
-                                        Text="{Binding Name}"
-                                        Style="{DynamicResource ListItemTextStyle}" 
-                                        FontSize="15" 
-                                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
-                                </Label>
-                                <Label  Grid.Row="1"
-                                        Grid.Column="0"
-                                        Text="{Binding PriceString}"
-                                        Style="{DynamicResource ListItemDetailTextStyle}"
-                                        FontSize="13" 
-                                        HorizontalOptions="CenterAndExpand"/>
-                            </Grid>
+                            <Frame BorderColor="LightGray" BackgroundColor="Transparent" Padding="0" CornerRadius="0">
+                                <Grid Padding="10">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProcedureID}"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label  Grid.Column="0"
+                                            Text="{Binding Name}"
+                                            Style="{DynamicResource ListItemTextStyle}" 
+                                            FontSize="15" 
+                                            HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                    </Label>
+                                    <Label  Grid.Row="1"
+                                            Grid.Column="0"
+                                            Text="{Binding PriceString}"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="13" 
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </Grid>
+                            </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
