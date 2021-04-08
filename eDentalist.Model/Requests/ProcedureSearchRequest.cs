@@ -8,5 +8,6 @@ namespace eDentalist.Model.Requests
     {
         public int? ProcedureID { get; set; }
         public string Name { get; set; }
+        public bool Status { get; set; }
     }
 }

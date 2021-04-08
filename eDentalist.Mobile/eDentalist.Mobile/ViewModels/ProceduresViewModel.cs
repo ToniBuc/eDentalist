@@ -1,4 +1,5 @@
 ﻿using eDentalist.Model;
+using eDentalist.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,7 +39,11 @@ namespace eDentalist.Mobile.ViewModels
 
         public async Task Init()
         {
-            var list = await _procedureService.Get<IEnumerable<Model.Procedure>>(null);
+            var search = new ProcedureSearchRequest()
+            {
+                Status = true
+            };
+            var list = await _procedureService.Get<IEnumerable<Model.Procedure>>(search);
 
             ProcedureList.Clear();
             if (_searchText != null)

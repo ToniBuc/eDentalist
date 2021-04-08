@@ -14,5 +14,6 @@ namespace eDentalist.WebAPI.Database
         public TimeSpan Duration { get; set; }
         [Column(TypeName = "DECIMAL(18,2)")]
         public decimal Price { get; set; }
+        public bool? Status { get; set; }
     }
 }

@@ -33,7 +33,8 @@ namespace eDentalist.WinUI.Procedure
                         Name = txtProcedureName.Text,
                         Price = decimal.Parse(txtPrice.Text),
                         Duration = dtpDuration.Value.TimeOfDay.ToString(),
-                        Description = rtxtDescription.Text
+                        Description = rtxtDescription.Text,
+                        Status = cbStatus.Checked
                     };
 
                     if (_id.HasValue)
@@ -66,6 +67,7 @@ namespace eDentalist.WinUI.Procedure
                 txtPrice.Text = procedure.Price.ToString();
                 dtpDuration.Value = DateTime.Now.Date + TimeSpan.Parse(procedure.Duration);
                 rtxtDescription.Text = procedure.Description;
+                cbStatus.Checked = procedure.Status;
             }
         }
 

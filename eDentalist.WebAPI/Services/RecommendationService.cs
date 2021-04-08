@@ -82,7 +82,7 @@ namespace eDentalist.WebAPI.Services
 
         private void LoadProcedures(int procedureID)
         {
-            List<Database.Procedure> procedures = _context.Procedure.Where(x => x.ProcedureID != procedureID).ToList();
+            List<Database.Procedure> procedures = _context.Procedure.Where(x => x.ProcedureID != procedureID && x.Status == true).ToList();
             List<Database.Rating> ratings;
             foreach (Database.Procedure x in procedures)
             {

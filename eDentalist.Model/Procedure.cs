@@ -14,5 +14,6 @@ namespace eDentalist.Model
         [Column(TypeName = "DECIMAL(18,2)")]
         public decimal Price { get; set; }
         public string PriceString { get; set; }
+        public bool Status { get; set; }
     }
 }
