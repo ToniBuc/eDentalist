@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using eDentalist.Model;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 
 namespace eDentalist.WinUI
 {
@@ -40,18 +40,33 @@ namespace eDentalist.WinUI
 
         public async Task<T> GetStaff<T>(object search)
         {
-
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/GetStaff";
-
-            if (search != null)
+            try
             {
-                url += "?";
-                url += await search.ToQueryString();
+                var url = $"{Properties.Settings.Default.APIUrl}/{_route}/GetStaff";
+
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+
+                var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+                return result;
             }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
 
-            return result;
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
         }
         public async Task<T> GetReportAppointments<T>(object search)
         {
@@ -81,22 +96,52 @@ namespace eDentalist.WinUI
 
         public async Task<T> Insert<T>(object request)
         {
+            try
+            {
+                var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
+                var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
-            var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            return result;
+                var stringBuilder = new StringBuilder();
+                foreach(var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
         }
 
         public async Task<T> Update<T>(object id, object request)
         {
+            try
+            {
+                var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
+                var result = await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
 
-            var result = await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            return result;
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
         }
 
         public async Task<T> Login<T>(object request)
