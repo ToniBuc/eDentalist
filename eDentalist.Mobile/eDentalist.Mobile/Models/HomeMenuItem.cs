@@ -10,7 +10,8 @@ namespace eDentalist.Mobile.Models
         About,
         Procedures,
         Profile,
-        BookAppointment
+        BookAppointment,
+        Logout
     }
     public class HomeMenuItem
     {
