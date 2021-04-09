@@ -166,6 +166,34 @@ namespace eDentalist.WebAPI.Services
 
             return result;
         }
+        public List<Model.Appointment> GetTodaysAppointment(AppointmentSearchRequest search)
+        {
+            var query = _context.Set<Database.Appointment>().Include(i => i.Workday).Include(i => i.Dentist).Include(i => i.Patient)
+                .Include(i => i.AppointmentStatus).Include(i => i.Procedure).AsQueryable();
+
+            if (search.PatientID != null)
+            {
+                query = query.Where(x => x.Workday.Date.Date == search.Date.Date && x.PatientID == search.PatientID && x.AppointmentStatus.Name == "Approved");
+            }
+            else
+            {
+                query = query.Where(x => x.Workday.Date.Date == search.Date.Date && x.DentistID == search.DentistID && x.From > DateTime.Now.TimeOfDay && x.AppointmentStatus.Name == "Approved");
+                query = query.OrderBy(x => x.From);
+            }
+
+            var list = query.ToList();
+
+            var result = _mapper.Map<List<Model.Appointment>>(list);
+
+            foreach (var x in result)
+            {
+                x.ProcedureName = x.Procedure.Name;
+                x.DateString = x.Workday.Date.ToShortDateString();
+                x.TimeframeOrDatetime = x.From + " - " + x.To;
+            }
+
+            return result;
+        }
 
         public Model.Appointment Insert(AppointmentInsertRequest request)
         {

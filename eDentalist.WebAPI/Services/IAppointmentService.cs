@@ -10,6 +10,7 @@ namespace eDentalist.WebAPI.Services
     {
         List<Model.Appointment> Get(AppointmentSearchRequest request);
         List<Model.Appointment> GetReportAppointments(AppointmentSearchRequest request);
+        List<Model.Appointment> GetTodaysAppointment(AppointmentSearchRequest request);
         Model.Appointment GetById(int id);
         Model.Appointment Insert(AppointmentInsertRequest request);
         Model.Appointment Update(int id, AppointmentUpdateRequest request);

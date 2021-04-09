@@ -41,6 +41,11 @@ namespace eDentalist.WebAPI.Controllers
         {
             return _service.GetReportAppointments(request);
         }
+        [HttpGet("GetTodaysAppointment")]
+        public List<Model.Appointment> GetTodaysAppointment([FromQuery]AppointmentSearchRequest request)
+        {
+            return _service.GetTodaysAppointment(request);
+        }
         [HttpPost]
         public Model.Appointment Insert(AppointmentInsertRequest request)
         {

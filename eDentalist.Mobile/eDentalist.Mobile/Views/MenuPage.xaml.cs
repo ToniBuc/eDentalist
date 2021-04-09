@@ -20,7 +20,7 @@ namespace eDentalist.Mobile.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.Procedures, Title="Procedures" },
                 new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
