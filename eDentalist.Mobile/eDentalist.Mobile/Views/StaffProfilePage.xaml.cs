@@ -57,5 +57,9 @@ namespace eDentalist.Mobile.Views
         {
             await Navigation.PushAsync(new BillsPage());
         }
+        private async void ChangePassword_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ChangePasswordPage());
+        }
     }
 }
