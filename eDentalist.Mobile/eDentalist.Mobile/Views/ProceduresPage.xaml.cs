@@ -25,6 +25,7 @@ namespace eDentalist.Mobile.Views
         {
             base.OnAppearing();
             await model.Init();
+            Logo.Source = ImageSource.FromFile("logo.png");
         }
         async void OnTapGestureRecognizerTapped(object sender, EventArgs e)
         {

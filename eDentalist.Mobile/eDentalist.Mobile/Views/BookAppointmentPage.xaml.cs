@@ -35,6 +35,7 @@ namespace eDentalist.Mobile.Views
         {
             base.OnAppearing();
             await model.Init();
+            Logo.Source = ImageSource.FromFile("logo.png");
         }
         private async void UnfocusedPicker(object sender, EventArgs e)
         {

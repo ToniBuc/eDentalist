@@ -10,13 +10,20 @@
         <viewModels:LoginViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-            <Label Text="Username:"/>
-            <Entry Text="{Binding Username}"></Entry>
-            <Label Text="Password:"/>
-            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
-            <Button Command="{Binding LoginCommand}" Text="Login" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,10,0,0"></Button>
-            <Button Command="{Binding RegisterCommand}" Text="Register" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,10,0,0"></Button>
+        <StackLayout Padding="20" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HeightRequest="300">
+                <Image x:Name="Logo" Aspect="AspectFit" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"></Image>
+            </StackLayout>
+            <Label Text="eDentalist"
+                HorizontalOptions="CenterAndExpand" FontSize="40" Style="{DynamicResource ListItemTextStyle}" VerticalOptions="Start" Margin="0,0,0,30"/>
+            <StackLayout>
+                <Label Text="Username:"/>
+                <Entry Text="{Binding Username}"></Entry>
+                <Label Text="Password:"/>
+                <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+                <Button Command="{Binding LoginCommand}" Text="Login" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,10,0,0"></Button>
+                <Button Command="{Binding RegisterCommand}" Text="Register" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,10,0,0"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

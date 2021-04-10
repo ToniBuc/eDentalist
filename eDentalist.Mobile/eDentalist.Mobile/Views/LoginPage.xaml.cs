@@ -15,6 +15,7 @@ namespace eDentalist.Mobile.Views
         public LoginPage()
         {
             InitializeComponent();
+            Logo.Source = ImageSource.FromFile("logo.png");
         }
     }
 }

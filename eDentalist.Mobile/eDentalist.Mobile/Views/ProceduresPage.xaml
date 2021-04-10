@@ -12,9 +12,12 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  Padding="15">
+                <StackLayout Orientation="Horizontal" HeightRequest="150">
+                    <Image x:Name="Logo" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"></Image>
+                </StackLayout>
                 <Label Text="Procedures"
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
+                    HorizontalOptions="CenterAndExpand" FontSize="30"/>
                 <SearchBar Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}"></SearchBar>
                 <CollectionView ItemsSource="{Binding ProcedureList}">
                     <CollectionView.ItemsLayout>
