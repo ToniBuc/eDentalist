@@ -35,34 +35,64 @@ namespace eDentalist.Mobile
 
         public async Task<T> Get<T>(object search)
         {
-
-            var url = $"{_apiUrl}/{_route}";
-
-            if (search != null)
+            try
             {
-                url += "?";
-                url += await search.ToQueryString();
+                var url = $"{_apiUrl}/{_route}";
+
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+
+                var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+                return result;
             }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
 
-            return result;
+                await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
         }
 
         public async Task<T> GetStaff<T>(object search)
         {
-
-            var url = $"{_apiUrl}/{_route}/GetStaff";
-
-            if (search != null)
+            try
             {
-                url += "?";
-                url += await search.ToQueryString();
+                var url = $"{_apiUrl}/{_route}/GetStaff";
+
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+
+                var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+                return result;
             }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
 
-            return result;
+                await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
         }
 
         public async Task<T> GetById<T>(object id)
@@ -77,27 +107,56 @@ namespace eDentalist.Mobile
 
         public async Task<T> Insert<T>(object request)
         {
+            try
+            {
+                var url = $"{_apiUrl}/{_route}";
 
-            var url = $"{_apiUrl}/{_route}";
+                var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
-            var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            return result;
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
         }
 
         public async Task<T> Update<T>(object id, object request)
         {
+            try
+            {
+                var url = $"{_apiUrl}/{_route}/{id}";
 
-            var url = $"{_apiUrl}/{_route}/{id}";
+                var result = await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
 
-            var result = await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            return result;
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
         }
 
         public async Task<T> Login<T>(object request)
         {
-
             var url = $"{_apiUrl}/{_route}";
 
             var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
@@ -107,10 +166,26 @@ namespace eDentalist.Mobile
 
         public async Task<T> Register<T>(UserInsertRequest request)
         {
-            var url = $"{_apiUrl}/{_route}";
+            try
+            {
+                var url = $"{_apiUrl}/{_route}";
 
-            var result = await url.PostJsonAsync(request).ReceiveJson<T>();
-            return result;
+                var result = await url.PostJsonAsync(request).ReceiveJson<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
         }
     }
 }
