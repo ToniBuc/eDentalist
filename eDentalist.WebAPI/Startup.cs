@@ -93,7 +93,8 @@ namespace eDentalist.WebAPI
             //services.AddDbContext<eDentalistDbContext>(options => options.UseSqlServer(connection));
             //services.AddDbContext<eDentalistDbContext>(options => options.UseSqlServer("eDentalist2"));
 
-            var connection = @"Server=DESKTOP-ECJHPDM\MSSQLSERVER_OLAP;Database=eDentalist;Trusted_Connection=True";
+            //var connection = @"Server=DESKTOP-ECJHPDM\MSSQLSERVER_OLAP;Database=eDentalist;Trusted_Connection=True";
+            var connection = Configuration.GetConnectionString("eDentalist");
             services.AddDbContext<eDentalistDbContext>(options => options.UseSqlServer(connection));
             
         }
