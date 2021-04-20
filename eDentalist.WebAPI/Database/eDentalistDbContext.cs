@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eDentalist.WebAPI.Database
 {
-    public class eDentalistDbContext : DbContext
+    public partial class eDentalistDbContext : DbContext
     {
         public eDentalistDbContext()
         {
@@ -38,5 +38,11 @@ namespace eDentalist.WebAPI.Database
         public virtual DbSet<UserWorkday> UserWorkday { get; set; }
         public virtual DbSet<Workday> Workday { get; set; }
         public virtual DbSet<Rating> Rating { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            OnModelCreatingPartial(modelBuilder);
+        }
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

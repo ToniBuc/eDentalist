@@ -16,6 +16,8 @@ namespace eDentalist.WinUI.Appointment
         private readonly APIService _apiService = new APIService("Appointment");
         private readonly APIService _userService = new APIService("User");
         private readonly APIService _statusService = new APIService("AppointmentStatus");
+        private readonly APIService _userworkdayService = new APIService("UserWorkday");
+        private readonly APIService _workdayService = new APIService("Workday");
         private int? _id = null;
         public frmAppointment(int ? id = null)
         {
@@ -25,7 +27,23 @@ namespace eDentalist.WinUI.Appointment
 
         private async Task LoadStaff()
         {
-            var result = await _userService.GetStaff<List<Model.User>>(null);
+            var appointment = await _apiService.GetById<Model.Appointment>(_id);
+            //var search = new UserWorkdaySearchRequest()
+            //{
+            //    Date = appointment.Date
+            //};
+            //var userworkday = await _userworkdayService.Get<List<Model.UserWorkday>>(search);
+            var search = new WorkdaySearchRequest()
+            {
+                Date = appointment.Date
+            };
+            var workday = await _workdayService.Get<List<Model.UserWorkday>>(search);
+
+            var staffSearch = new UserSearchRequest()
+            {
+                WorkdayID = workday[0].WorkdayID
+            };
+            var result = await _userService.GetStaff<List<Model.User>>(staffSearch);
             result.Insert(0, new Model.User());
             cmbStaff.DisplayMember = "FullName";
             cmbStaff.ValueMember = "UserID";
@@ -109,6 +127,14 @@ namespace eDentalist.WinUI.Appointment
             else
             {
                 errorProvider.SetError(cmbStatus, null);
+            }
+        }
+
+        private void cmbStaff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbStaff.Items.Count <= 1)
+            {
+                MessageBox.Show("No dentists working on this date, either decline the appointment or assign a dentist to work on the specified appointment date!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

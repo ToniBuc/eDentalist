@@ -54,7 +54,7 @@ namespace eDentalist.Mobile.ViewModels
                         LastName = user.LastName,
                         JMBG = user.JMBG,
                         Email = user.Email,
-                        PhoneNumber = user.Username,
+                        PhoneNumber = user.PhoneNumber,
                         Address = user.Address,
                         DateOfBirth = user.DateOfBirth,
                         CityID = user.CityID,

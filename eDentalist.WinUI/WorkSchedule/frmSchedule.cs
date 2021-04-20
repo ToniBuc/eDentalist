@@ -31,6 +31,7 @@ namespace eDentalist.WinUI.WorkSchedule
 
             dgvSchedule.AutoGenerateColumns = false;
             dgvSchedule.DataSource = result;
+            //dgvSchedule.Rows[0].Selected = false;
         }
 
         private void btnAddWorkday_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace eDentalist.WinUI.WorkSchedule
 
         private void btnAppointments_Click(object sender, EventArgs e)
         {
-            if (!dgvSchedule.RowCount.Equals(0))
+            if (!dgvSchedule.RowCount.Equals(0) && dgvSchedule.SelectedRows.Count != 0)
             {
                 var workdayid = dgvSchedule.SelectedRows[0].Cells[1].Value;
                 var userid = dgvSchedule.SelectedRows[0].Cells[2].Value;
@@ -53,6 +54,10 @@ namespace eDentalist.WinUI.WorkSchedule
                 frm.MaximizeBox = false;
                 frm.MinimizeBox = false;
                 frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("You must choose a workday from the list above in order to check appointments for it!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -126,6 +126,7 @@
             this.cmbStaff.Name = "cmbStaff";
             this.cmbStaff.Size = new System.Drawing.Size(284, 21);
             this.cmbStaff.TabIndex = 8;
+            this.cmbStaff.SelectedIndexChanged += new System.EventHandler(this.cmbStaff_SelectedIndexChanged);
             // 
             // label5
             // 

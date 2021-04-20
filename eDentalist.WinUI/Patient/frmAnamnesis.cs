@@ -66,8 +66,9 @@ namespace eDentalist.WinUI.Patient
         private async void frmAnamnesis_Load(object sender, EventArgs e)
         {
             var appointment = await _appointmentService.GetById<Model.Appointment>(_appId);
+            txtPatient.Text = appointment.PatientName;
             txtProcedure.Text = appointment.ProcedureName;
-            txtDate.Text = appointment.Date.ToString();
+            txtDate.Text = appointment.Date.ToShortDateString();
             txtDentist.Text = appointment.DentistName;
             if (_id.HasValue)
             {

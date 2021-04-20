@@ -44,6 +44,8 @@
             this.txtDentist = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtPatient = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(266, 40);
+            this.label1.Location = new System.Drawing.Point(498, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 0;
@@ -59,7 +61,7 @@
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(269, 56);
+            this.txtDate.Location = new System.Drawing.Point(501, 56);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(159, 20);
@@ -139,7 +141,7 @@
             // 
             // txtProcedure
             // 
-            this.txtProcedure.Location = new System.Drawing.Point(29, 56);
+            this.txtProcedure.Location = new System.Drawing.Point(265, 56);
             this.txtProcedure.Name = "txtProcedure";
             this.txtProcedure.ReadOnly = true;
             this.txtProcedure.Size = new System.Drawing.Size(230, 20);
@@ -148,7 +150,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 40);
+            this.label6.Location = new System.Drawing.Point(262, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 11;
@@ -176,12 +178,31 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // txtPatient
+            // 
+            this.txtPatient.Location = new System.Drawing.Point(29, 56);
+            this.txtPatient.Name = "txtPatient";
+            this.txtPatient.ReadOnly = true;
+            this.txtPatient.Size = new System.Drawing.Size(230, 20);
+            this.txtPatient.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(26, 40);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Patient:";
+            // 
             // frmAnamnesis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(888, 582);
+            this.Controls.Add(this.txtPatient);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtDentist);
             this.Controls.Add(this.txtProcedure);
@@ -223,5 +244,7 @@
         private System.Windows.Forms.TextBox txtDentist;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtPatient;
+        private System.Windows.Forms.Label label7;
     }
 }

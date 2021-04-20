@@ -176,6 +176,13 @@ namespace eDentalist.WebAPI.Services
                 request.FirstName.Contains(x.FirstName) || request.LastName.Contains(x.LastName));
             }
 
+            if (request.WorkdayID != 0)
+            {
+                var userIdList = _context.UserWorkday.Where(i => i.WorkdayID == request.WorkdayID).Select(i =>i.UserID);
+
+                query = query.Where(x => userIdList.Contains(x.UserID));
+            }
+
             var list = query.ToList();
 
             var result = _mapper.Map<List<Model.User>>(list);

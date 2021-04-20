@@ -11,5 +11,7 @@ namespace eDentalist.Model.Requests
         //for reports
         public DateTime From { get; set; }
         public DateTime To { get; set; }
+        //for appointment assigning
+        public int WorkdayID { get; set; }
     }
 }

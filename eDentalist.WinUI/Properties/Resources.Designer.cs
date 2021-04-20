@@ -71,6 +71,16 @@ namespace eDentalist.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap no_profile_image {
+            get {
+                object obj = ResourceManager.GetObject("no_profile_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mandatory field!.
         /// </summary>
         public static string Validation_RequiredField {

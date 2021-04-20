@@ -120,6 +120,10 @@ namespace eDentalist.WinUI.Staff
                     }
                     pictureBox.Image = image;
                 }
+                else
+                {
+                    pictureBox.Image = eDentalist.WinUI.Properties.Resources.no_profile_image;
+                }
                 txtFirstName.Text = user.FirstName;
                 txtLastName.Text = user.LastName;
                 txtJMBG.Text = user.JMBG;
